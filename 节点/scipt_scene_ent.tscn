@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://4w7teonni1wp"]
+
+[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="2_jf0lg"]
+[ext_resource type="Script" path="res://节点/scipt_scene_ent.gd" id="3_0xvtc"]
+[ext_resource type="Theme" uid="uid://b15g4j5ggx7g6" path="res://样式/尖锐平面化_选择按钮.tres" id="4_7icte"]
+[ext_resource type="FontFile" uid="uid://dvsp31cbkagw8" path="res://Font/vivoSans-Bold.ttf" id="4_wjwqy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fi0mu"]
+font = ExtResource("4_wjwqy")
+font_size = 26
+font_color = Color(0.564706, 0.2, 0.172549, 1)
+
+[node name="scene_ent" type="Panel"]
+custom_minimum_size = Vector2(900, 66)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.172
+anchor_right = 0.5
+anchor_bottom = 0.172
+offset_left = -450.0
+offset_top = 0.199997
+offset_right = 450.0
+offset_bottom = 66.2
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 16.5)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = ExtResource("2_jf0lg")
+script = ExtResource("3_0xvtc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(900, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.530303
+anchor_right = 1.0
+anchor_bottom = 0.530303
+offset_top = -2.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+
+[node name="name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.000227273
+anchor_bottom = 0.000227273
+offset_left = 17.0
+offset_top = -0.015
+offset_right = 69.0
+offset_bottom = 31.985
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "场景"
+label_settings = SubResource("LabelSettings_fi0mu")
+
+[node name="scene_select" type="OptionButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 84.0
+offset_top = 2.0
+offset_right = 788.0
+offset_bottom = 33.0
+mouse_filter = 1
+theme = ExtResource("4_7icte")
+expand_icon = true
+allow_reselect = true
+
+[node name="transfrom_select" type="OptionButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 788.0
+offset_top = 2.0
+offset_right = 900.0
+offset_bottom = 33.0
+mouse_filter = 1
+theme = ExtResource("4_7icte")
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "消褪"
+popup/item_1/text = "溶解"
+popup/item_1/id = 1
+popup/item_2/text = "移动"
+popup/item_2/id = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="item_selected" from="scene_select" to="." method="_on_scene_select_item_selected"]

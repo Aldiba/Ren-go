@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ya147i270jja"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3guap"]
+bg_color = Color(0.05, 0.05, 0.05, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myqbh"]
+bg_color = Color(0, 0, 0, 1)
+
+[resource]
+TextEdit/constants/caret_width = 3
+TextEdit/styles/focus = SubResource("StyleBoxFlat_3guap")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_myqbh")

@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://drb2i6ns83dtj"]
+
+[ext_resource type="StyleBox" uid="uid://bt0o0cxfcnjbh" path="res://样式/灰色平面化按钮聚焦.tres" id="1_yq8bt"]
+[ext_resource type="StyleBox" uid="uid://crnlux3wunrow" path="res://样式/灰色平面化按钮悬空.tres" id="2_0okn2"]
+[ext_resource type="StyleBox" uid="uid://dhn2dmjffupu8" path="res://样式/灰色平面化按钮普通.tres" id="3_4qsy4"]
+[ext_resource type="StyleBox" uid="uid://bitjcytdvfmkh" path="res://样式/灰色平面化按钮按下.tres" id="4_sjijs"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 22
+Button/styles/focus = ExtResource("1_yq8bt")
+Button/styles/hover = ExtResource("2_0okn2")
+Button/styles/normal = ExtResource("3_4qsy4")
+Button/styles/pressed = ExtResource("4_sjijs")

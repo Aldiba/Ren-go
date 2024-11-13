@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cetof3y016min"]
+
+[ext_resource type="Theme" uid="uid://ccm772yv34qyg" path="res://样式/白书签按钮.tres" id="1_reibw"]
+[ext_resource type="Script" path="res://按钮/character_button.gd" id="1_wrtmf"]
+[ext_resource type="ButtonGroup" uid="uid://mamevnh1mnch" path="res://button_group/character_button_group.tres.tres" id="2_1ak4d"]
+[ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="2_t1nx1"]
+[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="3_vy5b2"]
+
+[node name="character_button" type="Button"]
+custom_minimum_size = Vector2(220, 64)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -32.0
+offset_right = 110.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource("1_reibw")
+toggle_mode = true
+button_group = ExtResource("2_1ak4d")
+alignment = 2
+script = ExtResource("1_wrtmf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_right = 64.0
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("3_vy5b2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009
+anchor_top = 0.031
+anchor_right = 0.009
+anchor_bottom = 0.969
+offset_left = 0.0199999
+offset_top = 0.0159999
+offset_right = 60.02
+offset_bottom = -0.0160027
+texture = ExtResource("2_t1nx1")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

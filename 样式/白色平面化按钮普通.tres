@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://cd8ufen0k3c0q"]
+
+[resource]
+bg_color = Color(1, 1, 1, 1)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)

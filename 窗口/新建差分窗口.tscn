@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://jnrd0n4kl7iy"]
+
+[ext_resource type="Theme" uid="uid://b5lek4acx5lto" path="res://样式/白边框深蓝底窗口.tres" id="1_imnsw"]
+[ext_resource type="Script" path="res://窗口/新建差分窗口.gd" id="2_dwenp"]
+[ext_resource type="LabelSettings" uid="uid://70v1thnq8dbt" path="res://样式/大白字.tres" id="3_tigm8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p332m"]
+
+[node name="差分名称输入窗口" type="AcceptDialog"]
+title = "新建差分"
+initial_position = 1
+size = Vector2i(550, 125)
+visible = true
+theme = ExtResource("1_imnsw")
+script = ExtResource("2_dwenp")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.344
+anchor_bottom = 0.245778
+offset_right = 550.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p332m")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 29.0
+offset_right = 207.0
+offset_bottom = 65.0
+text = "输入差分键值:"
+label_settings = ExtResource("3_tigm8")
+
+[node name="键值输入" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 26.0
+offset_right = 532.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 25
+placeholder_text = "字母、数字、下划线"
+alignment = 1

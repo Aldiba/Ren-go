@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://70v1thnq8dbt"]
+
+[ext_resource type="FontFile" uid="uid://dvsp31cbkagw8" path="res://Font/vivoSans-Bold.ttf" id="1_4tinq"]
+
+[resource]
+font = ExtResource("1_4tinq")
+font_size = 30

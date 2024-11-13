@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh5076qhx5hsc"]
+
+[ext_resource type="Theme" uid="uid://cx4sysmtsqffs" path="res://样式/白色平面化按钮.tres" id="1_qwd7j"]
+[ext_resource type="Script" path="res://按钮/chara_emo_butt.gd" id="2_vy4sn"]
+
+[node name="character_emo_button" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.54
+anchor_bottom = 0.571
+offset_right = -6.10352e-05
+offset_bottom = 0.0999756
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource("1_qwd7j")
+toggle_mode = true
+alignment = 2
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_vy4sn")
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03125
+anchor_top = 0.03125
+anchor_right = 0.96875
+anchor_bottom = 0.96875
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

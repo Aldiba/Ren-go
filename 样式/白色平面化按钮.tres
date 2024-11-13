@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cx4sysmtsqffs"]
+
+[ext_resource type="FontFile" uid="uid://dvsp31cbkagw8" path="res://Font/vivoSans-Bold.ttf" id="1_sfyb2"]
+[ext_resource type="StyleBox" uid="uid://dhdxr4c3qy8no" path="res://样式/白色平面化按钮聚焦.tres" id="2_vwuw5"]
+[ext_resource type="StyleBox" uid="uid://dmr6s2jgtdosr" path="res://样式/白色平面化按钮悬停.tres" id="3_gcgwx"]
+[ext_resource type="StyleBox" uid="uid://b3k81lgevlpl6" path="res://样式/白色平面化按钮按下.tres" id="4_nwd5t"]
+[ext_resource type="StyleBox" uid="uid://cd8ufen0k3c0q" path="res://样式/白色平面化按钮普通.tres" id="5_iq0eu"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_sfyb2")
+Button/styles/focus = ExtResource("2_vwuw5")
+Button/styles/hover = ExtResource("3_gcgwx")
+Button/styles/hover_pressed = ExtResource("4_nwd5t")
+Button/styles/normal = ExtResource("5_iq0eu")
+Button/styles/pressed = ExtResource("4_nwd5t")

@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwyrkt3j5puuf"]
+
+[ext_resource type="Theme" uid="uid://b5lek4acx5lto" path="res://样式/白边框深蓝底窗口.tres" id="1_gwdxb"]
+[ext_resource type="Script" path="res://窗口/icon_maker_window.gd" id="1_oftn8"]
+[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="3_n1cey"]
+[ext_resource type="PackedScene" uid="uid://bcf4uujqjcru4" path="res://窗口/缩放框.tscn" id="4_47mil"]
+[ext_resource type="StyleBox" uid="uid://c4mes73j545gq" path="res://样式/凹槽蓝.tres" id="4_xdv40"]
+[ext_resource type="Texture2D" uid="uid://vk7rhjbwlidg" path="res://tex/图片/铃仙二号.png" id="5_34fdp"]
+[ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="5_d46ck"]
+[ext_resource type="Script" path="res://窗口/icon_maker_window_parent.gd" id="7_fbad1"]
+[ext_resource type="Theme" uid="uid://cx4sysmtsqffs" path="res://样式/白色平面化按钮.tres" id="7_sr5bn"]
+
+[node name="头像裁剪窗口" type="Window"]
+title = "头像裁剪"
+initial_position = 2
+size = Vector2i(660, 680)
+transient = true
+unresizable = true
+theme = ExtResource("1_gwdxb")
+script = ExtResource("7_fbad1")
+
+[node name="icon_maker_window" type="Panel" parent="."]
+anchors_preset = -1
+anchor_top = 0.001
+anchor_bottom = 0.001
+offset_top = -0.9
+offset_right = 438.0
+offset_bottom = 679.1
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_oftn8")
+
+[node name="操作面板" type="Panel" parent="icon_maker_window"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 220.0
+offset_bottom = -1.0
+theme_override_styles/panel = ExtResource("4_xdv40")
+
+[node name="TextureRect" type="TextureRect" parent="icon_maker_window/操作面板"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.891
+anchor_top = 0.047
+anchor_right = 0.891
+anchor_bottom = 0.047
+offset_left = -167.02
+offset_top = 0.0869942
+offset_right = 0.0114441
+offset_bottom = 167.118
+texture = ExtResource("5_d46ck")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="确认按钮" type="Button" parent="icon_maker_window/操作面板"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.886
+anchor_top = 0.803
+anchor_right = 0.886
+anchor_bottom = 0.803
+offset_left = -161.92
+offset_top = -0.237
+offset_right = 0.0799866
+offset_bottom = 57.7628
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_sr5bn")
+text = "确认裁剪"
+metadata/_edit_use_anchors_ = true
+
+[node name="预览按钮" type="Button" parent="icon_maker_window/操作面板"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.886091
+anchor_top = 0.655
+anchor_right = 0.886091
+anchor_bottom = 0.655
+offset_left = -161.94
+offset_top = 0.254974
+offset_right = 0.0599976
+offset_bottom = 58.2549
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_sr5bn")
+text = "预览按钮"
+metadata/_edit_use_anchors_ = true
+
+[node name="显示面板" type="Panel" parent="icon_maker_window"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998269
+anchor_bottom = 0.999
+offset_right = 0.757965
+offset_bottom = 0.679932
+theme_override_styles/panel = ExtResource("3_n1cey")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="icon_maker_window/显示面板"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 0.999
+offset_right = -0.119995
+offset_bottom = 0.679871
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_34fdp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="缩放框" parent="icon_maker_window/显示面板" instance=ExtResource("4_47mil")]
+layout_mode = 1
+anchor_top = 0.001
+anchor_right = 0.0
+anchor_bottom = 0.001
+offset_left = 157.641
+offset_top = 65.32
+offset_right = 285.931
+offset_bottom = 193.32
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="icon_maker_window/操作面板/确认按钮" to="icon_maker_window" method="_on_确认按钮_pressed"]
+[connection signal="pressed" from="icon_maker_window/操作面板/预览按钮" to="icon_maker_window" method="_on_预览按钮_pressed"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcf4uujqjcru4"]
+
+[ext_resource type="Script" path="res://窗口/缩放框.gd" id="1_drvvt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4xef"]
+bg_color = Color(0, 0, 0, 0.0980392)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wm2v3"]
+bg_color = Color(0, 0, 0, 0.882353)
+corner_detail = 1
+
+[node name="缩放框" type="Panel"]
+anchors_preset = -1
+anchor_right = 0.08
+anchor_bottom = 0.142
+offset_right = -1.52588e-05
+offset_bottom = 0.199997
+theme_override_styles/panel = SubResource("StyleBoxFlat_x4xef")
+script = ExtResource("1_drvvt")
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftEdge" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0001
+offset_left = -4.0
+offset_top = 2.0
+offset_bottom = -2.01228
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm2v3")
+
+[node name="RightEdge" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 4.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm2v3")
+
+[node name="TopEdge" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = -1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm2v3")
+
+[node name="BottomEdge" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm2v3")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LeftEdge" to="." method="_on_left_edge_mouse_entered"]
+[connection signal="mouse_entered" from="RightEdge" to="." method="_on_right_edge_mouse_entered"]
+[connection signal="mouse_entered" from="TopEdge" to="." method="_on_top_edge_mouse_entered"]
+[connection signal="mouse_entered" from="BottomEdge" to="." method="_on_bottom_edge_mouse_entered"]

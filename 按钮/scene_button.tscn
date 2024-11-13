@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn4yki228mhno"]
+
+[ext_resource type="Theme" uid="uid://ccm772yv34qyg" path="res://样式/白书签按钮.tres" id="1_qmice"]
+[ext_resource type="ButtonGroup" uid="uid://g0fyppm3o1bu" path="res://button_group/scene_button_group.tres" id="2_1fxh4"]
+[ext_resource type="Script" path="res://按钮/scene_button.gd" id="3_ma24r"]
+[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="3_yiinj"]
+[ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="6_stakt"]
+
+[node name="scene_button" type="Button"]
+custom_minimum_size = Vector2(220, 85)
+anchors_preset = -1
+anchor_left = 0.431
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.559
+offset_left = 0.399963
+offset_top = 0.399994
+offset_right = -0.400085
+offset_bottom = -0.100037
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource("1_qmice")
+toggle_mode = true
+button_group = ExtResource("2_1fxh4")
+alignment = 2
+script = ExtResource("3_ma24r")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 85)
+layout_mode = 0
+offset_right = 169.0
+offset_bottom = 85.0
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("3_yiinj")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(164, 81)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009
+anchor_top = 0.024
+anchor_right = 0.009
+anchor_bottom = 0.976
+offset_left = 0.0199999
+offset_top = -0.0399992
+offset_right = 164.02
+offset_bottom = 0.0400162
+texture = ExtResource("6_stakt")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

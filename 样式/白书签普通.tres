@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://cbxywddhbmu3e"]
+
+[resource]
+resource_local_to_scene = true
+bg_color = Color(1, 0.917833, 0.83, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_detail = 1
+shadow_size = 4
