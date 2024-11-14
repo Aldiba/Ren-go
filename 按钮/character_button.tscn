@@ -22,9 +22,12 @@ grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
 theme = ExtResource("1_reibw")
+theme_override_font_sizes/font_size = 16
 toggle_mode = true
 button_group = ExtResource("2_1ak4d")
+text = "角色名"
 alignment = 2
+clip_text = true
 script = ExtResource("1_wrtmf")
 metadata/_edit_use_anchors_ = true
 

@@ -12,6 +12,7 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [resource]
+OptionButton/constants/arrow_margin = 4
 OptionButton/styles/focus = ExtResource("1_7p5i5")
 OptionButton/styles/hover = SubResource("StyleBoxFlat_3eg5n")
 OptionButton/styles/normal = ExtResource("1_7p5i5")

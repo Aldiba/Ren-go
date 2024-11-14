@@ -62,7 +62,13 @@ extends Control
 
 
 ##信息存储相关
-#其他信息
+#变换信息
+# 全局变量，用于存储所有 transform 定义
+var transform_dic_list = {}
+var current_transform = {}
+var current_transform_key = ""
+var in_transform_block = false  # 是否在 transform 块中
+#场景信息
 var scene_dic_list :Dictionary:
 	set(value):
 		scene_dic_list = value
@@ -103,6 +109,7 @@ var temp_color:Color
 
 var scene_ent_template = null
 var show_ent_template = null
+
 #裁剪头像相关
 var current_rect:Rect2
 func _ready() -> void:
@@ -210,18 +217,31 @@ func parse_rpy_file(file_path: String):
 
 # 处理文件内容，解析角色和脚本
 func process_file_content(content: String):
-	var lines = content.split("\n")
+	var lines = Array(content.split("\n").duplicate())
 	#var in_character_define = false
-	var scipt_lines = PackedStringArray()
+	#var scipt_lines = Array()
 	for line in lines:
-		line = line.strip_edges()
+		
 		# 简单解析角色定义
 		if line.begins_with("define"):
+			line = line.strip_edges()
 			parse_character_define(line)
+			lines.erase(line)
 		elif line.begins_with("image"):	
+			line = line.strip_edges()
 			parse_image_define(line)
+			lines.erase(line)
+		#elif line.begins_with("transform"):	
+			#parse_transform_define(line)
 		else:
-			scipt_lines.append(line)
+			if line.begins_with("transform") or in_transform_block ==true:
+				parse_transform_define(line)
+				lines.erase(line)
+				continue
+			line = line.strip_edges()
+			add_script_item(line)
+
+			
 	for character_key in character_dic_list.keys():
 		if character_dic_list[character_key]["img"].keys().size()>1:
 			if character_dic_list[character_key]["img"]["none"]["path"]=="none":
@@ -233,9 +253,14 @@ func process_file_content(content: String):
 			emo_id = emo_id+1
 	for scene_key in scene_dic_list.keys():
 		add_scene_to_list(scene_dic_list[scene_key])
-	for line in scipt_lines:
-		line = line.strip_edges()
-		add_script_item(line)
+		
+	for transform_key in transform_dic_list.keys():
+		add_transform_to_list(transform_dic_list[transform_key])
+	#print(scipt_lines)
+	#for line in scipt_lines:
+		#parse_transform_define(line)
+		#line = line.strip_edges()
+		#add_script_item(line)
 
 	#print(character_dic_list)
 	prepare_shown_entry_template()
@@ -350,26 +375,18 @@ func color_texture_make(color):
 	var color_texture = ImageTexture.new()
 	color_texture.set_image(image)
 	return color_texture
-
 #解析立绘设置
 func parse_image_define(line):
 	var image = {}
 	var character = {}
-
 	var image_define_regex = RegEx.new()
 	image_define_regex.compile("image\\s+(?P<character_key>\\w+)\\s+(?P<image_emo_key>\\w+)\\s*=\\s*Image\\(\"(?P<image_path>.*?)\"(?:,\\s*xanchor=(?P<xanchor>[\\d.]+))?(?:,\\s*yanchor=(?P<yanchor>[\\d.]+))?\\)")
-	
 	# 场景图片定义正则表达式，没有情感关键字
 	var scene_define_regex = RegEx.new()
 	scene_define_regex.compile("image\\s+(?P<scene_key>\\w+)\\s*=\\s*\"(?P<scene_path>.*?)\"")
-	# 纯色图片定义正则表达式
-	#var color_define_regex = RegEx.new()
-	#color_define_regex.compile("image\\s+(?P<scene_key>\\w+)\\s*=\\s*\"(?P<color_code>.*?)\"")
-	
-	#var color_result = color_define_regex.search(line)
 	var scene_result = scene_define_regex.search(line)
 	var result = image_define_regex.search(line)
-	
+##	人物立绘定义生成
 	if result:
 		var character_key = result.get_string("character_key")
 		image.key = result.get_string("image_emo_key")
@@ -388,12 +405,13 @@ func parse_image_define(line):
 			character_dic_list[character.key] = character
 			character_num = character_num+1
 			character_dic_list[character.key]["img"]["none"] = null_img_dic
-			
 		character_dic_list[character_key]["img"][image.key] = image
 		#print(character_dic_list[character_key])
+##	场景立绘定义生成
 	elif scene_result:
 		#print(scene_result.get_string("scene_path"))
 		script_scene_entry_map[scene_result.get_string("scene_key")] = []
+##	纯色
 		if scene_result.get_string("scene_path").begins_with("#"):
 			var scene_image = {}
 			scene_image.key = scene_result.get_string("scene_key")
@@ -405,6 +423,7 @@ func parse_image_define(line):
 			scene_image.id = scene_num
 			scene_num = scene_num+1
 			scene_dic_list[scene_image.key] = scene_image
+##	场景
 		else:
 			var scene_image = {}
 			scene_image.key = scene_result.get_string("scene_key")
@@ -415,6 +434,47 @@ func parse_image_define(line):
 			scene_image.id = scene_num
 			scene_num = scene_num+1
 			scene_dic_list[scene_image.key] = scene_image
+
+func parse_transform_define(line:String):
+	if line.begins_with("transform"):
+		var transform_start_regex = RegEx.new()
+		transform_start_regex.compile("transform\\s+(?P<transform_key>\\w+):\\s*$")
+		var result = transform_start_regex.search(line)
+		if result:
+			# 若已有未保存的 transform，先存储
+			if in_transform_block and current_transform_key != "":
+				transform_dic_list[current_transform_key] = current_transform
+
+			# 开始新的 transform 块
+			current_transform_key = result.get_string("transform_key")
+			current_transform = {}
+			in_transform_block = true
+			return
+	
+	# 检测 transform 块中的参数行（通过缩进判断）
+	if in_transform_block:
+		if line.begins_with(" "):  # 若有缩进，视为 transform 参数行
+			var parts = line.strip_edges().split(" ")
+			print(parts)
+			if parts.size() > 2:
+				for i in range(0, parts.size(), 2):
+					var key = parts[i]
+					var value = float(parts[i + 1])
+					current_transform[key] = value
+			elif parts.size() == 2:
+				# 单参数行的情况
+				var key = parts[0]
+				var value = float(parts[1])
+				current_transform[key] = value
+		else:
+			# 非缩进行表示 transform 块结束，保存当前 transform 定义
+			
+			if current_transform_key != "":
+				transform_dic_list[current_transform_key] = current_transform
+			in_transform_block = false
+			current_transform_key = ""
+			current_transform = {}
+	#print(transform_dic_list)
 ################################################################################
 #######TODO###########TODO###########TODO###########TODO#############TODO######
 ################################################################################
@@ -422,6 +482,7 @@ func parse_image_define(line):
 ################################################################################
 #######TODO###########TODO###########TODO###########TODO#############TODO######
 ################################################################################
+#更新右侧栏人物选项
 func update_emotion_panel(character):
 	#var character_key = character["key"]
 	# 清空面板中的旧情感
@@ -437,7 +498,7 @@ func update_emotion_panel(character):
 			add_emo_button(character,emo_key)
 			
 		_on_emo_img_selected(character["img"][emo_browse.get_child(0).emo_key])
-
+		
 #添加立绘差分按钮
 func add_emo_button(character,emo_key):
 	var chara_emo_but = emo_button_tscn.instantiate()
@@ -494,7 +555,6 @@ func add_character_to_list(character: Dictionary):
 func _on_character_selected(character: Dictionary):
 	character_details_name.text = character["name"]
 	character_details_key.text = character["key"]
-	#character_details_color.text = "颜色: " + (character["color"] if character["color"] != null else "无")
 	character_details_color_rect.color = Color.html(character["color"])
 	# TODO: 更新立绘信息
 	update_emotion_panel(character)
@@ -533,7 +593,16 @@ func _on_场景名line_2d_text_submitted(new_text: String) -> void:
 	else:
 		TextFloating.display_text("名称为空!",25,scene_name_edit.position)
 		scene_name_edit.text = temp_scene_name
-		
+################################################################################
+#######TODO###########TODO###########TODO###########TODO#############TODO#######
+################################################################################
+#变换面板显示
+################################################################################
+#######TODO###########TODO###########TODO###########TODO#############TODO#######
+################################################################################
+func add_transform_to_list(transform_dic):
+	pass
+
 ################################################################################
 #######TODO###########TODO###########TODO###########TODO#############TODO#######
 ################################################################################
@@ -542,7 +611,7 @@ func _on_场景名line_2d_text_submitted(new_text: String) -> void:
 #######TODO###########TODO###########TODO###########TODO#############TODO#######
 ################################################################################
 
-# 处理并添加脚本条目
+ ##	处理并添加脚本条目
 func add_script_item(line: String):
 	var line_part = line.split(" ",false)
 	

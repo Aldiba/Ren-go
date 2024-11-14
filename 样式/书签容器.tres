@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://di0omqgxqbhew"]
+
+[ext_resource type="StyleBox" uid="uid://cpnqhm6e5vd5j" path="res://样式/白书签向上聚焦.tres" id="1_5l7k6"]
+[ext_resource type="StyleBox" uid="uid://ci1f4t1jp5gfq" path="res://样式/白书签向上悬停.tres" id="2_078nt"]
+[ext_resource type="StyleBox" uid="uid://1kvth46h61m7" path="res://样式/白书签向上按下.tres" id="3_jeawd"]
+[ext_resource type="StyleBox" uid="uid://c2pkosgrxnrkc" path="res://样式/白书签向上普通.tres" id="4_p7s1p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tt5qo"]
+
+[resource]
+TabContainer/colors/font_selected_color = Color(0.15, 0.15, 0.15, 1)
+TabContainer/colors/font_unselected_color = Color(0.3, 0.3, 0.3, 1)
+TabContainer/font_sizes/font_size = 23
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_tt5qo")
+TabContainer/styles/tab_focus = ExtResource("1_5l7k6")
+TabContainer/styles/tab_hovered = ExtResource("2_078nt")
+TabContainer/styles/tab_selected = ExtResource("3_jeawd")
+TabContainer/styles/tab_unselected = ExtResource("4_p7s1p")

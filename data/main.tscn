@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://0gv2j3w1ku0v"]
+[gd_scene load_steps=30 format=3 uid="uid://0gv2j3w1ku0v"]
 
 [ext_resource type="Script" path="res://data/main.gd" id="1_up6yx"]
 [ext_resource type="Texture2D" uid="uid://cvu0q2oxb81d0" path="res://tex/Icon/神秘人占位符.png" id="2_oknij"]
@@ -18,12 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://l1kff60j5myg" path="res://窗口/新建角色窗口.tscn" id="7_y7yfr"]
 [ext_resource type="PackedScene" uid="uid://dcsrowflcm5yv" path="res://窗口/新建场景窗口.tscn" id="8_hen11"]
 [ext_resource type="StyleBox" uid="uid://l86ujr6v3bqj" path="res://样式/凹槽右.tres" id="11_xgc8f"]
+[ext_resource type="Theme" uid="uid://di0omqgxqbhew" path="res://样式/书签容器.tres" id="12_8xh5i"]
 [ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="12_fgf1i"]
 [ext_resource type="LabelSettings" uid="uid://bi6lxau5sb0yt" path="res://样式/小白色字体.tres" id="12_fjegq"]
 [ext_resource type="Theme" uid="uid://b5lek4acx5lto" path="res://样式/白边框深蓝底窗口.tres" id="13_fp758"]
 [ext_resource type="PackedScene" uid="uid://dwyrkt3j5puuf" path="res://窗口/头像裁剪窗口.tscn" id="13_ogqes"]
 [ext_resource type="LabelSettings" uid="uid://cbnu2ciybld4f" path="res://样式/小黑色字体.tres" id="13_yo1pe"]
 [ext_resource type="PackedScene" uid="uid://jnrd0n4kl7iy" path="res://窗口/新建差分窗口.tscn" id="14_g2y88"]
+[ext_resource type="LabelSettings" uid="uid://70v1thnq8dbt" path="res://样式/大白字.tres" id="16_rdwft"]
 [ext_resource type="PackedScene" uid="uid://bh5076qhx5hsc" path="res://按钮/character_emo_button.tscn" id="21_m42sg"]
 [ext_resource type="Texture2D" uid="uid://cjen05illuhvp" path="res://tex/10040101.png" id="25_ithsp"]
 
@@ -197,11 +199,12 @@ initial_position = 1
 [node name="节点选择器" type="TabContainer" parent="左侧栏"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.161111
+anchor_top = 0.155556
 anchor_right = 0.999609
 anchor_bottom = 0.999889
 offset_right = 0.109985
 offset_bottom = 0.0999756
+theme = ExtResource("12_8xh5i")
 theme_override_styles/panel = SubResource("StyleBoxTexture_rpmdy")
 current_tab = 0
 metadata/_edit_use_anchors_ = true
@@ -213,11 +216,12 @@ metadata/_tab_index = 0
 [node name="ScrollContainer" type="ScrollContainer" parent="左侧栏/节点选择器/角色"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.943
-anchor_bottom = 0.852
+anchor_right = 0.975028
+anchor_bottom = 0.88435
 offset_right = -0.983002
 offset_bottom = 0.151978
 theme_override_styles/panel = ExtResource("6_vw2lj")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/角色/ScrollContainer"]
 layout_mode = 2
@@ -225,13 +229,14 @@ script = ExtResource("6_67yvs")
 
 [node name="角色添加按钮" type="Button" parent="左侧栏/节点选择器/角色"]
 layout_mode = 2
-anchor_left = 0.0284698
-anchor_top = 0.872
-anchor_right = 0.911
-anchor_bottom = 0.927072
-offset_top = -0.328003
-offset_right = 0.00897217
-offset_bottom = -0.200001
+anchor_left = 0.043
+anchor_top = 0.908
+anchor_right = 0.925
+anchor_bottom = 0.964
+offset_left = -0.0830002
+offset_top = 0.607971
+offset_right = 0.0749207
+offset_bottom = 0.0640869
 theme = ExtResource("4_lhldk")
 text = "添加新角色"
 metadata/_edit_use_anchors_ = true
@@ -247,11 +252,12 @@ metadata/_tab_index = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="左侧栏/节点选择器/场景"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.943
-anchor_bottom = 0.852
+anchor_right = 0.975028
+anchor_bottom = 0.88435
 offset_right = -0.983002
 offset_bottom = 0.151978
 theme_override_styles/panel = ExtResource("6_vw2lj")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/场景/ScrollContainer"]
 layout_mode = 2
@@ -260,13 +266,14 @@ script = ExtResource("6_67yvs")
 [node name="场景添加按钮" type="Button" parent="左侧栏/节点选择器/场景"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0284698
-anchor_top = 0.872
+anchor_left = 0.0284697
+anchor_top = 0.907
 anchor_right = 0.911
-anchor_bottom = 0.927072
-offset_top = -0.328003
-offset_right = 0.00897217
-offset_bottom = -0.200001
+anchor_bottom = 0.963
+offset_left = 4.0
+offset_top = 0.33197
+offset_right = 4.00891
+offset_bottom = -0.211914
 theme = ExtResource("4_lhldk")
 text = "添加新场景"
 metadata/_edit_use_anchors_ = true
@@ -278,6 +285,39 @@ visible = false
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="Transform_Panel" type="ScrollContainer" parent="左侧栏/节点选择器/散件"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.97159
+anchor_bottom = 0.51842
+offset_right = -0.0169983
+offset_bottom = 0.255981
+theme_override_styles/panel = ExtResource("6_vw2lj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Position_Panel" type="ScrollContainer" parent="左侧栏/节点选择器/散件"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.568845
+anchor_right = 0.97159
+anchor_bottom = 0.999644
+offset_right = -0.0169983
+offset_bottom = 0.255981
+theme_override_styles/panel = ExtResource("6_vw2lj")
+metadata/_edit_use_anchors_ = true
+
+[node name="位置" type="Label" parent="左侧栏/节点选择器/散件"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.518776
+anchor_right = 0.323936
+anchor_bottom = 0.569758
+offset_right = -1.02602
+offset_bottom = -0.656006
+text = "位置栏"
+label_settings = ExtResource("16_rdwft")
+metadata/_edit_use_anchors_ = true
 
 [node name="推拉栏按钮" type="Button" parent="左侧栏"]
 layout_mode = 1
