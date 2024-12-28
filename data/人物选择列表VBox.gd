@@ -2,6 +2,9 @@ extends VBoxContainer
 
 var active_button = null
 
+func init_active_button():
+	active_button = null
+
 func _ready():
 	#for button in get_children():
 		#if button is Button:

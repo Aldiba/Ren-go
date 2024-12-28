@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ccm772yv34qyg" path="res://样式/白书签按钮.tres" id="1_qmice"]
 [ext_resource type="ButtonGroup" uid="uid://g0fyppm3o1bu" path="res://button_group/scene_button_group.tres" id="2_1fxh4"]
 [ext_resource type="Script" path="res://按钮/scene_button.gd" id="3_ma24r"]
-[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="3_yiinj"]
+[ext_resource type="StyleBox" uid="uid://d4ky4pn8gy0ai" path="res://样式/勾线尖锐面板.tres" id="4_y4utf"]
 [ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="6_stakt"]
 
 [node name="scene_button" type="Button"]
@@ -34,7 +34,7 @@ layout_mode = 0
 offset_right = 169.0
 offset_bottom = 85.0
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("3_yiinj")
+theme_override_styles/panel = ExtResource("4_y4utf")
 
 [node name="Icon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(164, 81)

@@ -5,6 +5,7 @@ class_name Script_Word
 @onready var name_label = $name
 @onready var color_show = $ColorRect
 @onready var emo_select = $Emo_Select
+@onready var transform_select = $Transform_Select
 
 # 定义Tween的目标值
 var target_scale = 1.05
@@ -13,7 +14,7 @@ var normal_color = Color(0.9, 0.9, 0.9, 0.8)
 var highlight_color = Color(1, 1, 1, 0.9)
 var emo= ""
 
-@export var character : Dictionary
+@export var character_key : String
 #func _init() -> void:
 	#if get_parent():
 		#get_parent().queue_sort() 
@@ -62,5 +63,5 @@ func _on_emo_select_item_selected(index: int) -> void:
 	update_img(emo)
 	
 func update_img(emo_temp):
-	tex.set_button_icon(character["img"][emo_temp]["icon"])
+	tex.set_button_icon(GlobalDict.character_dic_list[character_key]["img"][emo_temp]["icon"])
 	

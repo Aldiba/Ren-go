@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bh5076qhx5hsc"]
 
-[ext_resource type="Theme" uid="uid://cx4sysmtsqffs" path="res://样式/白色平面化按钮.tres" id="1_qwd7j"]
+[ext_resource type="Theme" uid="uid://bhr4g01pl46sg" path="res://样式/白色圆角按钮.tres" id="1_j2u66"]
 [ext_resource type="Script" path="res://按钮/chara_emo_butt.gd" id="2_vy4sn"]
 
 [node name="character_emo_button" type="Button"]
@@ -14,9 +14,9 @@ offset_right = -6.10352e-05
 offset_bottom = 0.0999756
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 2
-size_flags_vertical = 3
-theme = ExtResource("1_qwd7j")
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_j2u66")
 toggle_mode = true
 alignment = 2
 icon_alignment = 1

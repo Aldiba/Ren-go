@@ -1,7 +1,21 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ccm772yv34qyg"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ccm772yv34qyg"]
 
 [ext_resource type="StyleBox" uid="uid://bo2vbspif2v1k" path="res://样式/白书签聚焦.tres" id="1_ynohh"]
 [ext_resource type="StyleBox" uid="uid://cbxywddhbmu3e" path="res://样式/白书签普通.tres" id="4_tvqln"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgmqc"]
+resource_local_to_scene = true
+bg_color = Color(0.111, 0.15, 0.15, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 3
 
 [resource]
 resource_local_to_scene = true
@@ -11,5 +25,5 @@ Button/font_sizes/font_size = 20
 Button/styles/focus = ExtResource("1_ynohh")
 Button/styles/hover = ExtResource("4_tvqln")
 Button/styles/hover_pressed = ExtResource("4_tvqln")
-Button/styles/normal = ExtResource("4_tvqln")
+Button/styles/normal = SubResource("StyleBoxFlat_pgmqc")
 Button/styles/pressed = ExtResource("1_ynohh")

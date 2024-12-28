@@ -5,14 +5,15 @@ class_name Script_Shown
 @onready var character_select = $Character_Select
 @onready var position_select = $Position_Select
 @onready var transform_select = $Transform_Select
-@onready var color_show = $ColorRect
+#@onready var color_show = $ColorRect
 @onready var emo_select = $Emo_Select
 # 定义Tween的目标值
 var target_scale = 1.05
 var normal_scale = 1.0
 
 var emo = ""
-@export var character : Dictionary
+#@export var character : Dictionary
+@export var character_key :String
 var character_list = []
 var stylebox = get_theme_stylebox("theme_override_styles/panel","panel")
 func _ready():
@@ -42,7 +43,7 @@ func _on_emo_select_item_selected(index: int) -> void:
 	update_img(emo)
 	
 func update_img(emo_temp):
-	tex.set_button_icon(character["img"][emo_temp]["icon"])
+	tex.set_button_icon(GlobalDict.character_dic_list[character_key]["img"][emo_temp]["icon"])
 
 func _on_character_select_item_selected(index: int) -> void:
 	var character_new = character_select.get_item_text(index)
@@ -50,9 +51,9 @@ func _on_character_select_item_selected(index: int) -> void:
 
 func update_character(character_new):
 	var Root_node = $"../../../.."
-	var character_key = GlobalDict.find_upper_key_func(Root_node.character_dic_list,"name",character_new)
-	character = Root_node.character_dic_list[character_key]
-	color_show.set_color(Root_node.character_dic_list[character_key]["color"])
+	character_key = GlobalDict.find_upper_key_func(Root_node.character_dic_list,"name",character_new)
+	#character = Root_node.character_dic_list[character_key]
+	#color_show.set_color(Root_node.character_dic_list[character_key]["color"])
 	for emo_key in Root_node.character_dic_list[character_key]["img"].keys():
 		tex.set_button_icon(Root_node.character_dic_list[character_key]["img"][emo_key]["icon"])
 		break

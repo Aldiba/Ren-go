@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bke8j4vx855mo"]
+
+[ext_resource type="Shader" path="res://材质/动态虚线.gdshader" id="1_6we1g"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_6we1g")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/inner_stroke_thickness = 0.5
+shader_parameter/inner_stroke_opacity = -1.0
+shader_parameter/inside_opacity = -7.0
+shader_parameter/frequency = 15.0
+shader_parameter/phase_speed = 20.0

@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bgol2f4ar6qbv"]
+
+[ext_resource type="Shader" path="res://材质/灰度效果.gdshader" id="1_tl2ye"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_tl2ye")

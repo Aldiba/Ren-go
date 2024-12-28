@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://j5iogm6dljss"]
+
+[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="1_stvf5"]
+[ext_resource type="Script" path="res://节点/transform_detail_ent.gd" id="2_h7jeh"]
+[ext_resource type="LabelSettings" uid="uid://d1nl1jkvenf8j" path="res://样式/小黑色字体22.tres" id="3_b433x"]
+[ext_resource type="Theme" uid="uid://ya147i270jja" path="res://样式/尖锐输入框.tres" id="4_lgx32"]
+
+[node name="transform_detail_ent" type="Panel"]
+custom_minimum_size = Vector2(180, 40)
+anchors_preset = -1
+anchor_left = 0.431
+anchor_top = 0.464
+anchor_right = 0.544625
+anchor_bottom = 0.509
+offset_left = 0.399963
+offset_top = 0.399994
+offset_right = -1.40015
+offset_bottom = -0.100037
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = ExtResource("1_stvf5")
+script = ExtResource("2_h7jeh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 82.0
+offset_bottom = 33.0
+text = "参数名"
+label_settings = ExtResource("3_b433x")
+
+[node name="LineEdit" type="SpinBox" parent="."]
+layout_mode = 0
+offset_left = 95.0001
+offset_top = 6.00003
+offset_right = 178.438
+offset_bottom = 33.0
+theme = ExtResource("4_lgx32")
+step = 0.001
+alignment = 1
+
+[connection signal="value_changed" from="LineEdit" to="." method="_on_line_edit_value_changed"]

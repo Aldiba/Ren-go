@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cecm51itc2gro"]
+[gd_scene load_steps=7 format=3 uid="uid://cecm51itc2gro"]
 
-[ext_resource type="StyleBox" uid="uid://brwex7jkhkfml" path="res://样式/白色尖锐歪面板.tres" id="1_vtv77"]
+[ext_resource type="StyleBox" uid="uid://cpbgn45kf3l17" path="res://样式/勾线尖锐歪面板.tres" id="1_83qew"]
 [ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="2_ljw1k"]
 [ext_resource type="Script" path="res://节点/scipt_show.gd" id="2_w8mv2"]
 [ext_resource type="Theme" uid="uid://cx4sysmtsqffs" path="res://样式/白色平面化按钮.tres" id="4_f00bn"]
 [ext_resource type="Theme" uid="uid://b15g4j5ggx7g6" path="res://样式/尖锐平面化_选择按钮.tres" id="4_r047r"]
-[ext_resource type="LabelSettings" uid="uid://cbnu2ciybld4f" path="res://样式/小黑色字体.tres" id="6_arhfs"]
-[ext_resource type="LabelSettings" uid="uid://vdt7gbnc74b7" path="res://样式/小红色字体.tres" id="7_fo5xg"]
+[ext_resource type="LabelSettings" uid="uid://bi6lxau5sb0yt" path="res://样式/小白色字体.tres" id="6_jwspu"]
 
 [node name="show_ent" type="Panel"]
 custom_minimum_size = Vector2(850, 73)
@@ -24,8 +23,10 @@ grow_vertical = 2
 pivot_offset = Vector2(425, 37.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = ExtResource("1_vtv77")
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("1_83qew")
 script = ExtResource("2_w8mv2")
+script_node_type = "Shown"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -38,12 +39,12 @@ color = Color(0, 0, 0, 1)
 
 [node name="Show_Select" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 28.5
+offset_left = 39.0
 offset_top = 30.0
-offset_right = 101.5
+offset_right = 102.0
 offset_bottom = 65.0
-mouse_filter = 1
 theme = ExtResource("4_r047r")
+alignment = 1
 selected = 0
 allow_reselect = true
 item_count = 2
@@ -58,8 +59,8 @@ offset_left = 175.5
 offset_top = 29.0
 offset_right = 376.5
 offset_bottom = 64.0
-mouse_filter = 1
 theme = ExtResource("4_r047r")
+alignment = 1
 clip_text = true
 fit_to_longest_item = false
 allow_reselect = true
@@ -70,7 +71,6 @@ offset_left = 377.0
 offset_top = 28.5
 offset_right = 449.0
 offset_bottom = 63.5
-mouse_filter = 1
 theme = ExtResource("4_r047r")
 clip_text = true
 
@@ -79,10 +79,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 105.0
-offset_top = 6.0
-offset_right = -611.0
-offset_bottom = 61.0
+offset_left = 105.5
+offset_top = 2.5
+offset_right = -610.5
+offset_bottom = 63.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -100,7 +100,7 @@ offset_right = 481.5
 offset_bottom = 62.0
 mouse_filter = 1
 text = "at"
-label_settings = ExtResource("6_arhfs")
+label_settings = ExtResource("6_jwspu")
 
 [node name="Position_Select" type="OptionButton" parent="."]
 layout_mode = 1
@@ -109,7 +109,6 @@ offset_left = 488.5
 offset_top = 29.0
 offset_right = 640.5
 offset_bottom = 64.0
-mouse_filter = 1
 theme = ExtResource("4_r047r")
 allow_reselect = true
 
@@ -121,7 +120,7 @@ offset_right = 702.5
 offset_bottom = 62.0
 mouse_filter = 1
 text = "with"
-label_settings = ExtResource("6_arhfs")
+label_settings = ExtResource("6_jwspu")
 
 [node name="Transform_Select" type="OptionButton" parent="."]
 layout_mode = 1
@@ -130,7 +129,6 @@ offset_left = 712.5
 offset_top = 29.0
 offset_right = 810.5
 offset_bottom = 64.0
-mouse_filter = 1
 theme = ExtResource("4_r047r")
 alignment = 1
 allow_reselect = true
@@ -253,8 +251,8 @@ offset_top = 0.5
 offset_right = 788.5
 offset_bottom = 28.5
 mouse_filter = 1
-text = "                                                 角色                                       位置                             变换"
-label_settings = ExtResource("7_fo5xg")
+text = "                                                 角色                                      位置                            变换"
+label_settings = ExtResource("6_jwspu")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

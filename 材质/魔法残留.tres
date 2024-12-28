@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://chk75am7yusid"]
+
+[ext_resource type="Shader" path="res://材质/魔法残留.gdshader" id="1_684vt"]
+
+[resource]
+shader = ExtResource("1_684vt")
+shader_parameter/time = 0.133
+shader_parameter/glow_size = 0.25

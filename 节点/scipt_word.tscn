@@ -1,38 +1,42 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1jlc6x7d4fox"]
+[gd_scene load_steps=10 format=3 uid="uid://d1jlc6x7d4fox"]
 
-[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="1_0wslv"]
 [ext_resource type="Script" path="res://节点/scipt_word.gd" id="1_d8l1t"]
 [ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="1_pmb8j"]
+[ext_resource type="StyleBox" uid="uid://d4ky4pn8gy0ai" path="res://样式/勾线尖锐面板.tres" id="1_wm2kw"]
 [ext_resource type="Theme" uid="uid://ya147i270jja" path="res://样式/尖锐输入框.tres" id="3_u655s"]
 [ext_resource type="FontFile" uid="uid://dvsp31cbkagw8" path="res://Font/vivoSans-Bold.ttf" id="4_nwaom"]
 [ext_resource type="LabelSettings" uid="uid://bi6lxau5sb0yt" path="res://样式/小白色字体.tres" id="5_3o2ul"]
 [ext_resource type="Theme" uid="uid://cx4sysmtsqffs" path="res://样式/白色平面化按钮.tres" id="5_yw7f0"]
 [ext_resource type="Theme" uid="uid://b15g4j5ggx7g6" path="res://样式/尖锐平面化_选择按钮.tres" id="9_4bdm3"]
+[ext_resource type="PackedScene" uid="uid://8oey5xxpk7x2" path="res://按钮/transform_select.tscn" id="9_rxv7y"]
 
 [node name="word_ent" type="Panel"]
-custom_minimum_size = Vector2(900, 100)
+custom_minimum_size = Vector2(983, 100)
 layout_direction = 2
 anchors_preset = -1
 anchor_left = 0.219
 anchor_top = 0.444
-anchor_right = 0.782
+anchor_right = 0.833
 anchor_bottom = 0.556
-offset_left = -0.400024
-offset_top = 0.399963
-offset_right = -1.20007
-offset_bottom = -0.400055
+offset_left = -0.400085
+offset_top = 0.399933
+offset_right = 0.199829
+offset_bottom = -0.400116
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(450, 50)
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_styles/panel = ExtResource("1_0wslv")
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("1_wm2kw")
 script = ExtResource("1_d8l1t")
+script_node_type = "Word"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
+offset_left = 1.0
 offset_top = 5.0
-offset_right = 902.0
+offset_right = 982.0
 offset_bottom = 32.0
 mouse_filter = 1
 color = Color(0, 0, 0, 1)
@@ -59,8 +63,8 @@ scroll_fit_content_height = true
 layout_mode = 0
 offset_left = 6.25
 offset_top = 4.0
-offset_right = 135.25
-offset_bottom = 130.0
+offset_right = 136.25
+offset_bottom = 134.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 1
 theme = ExtResource("5_yw7f0")
@@ -71,10 +75,10 @@ expand_icon = true
 [node name="name" type="Label" parent="."]
 custom_minimum_size = Vector2(80, 24)
 layout_mode = 2
-offset_left = 81.0
-offset_top = 4.48001
+offset_left = 81.0001
+offset_top = 6.00009
 offset_right = 161.0
-offset_bottom = 28.48
+offset_bottom = 30.0001
 mouse_filter = 1
 text = "角色名称"
 label_settings = ExtResource("5_3o2ul")
@@ -82,14 +86,20 @@ label_settings = ExtResource("5_3o2ul")
 [node name="Emo_Select" type="OptionButton" parent="."]
 custom_minimum_size = Vector2(72, 20)
 layout_mode = 2
-offset_left = 3.0
 offset_top = 72.0
-offset_right = 75.0
-offset_bottom = 96.0
-mouse_filter = 1
+offset_right = 77.0
+offset_bottom = 100.0
 theme = ExtResource("9_4bdm3")
+alignment = 1
 clip_text = true
 allow_reselect = true
+
+[node name="Transform_Select" parent="." instance=ExtResource("9_rxv7y")]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 34.0001
+offset_right = 983.0
+offset_bottom = 74.0001
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

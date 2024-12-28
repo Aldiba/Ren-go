@@ -1,12 +1,14 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ya147i270jja"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ya147i270jja"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3guap"]
-bg_color = Color(0.05, 0.05, 0.05, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myqbh"]
-bg_color = Color(0, 0, 0, 1)
+[ext_resource type="StyleBox" uid="uid://b4y4fnvimsqey" path="res://样式/黑色尖锐平面聚焦.tres" id="1_ks4gx"]
+[ext_resource type="StyleBox" uid="uid://d1u1v6m1iiv12" path="res://样式/黑色尖锐平面普通.tres" id="2_cxw22"]
+[ext_resource type="Texture2D" uid="uid://dkviflrikrpav" path="res://tex/Icon/up_down.png" id="3_s1rii"]
 
 [resource]
+LineEdit/constants/caret_width = 3
+LineEdit/styles/focus = ExtResource("1_ks4gx")
+LineEdit/styles/normal = ExtResource("2_cxw22")
+SpinBox/icons/updown = ExtResource("3_s1rii")
 TextEdit/constants/caret_width = 3
-TextEdit/styles/focus = SubResource("StyleBoxFlat_3guap")
-TextEdit/styles/normal = SubResource("StyleBoxFlat_myqbh")
+TextEdit/styles/focus = ExtResource("1_ks4gx")
+TextEdit/styles/normal = ExtResource("2_cxw22")

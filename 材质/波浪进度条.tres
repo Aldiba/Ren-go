@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dkmkddsuurm4r"]
+
+[ext_resource type="Shader" path="res://材质/波浪进度条.gdshader" id="1_qmx2m"]
+[ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="2_ppabo"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_qmx2m")
+shader_parameter/progress = 0.789
+shader_parameter/background_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/wave_amplitude = 0.02
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_speed = 1.5
+shader_parameter/particle_speed = 0.371
+shader_parameter/particle_lifetime = 1.87
+shader_parameter/particle_softness = 0.001
+shader_parameter/particle_spacing = 0.122
+shader_parameter/particle_offset = Vector2(0, 0)
+shader_parameter/particle_start_scale = Vector2(0.02, 0.02)
+shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
+shader_parameter/particle_scale_randomness = 0.5
+shader_parameter/particle_amount = 20
+shader_parameter/color_gradient = ExtResource("2_ppabo")
+shader_parameter/mask_texture = ExtResource("2_ppabo")
+shader_parameter/particle_alpha_gradient = ExtResource("2_ppabo")

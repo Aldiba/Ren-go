@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cetof3y016min"]
+[gd_scene load_steps=7 format=3 uid="uid://cetof3y016min"]
 
 [ext_resource type="Theme" uid="uid://ccm772yv34qyg" path="res://样式/白书签按钮.tres" id="1_reibw"]
 [ext_resource type="Script" path="res://按钮/character_button.gd" id="1_wrtmf"]
 [ext_resource type="ButtonGroup" uid="uid://mamevnh1mnch" path="res://button_group/character_button_group.tres.tres" id="2_1ak4d"]
+[ext_resource type="FontFile" uid="uid://dfuxjtju24bad" path="res://Font/vivoSans-DemiBold.ttf" id="2_pjjgi"]
 [ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="2_t1nx1"]
-[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="3_vy5b2"]
+[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="5_t0fyt"]
 
 [node name="character_button" type="Button"]
 custom_minimum_size = Vector2(220, 64)
@@ -22,7 +23,9 @@ grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
 theme = ExtResource("1_reibw")
-theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_pjjgi")
+theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = ExtResource("2_1ak4d")
 text = "角色名"
@@ -38,7 +41,7 @@ anchors_preset = -1
 anchor_bottom = 1.0
 offset_right = 64.0
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("3_vy5b2")
+theme_override_styles/panel = ExtResource("5_t0fyt")
 metadata/_edit_use_anchors_ = true
 
 [node name="Icon" type="TextureRect" parent="."]

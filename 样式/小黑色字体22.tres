@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d1nl1jkvenf8j"]
+
+[ext_resource type="FontFile" uid="uid://dvsp31cbkagw8" path="res://Font/vivoSans-Bold.ttf" id="1_rlj56"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_rlj56")
+font_size = 22
+font_color = Color(0, 0, 0, 1)

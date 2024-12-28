@@ -1,14 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://4w7teonni1wp"]
+[gd_scene load_steps=5 format=3 uid="uid://4w7teonni1wp"]
 
-[ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="2_jf0lg"]
+[ext_resource type="StyleBox" uid="uid://d4ky4pn8gy0ai" path="res://样式/勾线尖锐面板.tres" id="1_v0yn8"]
 [ext_resource type="Script" path="res://节点/scipt_scene_ent.gd" id="3_0xvtc"]
+[ext_resource type="LabelSettings" uid="uid://b5x1uyeyqq4ar" path="res://样式/装甲宋体白字26.tres" id="3_tjkxf"]
 [ext_resource type="Theme" uid="uid://b15g4j5ggx7g6" path="res://样式/尖锐平面化_选择按钮.tres" id="4_7icte"]
-[ext_resource type="FontFile" uid="uid://dvsp31cbkagw8" path="res://Font/vivoSans-Bold.ttf" id="4_wjwqy"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_fi0mu"]
-font = ExtResource("4_wjwqy")
-font_size = 26
-font_color = Color(0.564706, 0.2, 0.172549, 1)
 
 [node name="scene_ent" type="Panel"]
 custom_minimum_size = Vector2(900, 66)
@@ -26,45 +21,49 @@ grow_vertical = 2
 pivot_offset = Vector2(450, 16.5)
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_styles/panel = ExtResource("2_jf0lg")
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("1_v0yn8")
 script = ExtResource("3_0xvtc")
+script_node_type = "Scene"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(900, 30)
+custom_minimum_size = Vector2(898, 30)
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.530303
-anchor_right = 1.0
-anchor_bottom = 0.530303
-offset_top = -2.0
-offset_bottom = 31.0
+anchor_left = 0.001
+anchor_top = 0.5
+anchor_right = 0.999
+anchor_bottom = 0.5
+offset_left = 0.099999
+offset_top = 2.0
+offset_right = -0.100037
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="name" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.000227273
 anchor_bottom = 0.000227273
-offset_left = 17.0
-offset_top = -0.015
-offset_right = 69.0
-offset_bottom = 31.985
+offset_left = 15.0
+offset_top = 2.985
+offset_right = 67.0
+offset_bottom = 34.985
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 text = "场景"
-label_settings = SubResource("LabelSettings_fi0mu")
+label_settings = ExtResource("3_tjkxf")
 
 [node name="scene_select" type="OptionButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 84.0
-offset_top = 2.0
+offset_left = 83.0
 offset_right = 788.0
-offset_bottom = 33.0
-mouse_filter = 1
+offset_bottom = 31.0
 theme = ExtResource("4_7icte")
 expand_icon = true
 allow_reselect = true
@@ -73,14 +72,12 @@ allow_reselect = true
 layout_mode = 1
 anchors_preset = -1
 offset_left = 788.0
-offset_top = 2.0
 offset_right = 900.0
-offset_bottom = 33.0
-mouse_filter = 1
+offset_bottom = 31.0
 theme = ExtResource("4_7icte")
 alignment = 1
 allow_reselect = true
-item_count = 45
+item_count = 54
 popup/item_0/text = "通用效果"
 popup/item_0/id = 18
 popup/item_0/disabled = true
@@ -191,7 +188,28 @@ popup/item_43/text = "向上挤出"
 popup/item_43/id = 43
 popup/item_44/text = "向下挤出"
 popup/item_44/id = 44
+popup/item_45/text = "淡入淡出"
+popup/item_45/id = 45
+popup/item_45/disabled = true
+popup/item_45/separator = true
+popup/item_46/text = "向左淡入"
+popup/item_46/id = 46
+popup/item_47/text = "向右淡入"
+popup/item_47/id = 47
+popup/item_48/text = "向上淡入"
+popup/item_48/id = 48
+popup/item_49/text = "向下淡入"
+popup/item_49/id = 49
+popup/item_50/text = "向左淡出"
+popup/item_50/id = 50
+popup/item_51/text = "向右淡出"
+popup/item_51/id = 51
+popup/item_52/text = "向上淡出"
+popup/item_52/id = 52
+popup/item_53/text = "向下淡出"
+popup/item_53/id = 53
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="item_selected" from="scene_select" to="." method="_on_scene_select_item_selected"]
+[connection signal="item_selected" from="transform_Select" to="." method="_on_transform_select_item_selected"]

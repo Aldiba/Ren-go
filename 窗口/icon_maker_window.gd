@@ -40,7 +40,8 @@ func init_panel():
 	img_scale = size.y/tex_size.y
 	window.img_scale = img_scale
 	size = Vector2(size.y * ratio, size.y)
-	window.size = size+Vector2(216,0)
+	window.size = size+Vector2(220,0)
+	
 	
 	# 初始化裁剪框
 	crop_rect.position.x = img_scale* tex_size.x/ 3

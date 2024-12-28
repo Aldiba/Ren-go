@@ -32,7 +32,7 @@ project/assembly_name="新建游戏项目"
 
 [gui]
 
-theme/custom_font="res://Font/vivoSans-Bold.ttf"
+theme/custom_font="res://Font/新愚公装甲宋A.ttf"
 
 [rendering]
 

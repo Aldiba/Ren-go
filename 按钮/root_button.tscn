@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://batb5m0whse0q"]
+
+[ext_resource type="Theme" uid="uid://ccm772yv34qyg" path="res://样式/白书签按钮.tres" id="1_0nia3"]
+[ext_resource type="ButtonGroup" uid="uid://g0fyppm3o1bu" path="res://button_group/scene_button_group.tres" id="2_fo3tb"]
+[ext_resource type="Script" path="res://按钮/root_button.gd" id="3_8j4ip"]
+
+[node name="root_button" type="Button"]
+custom_minimum_size = Vector2(220, 85)
+anchors_preset = -1
+anchor_left = 0.431
+anchor_top = 0.464
+anchor_right = 0.569
+anchor_bottom = 0.559
+offset_left = 0.399963
+offset_top = 0.399994
+offset_right = -0.400085
+offset_bottom = -0.100037
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource("1_0nia3")
+toggle_mode = true
+button_group = ExtResource("2_fo3tb")
+alignment = 2
+script = ExtResource("3_8j4ip")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

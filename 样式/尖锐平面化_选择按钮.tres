@@ -5,13 +5,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3eg5n"]
 bg_color = Color(0.0687983, 0.0687983, 0.0687982, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [resource]
+OptionButton/colors/font_hover_color = Color(0.695503, 0.695503, 0.695503, 1)
+OptionButton/colors/font_hover_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
 OptionButton/constants/arrow_margin = 4
 OptionButton/styles/focus = ExtResource("1_7p5i5")
 OptionButton/styles/hover = SubResource("StyleBoxFlat_3eg5n")

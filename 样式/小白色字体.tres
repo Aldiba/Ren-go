@@ -1,7 +1,7 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bi6lxau5sb0yt"]
 
-[ext_resource type="FontFile" uid="uid://dvsp31cbkagw8" path="res://Font/vivoSans-Bold.ttf" id="1_qqx7w"]
+[ext_resource type="FontFile" uid="uid://b7gvcxktv8ugg" path="res://Font/新愚公装甲宋A.ttf" id="1_qjgkw"]
 
 [resource]
-font = ExtResource("1_qqx7w")
+font = ExtResource("1_qjgkw")
 font_size = 20

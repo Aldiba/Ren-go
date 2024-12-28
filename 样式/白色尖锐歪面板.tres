@@ -3,9 +3,9 @@
 [resource]
 bg_color = Color(1, 0.956863, 0.956863, 1)
 skew = Vector2(0.43, 0)
-corner_radius_top_left = 40
-corner_radius_top_right = 55
-corner_radius_bottom_right = 35
+corner_radius_top_left = 30
+corner_radius_top_right = 45
+corner_radius_bottom_right = 30
 corner_radius_bottom_left = 45
 corner_detail = 1
 shadow_size = 5

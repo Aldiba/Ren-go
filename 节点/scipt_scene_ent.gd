@@ -1,9 +1,11 @@
 extends Script_Root
 class_name Script_Scene
 @onready var name_label = $name
-@onready var tex_show = $TextureRect
+@onready var tex = $TextureRect
 @onready var scene_select = $scene_select
+@onready var transform_select = $transform_Select
 var scene_key:String
+var transform_key:String
 # 定义Tween的目标值
 var target_scale = 1.05
 var normal_scale = 1.0
@@ -15,35 +17,27 @@ var highlight_color = Color(1, 1, 1, 0.9)
 
 func _ready():
 	set_pivot_offset(Vector2(size.x / 2, size.y / 2))
-	
-# 当鼠标进入时触发Tween动画
-#func _on_mouse_entered():
-	#var tween_size = create_tween()
-	##var tween_color = create_tween()
-#
-	## 使用Tween渐进改变scale_factor和highlight_color
-	#tween_size.tween_property(self, "scale", Vector2(1.05,1.05), 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	##tween_color.tween_property(material, "shader_parameter/highlight_color", 1.01, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-#
-## 当鼠标离开时触发Tween动画
-#func _on_mouse_exited():
-	#var tween_size = create_tween()
-	##var tween_color = create_tween()
-	#
-	## 使用Tween渐进恢复scale_factor和highlight_color
-	#tween_size.tween_property(self, "scale", Vector2(1.00,1.0), 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	##tween_color.tween_property(material, "shader_parameter/highlight_color", 1, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 
 func _on_scene_select_item_selected(index: int) -> void:
 	set_texture(GlobalDict.scene_dic_list[scene_select.get_item_text(index)]["tex"])
 
-func set_texture(tex):
-	TextFloating
-	tex_show.set_texture(tex)
-	resize_scene_ent(tex)
-
-func resize_scene_ent(tex):
-	#tex_show.size.y = tex.get_height()*900/tex.get_width()
-	tex_show.position.y = 33
-	custom_minimum_size.y = 33+tex_show.size.y
+func set_texture(tex_temp):
+	#TextFloating
+	tex.set_texture(tex_temp)
+	resize_scene_ent()
 	
+func resize_scene_ent():
+	custom_minimum_size.y = 33+898*tex.get_texture().get_height()/tex.get_texture().get_width()
+	#tex.set_size(Vector2(898,tex.get_size().y))
+	tex.position.y = 32
+
+
+func _on_transform_select_item_selected(index: int) -> void:
+	transform_key = transform_select.get_item_text(index)
+	
+
+
+#func _on_texture_rect_resized() -> void:
+	#if tex:
+		#tex._set_size(Vector2(898,tex.size.y))
+		#tex.position.y = 32

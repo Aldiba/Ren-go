@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b5x1uyeyqq4ar"]
+
+[ext_resource type="FontFile" uid="uid://b7gvcxktv8ugg" path="res://Font/新愚公装甲宋A.ttf" id="1_tbp7r"]
+
+[resource]
+font = ExtResource("1_tbp7r")
+font_size = 26

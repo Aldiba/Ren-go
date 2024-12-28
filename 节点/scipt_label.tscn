@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://bg1uuqkgb1t58" path="res://样式/白色尖锐书签面板.tres" id="1_7ylau"]
 [ext_resource type="Script" path="res://节点/scipt_label.gd" id="2_11ajw"]
-[ext_resource type="LabelSettings" uid="uid://pm422iiy5605" path="res://样式/红字.tres" id="3_jrl24"]
+[ext_resource type="LabelSettings" uid="uid://b5x1uyeyqq4ar" path="res://样式/装甲宋体白字26.tres" id="3_jdmvn"]
 
 [node name="label_ent" type="Panel"]
 custom_minimum_size = Vector2(500, 33)
@@ -20,17 +20,19 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("1_7ylau")
 script = ExtResource("2_11ajw")
+script_node_type = "Lable"
 metadata/_edit_use_anchors_ = true
 
 [node name="name" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.398
+anchor_top = 0.0909035
 anchor_right = 0.554
-anchor_bottom = 0.97
+anchor_bottom = 1.0609
 offset_bottom = -0.0100021
 text = "章节名"
-label_settings = ExtResource("3_jrl24")
+label_settings = ExtResource("3_jdmvn")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
