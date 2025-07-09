@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b5lek4acx5lto" path="res://样式/白边框深蓝底窗口.tres" id="1_wu1fo"]
 [ext_resource type="Theme" uid="uid://b15g4j5ggx7g6" path="res://样式/尖锐平面化_选择按钮.tres" id="2_hhggq"]
-[ext_resource type="Script" path="res://窗口/新建变换参数窗口.gd" id="2_pj5fy"]
+[ext_resource type="Script" uid="uid://dxaf5y5wvwge6" path="res://窗口/新建变换参数窗口.gd" id="2_pj5fy"]
 [ext_resource type="LabelSettings" uid="uid://70v1thnq8dbt" path="res://样式/大白字.tres" id="3_yf08t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p332m"]

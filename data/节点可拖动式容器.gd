@@ -1,4 +1,4 @@
-extends ScrollContainer
+extends Basic_Scroll
 class_name Node_Dragging_ScrollContainer
 @onready var vbox_container = $VBoxContainer
 @onready var main_node = get_tree().root.get_child(3)
@@ -34,6 +34,7 @@ func _on_node_mouse_down(node: Control, event: String) -> void:
 
 # 更新拖动和占位符
 func _process(delta: float) -> void:
+	accel_scroll_moving(delta)
 	if is_pressing and get_global_mouse_position().distance_to(dragging_start_pos)>60:
 		is_pressing = false
 		is_dragging = true
@@ -56,6 +57,7 @@ func _process(delta: float) -> void:
 
 # 松开鼠标
 func _input(event: InputEvent) -> void:
+	mouse_moving_check(event)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_released():
 			is_pressing = false
@@ -113,7 +115,7 @@ func create_placeholder() -> Control:
 	#rect.color = Color(0.2, 0.6, 1.0, 0.1)  # 半透明蓝色
 	#rect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	#rect.custom_minimum_size = Vector2(0, 60)  # 占位符高度
-	rect.set_material(load("res://材质/动态边框.tres"))
+	rect.set_material(load("res://材质/细胞.tres"))
 	return rect
 
 # 更新占位符位置

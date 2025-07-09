@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://civd8mm2ceokc"]
+
+[ext_resource type="Shader" path="res://材质/波纹.gdshader" id="1_f6s84"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e5gcm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8xexk"]
+noise = SubResource("FastNoiseLite_e5gcm")
+
+[resource]
+shader = ExtResource("1_f6s84")
+shader_parameter/frequency = 5.03
+shader_parameter/amplitude = 3.0
+shader_parameter/ripple_rate = 5.0
+shader_parameter/wave_amplitude = 0.05
+shader_parameter/wave_frequency = 4.0
+shader_parameter/noise = SubResource("NoiseTexture2D_8xexk")

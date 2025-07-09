@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://16s0mfi1nx3e"]
+
+[ext_resource type="Shader" uid="uid://edod6dkyrwg0" path="res://材质/玫瑰缩进.gdshader" id="1_avxe1"]
+
+[resource]
+shader = ExtResource("1_avxe1")

@@ -1,0 +1,424 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjioa8s7m8ypo"]
+
+[ext_resource type="PackedScene" uid="uid://xhh5620wlhfl" path="res://节点/章节节点相关/label_connect_line.tscn" id="1_7tldc"]
+[ext_resource type="Script" uid="uid://2ov2omsaiaao" path="res://工具脚本/连线测试.gd" id="1_j7ra1"]
+[ext_resource type="Script" uid="uid://d2fn82mntbhev" path="res://data/摄像头.gd" id="4_hb4ly"]
+
+[node name="连线测试" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j7ra1")
+chapter_dic_list = {
+"chapter1": {
+"content": [Object(EncodedObjectAsID,"object_id":300010188457,"script":null)
+, Object(EncodedObjectAsID,"object_id":304087052089,"script":null)
+, Object(EncodedObjectAsID,"object_id":310193958981,"script":null)
+, Object(EncodedObjectAsID,"object_id":314254045403,"script":null)
+, Object(EncodedObjectAsID,"object_id":363327403602,"script":null)
+, Object(EncodedObjectAsID,"object_id":369434310494,"script":null)
+, Object(EncodedObjectAsID,"object_id":373494396916,"script":null)
+, Object(EncodedObjectAsID,"object_id":377554483338,"script":null)
+, Object(EncodedObjectAsID,"object_id":383728499095,"script":null)
+, Object(EncodedObjectAsID,"object_id":387855694383,"script":null)
+, Object(EncodedObjectAsID,"object_id":393962601274,"script":null)
+, Object(EncodedObjectAsID,"object_id":398022687696,"script":null)
+],
+"global": "global",
+"id": 1,
+"jumpto": ["chapter2", "chapter3", "chapter4", "chapter2"],
+"key": "chapter1",
+"node": Object(EncodedObjectAsID,"object_id":172973103405,"script":null)
+
+},
+"chapter10": {
+"content": [Object(EncodedObjectAsID,"object_id":752156176880,"script":null)
+, Object(EncodedObjectAsID,"object_id":756233040512,"script":null)
+, Object(EncodedObjectAsID,"object_id":762339947404,"script":null)
+, Object(EncodedObjectAsID,"object_id":766400033826,"script":null)
+],
+"global": "global",
+"id": 10,
+"jumpto": ["chapter11"],
+"key": "chapter10",
+"node": Object(EncodedObjectAsID,"object_id":207852936855,"script":null)
+
+},
+"chapter11": {
+"content": [Object(EncodedObjectAsID,"object_id":768178418787,"script":null)
+, Object(EncodedObjectAsID,"object_id":772255282419,"script":null)
+, Object(EncodedObjectAsID,"object_id":778362189311,"script":null)
+, Object(EncodedObjectAsID,"object_id":782422275733,"script":null)
+],
+"global": "global",
+"id": 11,
+"jumpto": ["chapter12"],
+"key": "chapter11",
+"node": Object(EncodedObjectAsID,"object_id":211728473905,"script":null)
+
+},
+"chapter12": {
+"content": [Object(EncodedObjectAsID,"object_id":784200660694,"script":null)
+, Object(EncodedObjectAsID,"object_id":788277524326,"script":null)
+, Object(EncodedObjectAsID,"object_id":794585757816,"script":null)
+, Object(EncodedObjectAsID,"object_id":798847170836,"script":null)
+, Object(EncodedObjectAsID,"object_id":803108583856,"script":null)
+, Object(EncodedObjectAsID,"object_id":807369996876,"script":null)
+, Object(EncodedObjectAsID,"object_id":813476903767,"script":null)
+, Object(EncodedObjectAsID,"object_id":817536990189,"script":null)
+, Object(EncodedObjectAsID,"object_id":823643897080,"script":null)
+, Object(EncodedObjectAsID,"object_id":827703983502,"script":null)
+, Object(EncodedObjectAsID,"object_id":831764069924,"script":null)
+, Object(EncodedObjectAsID,"object_id":837870976815,"script":null)
+, Object(EncodedObjectAsID,"object_id":841931063237,"script":null)
+, Object(EncodedObjectAsID,"object_id":848037970128,"script":null)
+, Object(EncodedObjectAsID,"object_id":852098056550,"script":null)
+, Object(EncodedObjectAsID,"object_id":856158142972,"script":null)
+, Object(EncodedObjectAsID,"object_id":860218229394,"script":null)
+, Object(EncodedObjectAsID,"object_id":866325136285,"script":null)
+, Object(EncodedObjectAsID,"object_id":870385222707,"script":null)
+, Object(EncodedObjectAsID,"object_id":874445309129,"script":null)
+],
+"global": "global",
+"id": 12,
+"jumpto": ["chapter13"],
+"key": "chapter12",
+"node": Object(EncodedObjectAsID,"object_id":215604010955,"script":null)
+
+},
+"chapter13": {
+"content": [Object(EncodedObjectAsID,"object_id":876223694090,"script":null)
+, Object(EncodedObjectAsID,"object_id":880300557722,"script":null)
+, Object(EncodedObjectAsID,"object_id":886407464614,"script":null)
+, Object(EncodedObjectAsID,"object_id":890467551036,"script":null)
+, Object(EncodedObjectAsID,"object_id":894527637458,"script":null)
+, Object(EncodedObjectAsID,"object_id":898587723880,"script":null)
+, Object(EncodedObjectAsID,"object_id":904694630771,"script":null)
+, Object(EncodedObjectAsID,"object_id":908754717193,"script":null)
+, Object(EncodedObjectAsID,"object_id":914861624084,"script":null)
+, Object(EncodedObjectAsID,"object_id":918921710506,"script":null)
+, Object(EncodedObjectAsID,"object_id":922981796928,"script":null)
+, Object(EncodedObjectAsID,"object_id":927041883350,"script":null)
+, Object(EncodedObjectAsID,"object_id":931101969772,"script":null)
+],
+"global": "global",
+"id": 13,
+"jumpto": ["chapter14"],
+"key": "chapter13",
+"node": Object(EncodedObjectAsID,"object_id":219479548005,"script":null)
+
+},
+"chapter14": {
+"content": [Object(EncodedObjectAsID,"object_id":932880354733,"script":null)
+, Object(EncodedObjectAsID,"object_id":936957218365,"script":null)
+, Object(EncodedObjectAsID,"object_id":943265451855,"script":null)
+, Object(EncodedObjectAsID,"object_id":947526864875,"script":null)
+],
+"global": "global",
+"id": 14,
+"jumpto": ["chapter15"],
+"key": "chapter14",
+"node": Object(EncodedObjectAsID,"object_id":223355085055,"script":null)
+
+},
+"chapter15": {
+"content": [Object(EncodedObjectAsID,"object_id":949305249836,"script":null)
+, Object(EncodedObjectAsID,"object_id":953382113468,"script":null)
+, Object(EncodedObjectAsID,"object_id":959556129226,"script":null)
+, Object(EncodedObjectAsID,"object_id":963683324514,"script":null)
+, Object(EncodedObjectAsID,"object_id":967810519802,"script":null)
+, Object(EncodedObjectAsID,"object_id":973917426693,"script":null)
+, Object(EncodedObjectAsID,"object_id":977977513115,"script":null)
+, Object(EncodedObjectAsID,"object_id":982037599537,"script":null)
+, Object(EncodedObjectAsID,"object_id":988144506428,"script":null)
+, Object(EncodedObjectAsID,"object_id":992204592850,"script":null)
+, Object(EncodedObjectAsID,"object_id":996264679272,"script":null)
+, Object(EncodedObjectAsID,"object_id":1000324765694,"script":null)
+, Object(EncodedObjectAsID,"object_id":1006632999183,"script":null)
+, Object(EncodedObjectAsID,"object_id":1010894412203,"script":null)
+, Object(EncodedObjectAsID,"object_id":1014954498625,"script":null)
+, Object(EncodedObjectAsID,"object_id":1019081693913,"script":null)
+, Object(EncodedObjectAsID,"object_id":1023208889201,"script":null)
+, Object(EncodedObjectAsID,"object_id":1027336084489,"script":null)
+, Object(EncodedObjectAsID,"object_id":1031463279777,"script":null)
+, Object(EncodedObjectAsID,"object_id":1035590475065,"script":null)
+, Object(EncodedObjectAsID,"object_id":1039717670353,"script":null)
+, Object(EncodedObjectAsID,"object_id":1045824577244,"script":null)
+, Object(EncodedObjectAsID,"object_id":1049884663666,"script":null)
+, Object(EncodedObjectAsID,"object_id":1054011858954,"script":null)
+, Object(EncodedObjectAsID,"object_id":1058071945376,"script":null)
+, Object(EncodedObjectAsID,"object_id":1062199140664,"script":null)
+, Object(EncodedObjectAsID,"object_id":1066326335952,"script":null)
+, Object(EncodedObjectAsID,"object_id":1070453531240,"script":null)
+, Object(EncodedObjectAsID,"object_id":1074580726528,"script":null)
+, Object(EncodedObjectAsID,"object_id":1078707921816,"script":null)
+, Object(EncodedObjectAsID,"object_id":1085016155305,"script":null)
+, Object(EncodedObjectAsID,"object_id":1089294345540,"script":null)
+, Object(EncodedObjectAsID,"object_id":1093555758562,"script":null)
+, Object(EncodedObjectAsID,"object_id":1097682953850,"script":null)
+, Object(EncodedObjectAsID,"object_id":1101810149138,"script":null)
+, Object(EncodedObjectAsID,"object_id":1107917056029,"script":null)
+, Object(EncodedObjectAsID,"object_id":1111977142451,"script":null)
+, Object(EncodedObjectAsID,"object_id":1116037228873,"script":null)
+, Object(EncodedObjectAsID,"object_id":1120097315295,"script":null)
+, Object(EncodedObjectAsID,"object_id":1124224510583,"script":null)
+, Object(EncodedObjectAsID,"object_id":1128351705871,"script":null)
+, Object(EncodedObjectAsID,"object_id":1132478901159,"script":null)
+, Object(EncodedObjectAsID,"object_id":1136606096447,"script":null)
+, Object(EncodedObjectAsID,"object_id":1140733291735,"script":null)
+, Object(EncodedObjectAsID,"object_id":1146840198626,"script":null)
+, Object(EncodedObjectAsID,"object_id":1150900285048,"script":null)
+, Object(EncodedObjectAsID,"object_id":1155027480336,"script":null)
+, Object(EncodedObjectAsID,"object_id":1159154675624,"script":null)
+, Object(EncodedObjectAsID,"object_id":1163281870912,"script":null)
+, Object(EncodedObjectAsID,"object_id":1167341957334,"script":null)
+, Object(EncodedObjectAsID,"object_id":1171469152622,"script":null)
+, Object(EncodedObjectAsID,"object_id":1175596347910,"script":null)
+],
+"global": "global",
+"id": 15,
+"jumpto": ["chapter16"],
+"key": "chapter15",
+"node": Object(EncodedObjectAsID,"object_id":227230622105,"script":null)
+
+},
+"chapter16": {
+"content": [Object(EncodedObjectAsID,"object_id":1177374732871,"script":null)
+, Object(EncodedObjectAsID,"object_id":1181451596503,"script":null)
+, Object(EncodedObjectAsID,"object_id":1187759829993,"script":null)
+, Object(EncodedObjectAsID,"object_id":1192021243013,"script":null)
+, Object(EncodedObjectAsID,"object_id":1196282656033,"script":null)
+, Object(EncodedObjectAsID,"object_id":1200544069053,"script":null)
+, Object(EncodedObjectAsID,"object_id":1206650975944,"script":null)
+, Object(EncodedObjectAsID,"object_id":1210711062366,"script":null)
+],
+"global": "global",
+"id": 16,
+"jumpto": ["chapter17"],
+"key": "chapter16",
+"node": Object(EncodedObjectAsID,"object_id":231106159155,"script":null)
+
+},
+"chapter17": {
+"content": [Object(EncodedObjectAsID,"object_id":1212489447327,"script":null)
+, Object(EncodedObjectAsID,"object_id":1216566310959,"script":null)
+, Object(EncodedObjectAsID,"object_id":1222673217851,"script":null)
+, Object(EncodedObjectAsID,"object_id":1226733304273,"script":null)
+, Object(EncodedObjectAsID,"object_id":1232907320030,"script":null)
+, Object(EncodedObjectAsID,"object_id":1237034515318,"script":null)
+, Object(EncodedObjectAsID,"object_id":1241161710606,"script":null)
+, Object(EncodedObjectAsID,"object_id":1247268617497,"script":null)
+, Object(EncodedObjectAsID,"object_id":1251328703919,"script":null)
+, Object(EncodedObjectAsID,"object_id":1257636937408,"script":null)
+, Object(EncodedObjectAsID,"object_id":1261898350428,"script":null)
+, Object(EncodedObjectAsID,"object_id":1266159763448,"script":null)
+, Object(EncodedObjectAsID,"object_id":1272467996937,"script":null)
+, Object(EncodedObjectAsID,"object_id":1276729409957,"script":null)
+, Object(EncodedObjectAsID,"object_id":1280990822977,"script":null)
+, Object(EncodedObjectAsID,"object_id":1285252235997,"script":null)
+],
+"global": "global",
+"id": 17,
+"jumpto": ["chapter18"],
+"key": "chapter17",
+"node": Object(EncodedObjectAsID,"object_id":234981696205,"script":null)
+
+},
+"chapter18": {
+"content": [Object(EncodedObjectAsID,"object_id":1287030620958,"script":null)
+, Object(EncodedObjectAsID,"object_id":1291107484590,"script":null)
+, Object(EncodedObjectAsID,"object_id":1297415718080,"script":null)
+, Object(EncodedObjectAsID,"object_id":1301677131100,"script":null)
+],
+"global": "global",
+"id": 18,
+"jumpto": [],
+"key": "chapter18",
+"node": Object(EncodedObjectAsID,"object_id":238857233255,"script":null)
+
+},
+"chapter2": {
+"content": [Object(EncodedObjectAsID,"object_id":399801072657,"script":null)
+, Object(EncodedObjectAsID,"object_id":403877936289,"script":null)
+, Object(EncodedObjectAsID,"object_id":409984843181,"script":null)
+, Object(EncodedObjectAsID,"object_id":414044929603,"script":null)
+, Object(EncodedObjectAsID,"object_id":420151836494,"script":null)
+, Object(EncodedObjectAsID,"object_id":424211922916,"script":null)
+, Object(EncodedObjectAsID,"object_id":428305563769,"script":null)
+, Object(EncodedObjectAsID,"object_id":434412470662,"script":null)
+, Object(EncodedObjectAsID,"object_id":438472557084,"script":null)
+, Object(EncodedObjectAsID,"object_id":442532643506,"script":null)
+, Object(EncodedObjectAsID,"object_id":446592729928,"script":null)
+, Object(EncodedObjectAsID,"object_id":452699636819,"script":null)
+, Object(EncodedObjectAsID,"object_id":456759723241,"script":null)
+],
+"global": "global",
+"id": 2,
+"jumpto": ["chapter3"],
+"key": "chapter2",
+"node": Object(EncodedObjectAsID,"object_id":176848640455,"script":null)
+
+},
+"chapter3": {
+"content": [Object(EncodedObjectAsID,"object_id":458538108202,"script":null)
+, Object(EncodedObjectAsID,"object_id":462614971834,"script":null)
+, Object(EncodedObjectAsID,"object_id":468721878726,"script":null)
+, Object(EncodedObjectAsID,"object_id":472781965148,"script":null)
+, Object(EncodedObjectAsID,"object_id":478888872039,"script":null)
+, Object(EncodedObjectAsID,"object_id":482948958461,"script":null)
+, Object(EncodedObjectAsID,"object_id":487009044883,"script":null)
+, Object(EncodedObjectAsID,"object_id":491085908520,"script":null)
+, Object(EncodedObjectAsID,"object_id":495145994944,"script":null)
+, Object(EncodedObjectAsID,"object_id":499206081366,"script":null)
+, Object(EncodedObjectAsID,"object_id":505312988257,"script":null)
+, Object(EncodedObjectAsID,"object_id":509373074679,"script":null)
+, Object(EncodedObjectAsID,"object_id":513433161101,"script":null)
+, Object(EncodedObjectAsID,"object_id":517493247523,"script":null)
+, Object(EncodedObjectAsID,"object_id":521553333945,"script":null)
+, Object(EncodedObjectAsID,"object_id":525613420367,"script":null)
+],
+"global": "global",
+"id": 3,
+"jumpto": ["chapter4"],
+"key": "chapter3",
+"node": Object(EncodedObjectAsID,"object_id":180724177505,"script":null)
+
+},
+"chapter4": {
+"content": [Object(EncodedObjectAsID,"object_id":527391805328,"script":null)
+, Object(EncodedObjectAsID,"object_id":531468668960,"script":null)
+, Object(EncodedObjectAsID,"object_id":537575575852,"script":null)
+, Object(EncodedObjectAsID,"object_id":541635662274,"script":null)
+],
+"global": "global",
+"id": 4,
+"jumpto": ["chapter5"],
+"key": "chapter4",
+"node": Object(EncodedObjectAsID,"object_id":184599714555,"script":null)
+
+},
+"chapter5": {
+"content": [Object(EncodedObjectAsID,"object_id":543414047235,"script":null)
+, Object(EncodedObjectAsID,"object_id":547490910867,"script":null)
+, Object(EncodedObjectAsID,"object_id":553597817759,"script":null)
+, Object(EncodedObjectAsID,"object_id":557657904181,"script":null)
+],
+"global": "global",
+"id": 5,
+"jumpto": ["chapter6"],
+"key": "chapter5",
+"node": Object(EncodedObjectAsID,"object_id":188475251605,"script":null)
+
+},
+"chapter6": {
+"content": [Object(EncodedObjectAsID,"object_id":559436289142,"script":null)
+, Object(EncodedObjectAsID,"object_id":563513152774,"script":null)
+, Object(EncodedObjectAsID,"object_id":569687168532,"script":null)
+, Object(EncodedObjectAsID,"object_id":573814363820,"script":null)
+, Object(EncodedObjectAsID,"object_id":579921270711,"script":null)
+, Object(EncodedObjectAsID,"object_id":583981357133,"script":null)
+, Object(EncodedObjectAsID,"object_id":588108552421,"script":null)
+, Object(EncodedObjectAsID,"object_id":594215459312,"script":null)
+, Object(EncodedObjectAsID,"object_id":598275545734,"script":null)
+, Object(EncodedObjectAsID,"object_id":602335632156,"script":null)
+],
+"global": "global",
+"id": 6,
+"jumpto": ["chapter7"],
+"key": "chapter6",
+"node": Object(EncodedObjectAsID,"object_id":192350788655,"script":null)
+
+},
+"chapter7": {
+"content": [Object(EncodedObjectAsID,"object_id":604114017117,"script":null)
+, Object(EncodedObjectAsID,"object_id":608190880749,"script":null)
+, Object(EncodedObjectAsID,"object_id":614297787641,"script":null)
+, Object(EncodedObjectAsID,"object_id":618357874063,"script":null)
+, Object(EncodedObjectAsID,"object_id":624464780954,"script":null)
+, Object(EncodedObjectAsID,"object_id":628524867376,"script":null)
+, Object(EncodedObjectAsID,"object_id":632584953798,"script":null)
+, Object(EncodedObjectAsID,"object_id":636645040220,"script":null)
+, Object(EncodedObjectAsID,"object_id":640705126642,"script":null)
+, Object(EncodedObjectAsID,"object_id":644765213064,"script":null)
+, Object(EncodedObjectAsID,"object_id":650872119955,"script":null)
+, Object(EncodedObjectAsID,"object_id":654932206377,"script":null)
+, Object(EncodedObjectAsID,"object_id":658992292799,"script":null)
+, Object(EncodedObjectAsID,"object_id":665099199690,"script":null)
+, Object(EncodedObjectAsID,"object_id":669159286112,"script":null)
+, Object(EncodedObjectAsID,"object_id":673219372534,"script":null)
+],
+"global": "global",
+"id": 7,
+"jumpto": ["chapter8"],
+"key": "chapter7",
+"node": Object(EncodedObjectAsID,"object_id":196226325705,"script":null)
+
+},
+"chapter8": {
+"content": [Object(EncodedObjectAsID,"object_id":674997757495,"script":null)
+, Object(EncodedObjectAsID,"object_id":679074621127,"script":null)
+, Object(EncodedObjectAsID,"object_id":685181528019,"script":null)
+, Object(EncodedObjectAsID,"object_id":689241614441,"script":null)
+],
+"global": "global",
+"id": 8,
+"jumpto": ["chapter9"],
+"key": "chapter8",
+"node": Object(EncodedObjectAsID,"object_id":200101862755,"script":null)
+
+},
+"chapter9": {
+"content": [Object(EncodedObjectAsID,"object_id":691019999402,"script":null)
+, Object(EncodedObjectAsID,"object_id":695096863034,"script":null)
+, Object(EncodedObjectAsID,"object_id":701270878792,"script":null)
+, Object(EncodedObjectAsID,"object_id":705398074080,"script":null)
+, Object(EncodedObjectAsID,"object_id":709525269368,"script":null)
+, Object(EncodedObjectAsID,"object_id":713652464656,"script":null)
+, Object(EncodedObjectAsID,"object_id":717796437159,"script":null)
+, Object(EncodedObjectAsID,"object_id":723903344052,"script":null)
+, Object(EncodedObjectAsID,"object_id":727963430474,"script":null)
+, Object(EncodedObjectAsID,"object_id":732023516896,"script":null)
+, Object(EncodedObjectAsID,"object_id":736083603318,"script":null)
+, Object(EncodedObjectAsID,"object_id":742190510209,"script":null)
+, Object(EncodedObjectAsID,"object_id":746250596631,"script":null)
+, Object(EncodedObjectAsID,"object_id":750377791919,"script":null)
+],
+"global": "global",
+"id": 9,
+"jumpto": ["chapter10"],
+"key": "chapter9",
+"node": Object(EncodedObjectAsID,"object_id":203977399805,"script":null)
+
+},
+"start": {
+"content": [Object(EncodedObjectAsID,"object_id":294154939863,"script":null)
+, Object(EncodedObjectAsID,"object_id":298231803495,"script":null)
+],
+"global": "global",
+"id": 0,
+"jumpto": ["chapter1"],
+"key": "start",
+"node": Object(EncodedObjectAsID,"object_id":169097566306,"script":null)
+
+}
+}
+
+[node name="Line_port" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Path2D" parent="Line_port" instance=ExtResource("1_7tldc")]
+
+[node name="Label_port" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 1448.0
+offset_bottom = 758.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_hb4ly")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://xhh5620wlhfl"]
+
+[ext_resource type="Script" uid="uid://dpusnggqbxwra" path="res://节点/章节节点相关/label连接曲线.gd" id="1_byvfe"]
+
+[node name="Label_Connect_Line" type="Line2D"]
+width = 3.0
+default_color = Color(0.8, 0.64, 0.32, 1)
+script = ExtResource("1_byvfe")

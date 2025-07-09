@@ -1,21 +1,57 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://di0omqgxqbhew"]
-
-[ext_resource type="StyleBox" uid="uid://ci1f4t1jp5gfq" path="res://样式/白书签向上悬停.tres" id="2_078nt"]
-[ext_resource type="StyleBox" uid="uid://1kvth46h61m7" path="res://样式/白书签向上按下.tres" id="3_jeawd"]
-[ext_resource type="StyleBox" uid="uid://c2pkosgrxnrkc" path="res://样式/白书签向上普通.tres" id="4_p7s1p"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://di0omqgxqbhew"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tt5qo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvhxv"]
+resource_local_to_scene = true
+bg_color = Color(1, 0.32549, 0.25098, 1)
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_detail = 1
+expand_margin_top = 3.0
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsd66"]
+resource_local_to_scene = true
+bg_color = Color(1, 0.32549, 0.25098, 1)
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_detail = 1
+expand_margin_top = 3.0
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1atbp"]
+resource_local_to_scene = true
+bg_color = Color(1, 1, 1, 0.54902)
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_detail = 1
+expand_margin_top = 3.0
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht73c"]
+resource_local_to_scene = true
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_detail = 1
+expand_margin_top = 3.0
+shadow_size = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vy5lr"]
 
 [resource]
-TabContainer/colors/font_hovered_color = Color(0.592703, 0.657355, 0.809922, 1)
-TabContainer/colors/font_selected_color = Color(1, 1, 1, 1)
-TabContainer/colors/font_unselected_color = Color(0.712129, 0.712129, 0.712129, 1)
+TabContainer/colors/font_hovered_color = Color(1, 1, 1, 1)
+TabContainer/colors/font_selected_color = Color(1, 1, 1, 0.862745)
+TabContainer/colors/font_unselected_color = Color(0.0483333, 0.04, 0.05, 0.784314)
 TabContainer/font_sizes/font_size = 20
 TabContainer/styles/panel = SubResource("StyleBoxEmpty_tt5qo")
-TabContainer/styles/tab_focus = ExtResource("3_jeawd")
-TabContainer/styles/tab_hovered = ExtResource("2_078nt")
-TabContainer/styles/tab_selected = ExtResource("3_jeawd")
-TabContainer/styles/tab_unselected = ExtResource("4_p7s1p")
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_jvhxv")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_hsd66")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_1atbp")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_ht73c")
 TabContainer/styles/tabbar_background = SubResource("StyleBoxEmpty_vy5lr")

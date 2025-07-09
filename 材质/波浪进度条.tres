@@ -1,16 +1,15 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dkmkddsuurm4r"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dkmkddsuurm4r"]
 
-[ext_resource type="Shader" path="res://材质/波浪进度条.gdshader" id="1_qmx2m"]
-[ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="2_ppabo"]
+[ext_resource type="Shader" uid="uid://lg3r7y1m14uu" path="res://材质/波浪进度条.gdshader" id="1_qmx2m"]
 
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_qmx2m")
-shader_parameter/progress = 0.789
-shader_parameter/background_color = Color(0.5, 0.5, 0.5, 1)
-shader_parameter/wave_amplitude = 0.02
-shader_parameter/wave_frequency = 3.0
-shader_parameter/wave_speed = 1.5
+shader_parameter/progress = 0.608
+shader_parameter/background_color = Color(0.64, 0.13824, 0.1024, 1)
+shader_parameter/wave_amplitude = 0.047
+shader_parameter/wave_frequency = 3.69
+shader_parameter/wave_speed = 2.365
 shader_parameter/particle_speed = 0.371
 shader_parameter/particle_lifetime = 1.87
 shader_parameter/particle_softness = 0.001
@@ -20,6 +19,3 @@ shader_parameter/particle_start_scale = Vector2(0.02, 0.02)
 shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
 shader_parameter/particle_scale_randomness = 0.5
 shader_parameter/particle_amount = 20
-shader_parameter/color_gradient = ExtResource("2_ppabo")
-shader_parameter/mask_texture = ExtResource("2_ppabo")
-shader_parameter/particle_alpha_gradient = ExtResource("2_ppabo")

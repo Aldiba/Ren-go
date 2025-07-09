@@ -3,8 +3,9 @@ class_name Script_Scene
 @onready var name_label = $name
 @onready var tex = $TextureRect
 @onready var scene_select = $scene_select
-@onready var transform_select = $transform_Select
+@onready var transform_select = $Transform_Select
 var scene_key:String
+var selected_transform:String
 var transform_key:String
 # 定义Tween的目标值
 var target_scale = 1.05
@@ -19,18 +20,21 @@ func _ready():
 	set_pivot_offset(Vector2(size.x / 2, size.y / 2))
 
 func _on_scene_select_item_selected(index: int) -> void:
-	set_texture(GlobalDict.scene_dic_list[scene_select.get_item_text(index)]["tex"])
+	select_texture(GlobalDict.scene_dic_list[scene_select.get_item_text(index)]["tex"])
+	scene_key = scene_select.get_item_text(index)
 
-func set_texture(tex_temp):
+func select_texture(tex_temp):
 	#TextFloating
 	tex.set_texture(tex_temp)
 	resize_scene_ent()
+	#resize_scene_ent()
+
+func get_texture():
+	return tex.get_texture()
 	
 func resize_scene_ent():
-	custom_minimum_size.y = 33+898*tex.get_texture().get_height()/tex.get_texture().get_width()
-	#tex.set_size(Vector2(898,tex.get_size().y))
-	tex.position.y = 32
-
+	custom_minimum_size.y = 0+tex.get_size().y
+	tex.position.y = 0
 
 func _on_transform_select_item_selected(index: int) -> void:
 	transform_key = transform_select.get_item_text(index)

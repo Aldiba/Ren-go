@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c3cnat7dn7oj7"]
+
+[ext_resource type="Shader" uid="uid://w0h7slpjoe8v" path="res://节点/清淡菱形暗背景.gdshader" id="1_4wafq"]
+
+[resource]
+shader = ExtResource("1_4wafq")
+shader_parameter/speed = 0.02
+shader_parameter/direction = Vector2(1, -1)
+shader_parameter/color = Vector4(1, 1, 1, 1)
+shader_parameter/back_color = Vector4(0.115, 0.1, 0.1, 1)
+shader_parameter/size = 0.1
+shader_parameter/border_thickness = 0.005
+shader_parameter/aspect_ratio = Vector2(3.5, 2)
+shader_parameter/line_thickness = 0.1
+shader_parameter/spacing = 0.1

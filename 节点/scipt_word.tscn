@@ -1,38 +1,63 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1jlc6x7d4fox"]
+[gd_scene load_steps=13 format=3 uid="uid://d1jlc6x7d4fox"]
 
-[ext_resource type="Script" path="res://节点/scipt_word.gd" id="1_d8l1t"]
+[ext_resource type="Script" uid="uid://dfjwx8at1mdgn" path="res://节点/scipt_word.gd" id="1_d8l1t"]
 [ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="1_pmb8j"]
-[ext_resource type="StyleBox" uid="uid://d4ky4pn8gy0ai" path="res://样式/勾线尖锐面板.tres" id="1_wm2kw"]
-[ext_resource type="Theme" uid="uid://ya147i270jja" path="res://样式/尖锐输入框.tres" id="3_u655s"]
+[ext_resource type="Theme" uid="uid://d0jr8leoasltl" path="res://样式/白色输入框.tres" id="3_7c38n"]
 [ext_resource type="FontFile" uid="uid://dvsp31cbkagw8" path="res://Font/vivoSans-Bold.ttf" id="4_nwaom"]
-[ext_resource type="LabelSettings" uid="uid://bi6lxau5sb0yt" path="res://样式/小白色字体.tres" id="5_3o2ul"]
+[ext_resource type="StyleBox" uid="uid://b8iks6vdr546y" path="res://样式/对话框_normal.tres" id="4_s2dkx"]
 [ext_resource type="Theme" uid="uid://cx4sysmtsqffs" path="res://样式/白色平面化按钮.tres" id="5_yw7f0"]
-[ext_resource type="Theme" uid="uid://b15g4j5ggx7g6" path="res://样式/尖锐平面化_选择按钮.tres" id="9_4bdm3"]
+[ext_resource type="LabelSettings" uid="uid://b8taxan0e7ll" path="res://样式/25黑色字体.tres" id="6_tknlr"]
+[ext_resource type="Theme" uid="uid://o6uty0krg20r" path="res://样式/白圆角_选择按钮.tres" id="8_tknlr"]
 [ext_resource type="PackedScene" uid="uid://8oey5xxpk7x2" path="res://按钮/transform_select.tscn" id="9_rxv7y"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tknlr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7c38n"]
+bg_color = Color(1, 1, 1, 0.901961)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.901961)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 9.0
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2dkx"]
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
 [node name="word_ent" type="Panel"]
-custom_minimum_size = Vector2(983, 100)
+custom_minimum_size = Vector2(850, 120)
 layout_direction = 2
 anchors_preset = -1
-anchor_left = 0.219
+anchor_left = 0.515
 anchor_top = 0.444
-anchor_right = 0.833
-anchor_bottom = 0.556
-offset_left = -0.400085
-offset_top = 0.399933
-offset_right = 0.199829
-offset_bottom = -0.400116
+anchor_right = 0.515
+anchor_bottom = 0.444
+offset_left = -425.0
+offset_top = 0.399994
+offset_right = 580.0
+offset_bottom = 120.4
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(450, 50)
-size_flags_horizontal = 4
-size_flags_vertical = 6
-mouse_filter = 1
-theme_override_styles/panel = ExtResource("1_wm2kw")
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tknlr")
 script = ExtResource("1_d8l1t")
 script_node_type = "Word"
 
 [node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 5.0
@@ -42,29 +67,46 @@ mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
 [node name="word" type="TextEdit" parent="."]
-custom_minimum_size = Vector2(700, 40)
+unique_name_in_owner = true
+clip_contents = false
+custom_minimum_size = Vector2(650, 60)
 layout_mode = 0
-offset_left = 88.0
-offset_top = 34.0
-offset_right = 885.0
-offset_bottom = 74.0
+offset_left = 105.0
+offset_top = 59.0
+offset_right = 755.0
+offset_bottom = 119.0
 mouse_filter = 1
-theme = ExtResource("3_u655s")
+theme = ExtResource("3_7c38n")
+theme_override_colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+theme_override_colors/selection_color = Color(0.0483333, 0.04, 0.05, 0.47451)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0.780392)
+theme_override_colors/caret_color = Color(0.0483333, 0.04, 0.05, 0.862745)
+theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("4_nwaom")
-theme_override_font_sizes/font_size = 22
-context_menu_enabled = false
-shortcut_keys_enabled = false
-virtual_keyboard_enabled = false
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("4_s2dkx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7c38n")
 wrap_mode = 1
 scroll_smooth = true
 scroll_fit_content_height = true
+scroll_fit_content_width = true
+caret_blink = true
 
-[node name="tex" type="Button" parent="."]
+[node name="tex_panel" type="Panel" parent="."]
+clip_children = 2
+clip_contents = true
+custom_minimum_size = Vector2(0.31, 0)
+layout_mode = 1
+anchors_preset = -1
+offset_right = 80.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2dkx")
+
+[node name="tex" type="Button" parent="tex_panel"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 6.25
-offset_top = 4.0
-offset_right = 136.25
-offset_bottom = 134.0
+offset_right = 160.0
+offset_bottom = 160.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 1
 theme = ExtResource("5_yw7f0")
@@ -73,35 +115,54 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="name" type="Label" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 24)
 layout_mode = 2
-offset_left = 81.0001
-offset_top = 6.00009
-offset_right = 161.0
-offset_bottom = 30.0001
+offset_left = 96.0
+offset_top = 17.0
+offset_right = 208.0
+offset_bottom = 46.0
 mouse_filter = 1
 text = "角色名称"
-label_settings = ExtResource("5_3o2ul")
+label_settings = ExtResource("6_tknlr")
+
+[node name="Transform_Select" parent="name" instance=ExtResource("9_rxv7y")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.16114
+anchor_top = -0.0685172
+anchor_right = 1.16114
+anchor_bottom = -0.0685172
+offset_left = -0.0480042
+offset_top = -0.013001
+offset_right = 150.952
+offset_bottom = 31.987
+grow_horizontal = 0
+rotation = 0.00412883
+theme = ExtResource("8_tknlr")
+theme_override_font_sizes/font_size = 27
+selected = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Emo_Select" type="OptionButton" parent="."]
-custom_minimum_size = Vector2(72, 20)
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 32)
 layout_mode = 2
-offset_top = 72.0
-offset_right = 77.0
-offset_bottom = 100.0
-theme = ExtResource("9_4bdm3")
+offset_left = -3.17842e-05
+offset_top = 86.0
+offset_right = 80.1359
+offset_bottom = 118.0
+theme = ExtResource("8_tknlr")
+theme_override_font_sizes/font_size = 20
 alignment = 1
 clip_text = true
 allow_reselect = true
-
-[node name="Transform_Select" parent="." instance=ExtResource("9_rxv7y")]
-layout_mode = 0
-offset_left = 885.0
-offset_top = 34.0001
-offset_right = 983.0
-offset_bottom = 74.0001
+metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="resized" from="word" to="." method="_on_word_resized"]
+[connection signal="item_selected" from="name/Transform_Select" to="." method="_on_transform_select_item_selected"]
 [connection signal="item_selected" from="Emo_Select" to="." method="_on_emo_select_item_selected"]

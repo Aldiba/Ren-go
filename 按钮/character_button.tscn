@@ -1,30 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://cetof3y016min"]
+[gd_scene load_steps=6 format=3 uid="uid://cetof3y016min"]
 
 [ext_resource type="Theme" uid="uid://ccm772yv34qyg" path="res://样式/白书签按钮.tres" id="1_reibw"]
-[ext_resource type="Script" path="res://按钮/character_button.gd" id="1_wrtmf"]
+[ext_resource type="Script" uid="uid://bt83t3qehvshn" path="res://按钮/character_button.gd" id="1_wrtmf"]
 [ext_resource type="ButtonGroup" uid="uid://mamevnh1mnch" path="res://button_group/character_button_group.tres.tres" id="2_1ak4d"]
-[ext_resource type="FontFile" uid="uid://dfuxjtju24bad" path="res://Font/vivoSans-DemiBold.ttf" id="2_pjjgi"]
 [ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="2_t1nx1"]
 [ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="5_t0fyt"]
 
 [node name="character_button" type="Button"]
+clip_children = 2
 custom_minimum_size = Vector2(220, 64)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -110.0
-offset_top = -32.0
-offset_right = 110.0
-offset_bottom = 32.0
+anchors_preset = -1
+anchor_left = 0.432
+anchor_top = 0.464
+anchor_right = 0.432
+anchor_bottom = 0.464
+offset_left = -1.20001
+offset_top = 0.399994
+offset_right = 218.8
+offset_bottom = 64.4
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
 theme = ExtResource("1_reibw")
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_pjjgi")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = ExtResource("2_1ak4d")
@@ -35,6 +33,7 @@ script = ExtResource("1_wrtmf")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
 anchors_preset = -1
@@ -44,18 +43,28 @@ mouse_filter = 1
 theme_override_styles/panel = ExtResource("5_t0fyt")
 metadata/_edit_use_anchors_ = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0319091
+anchor_bottom = 1.0
+offset_right = -0.0200043
+color = Color(0.927839, 0.255265, 0.118303, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="Icon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.009
+anchor_left = 0.145
 anchor_top = 0.031
-anchor_right = 0.009
+anchor_right = 0.145
 anchor_bottom = 0.969
-offset_left = 0.0199999
+offset_left = -29.9
 offset_top = 0.0159999
-offset_right = 60.02
-offset_bottom = -0.0160027
+offset_right = 30.1
+offset_bottom = -0.0160065
 texture = ExtResource("2_t1nx1")
 expand_mode = 3
 metadata/_edit_use_anchors_ = true

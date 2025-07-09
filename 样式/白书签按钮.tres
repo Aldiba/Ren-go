@@ -1,29 +1,75 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ccm772yv34qyg"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ccm772yv34qyg"]
 
-[ext_resource type="StyleBox" uid="uid://bo2vbspif2v1k" path="res://样式/白书签聚焦.tres" id="1_ynohh"]
-[ext_resource type="StyleBox" uid="uid://cbxywddhbmu3e" path="res://样式/白书签普通.tres" id="4_tvqln"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4ne6"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+border_color = Color(1, 1, 1, 0.901961)
+corner_radius_top_left = 5
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 5
+corner_detail = 10
+shadow_color = Color(0, 0, 0, 0.0784314)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgmqc"]
-resource_local_to_scene = true
-bg_color = Color(0.111, 0.15, 0.15, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8, 0.64, 0.32, 1)
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_detail = 1
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxlcd"]
+bg_color = Color(0.95, 0.95, 0.95, 1)
+border_color = Color(1, 1, 1, 0.901961)
+corner_radius_top_left = 5
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 5
+corner_detail = 10
+shadow_color = Color(0, 0, 0, 0.0784314)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kc1hq"]
+bg_color = Color(0.95, 0.95, 0.95, 1)
+border_color = Color(1, 1, 1, 0.901961)
+corner_radius_top_left = 5
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 5
+corner_detail = 10
+shadow_color = Color(0, 0, 0, 0.0784314)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di6jm"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 0.901961)
+corner_radius_top_left = 5
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 5
+corner_detail = 10
+shadow_color = Color(0, 0, 0, 0.0784314)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ushee"]
+bg_color = Color(1, 0.325, 0.25, 1)
+border_color = Color(1, 1, 1, 0.901961)
+corner_radius_top_left = 5
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 5
+corner_detail = 10
+shadow_color = Color(0, 0, 0, 0.0784314)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
 
 [resource]
 resource_local_to_scene = true
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/constants/outline_size = 3
-Button/font_sizes/font_size = 20
-Button/styles/focus = ExtResource("1_ynohh")
-Button/styles/hover = ExtResource("4_tvqln")
-Button/styles/hover_pressed = ExtResource("4_tvqln")
-Button/styles/normal = SubResource("StyleBoxFlat_pgmqc")
-Button/styles/pressed = ExtResource("1_ynohh")
+Button/colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+Button/colors/font_focus_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+Button/colors/font_hover_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+Button/colors/font_hover_pressed_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+Button/colors/font_pressed_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+Button/font_sizes/font_size = 28
+Button/styles/focus = SubResource("StyleBoxFlat_e4ne6")
+Button/styles/hover = SubResource("StyleBoxFlat_bxlcd")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_kc1hq")
+Button/styles/normal = SubResource("StyleBoxFlat_di6jm")
+Button/styles/pressed = SubResource("StyleBoxFlat_ushee")

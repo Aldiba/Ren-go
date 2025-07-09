@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://0f0qm372ko35"]
+
+[ext_resource type="Script" uid="uid://dji5gy16cjp7g" path="res://节点/章节节点相关/output_point.gd" id="1_s8lo1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vttv0"]
+bg_color = Color(0.18, 0.135, 0.13575, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.64, 0.32, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 1
+
+[node name="OutputPoint" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_vttv0")
+script = ExtResource("1_s8lo1")

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cgu0eg7wxcqso"]
+
+[ext_resource type="Shader" uid="uid://cq6fqcf8oi3uw" path="res://材质/红底绿分形.gdshader" id="1_e6p2f"]
+
+[resource]
+shader = ExtResource("1_e6p2f")
+shader_parameter/iMouse = Vector2(0.47, 0.32)
+shader_parameter/color1 = Vector3(2, 2, 2)
+shader_parameter/color2 = Vector3(0.35, 0.7, 0.6)
+shader_parameter/color3 = Vector3(0.8, 0.4, 0.2)

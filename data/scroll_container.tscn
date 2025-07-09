@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv7n7i4faehar"]
+
+[ext_resource type="Script" uid="uid://boy4y3q40gvlj" path="res://data/滚动轴容器基本功能.gd" id="1_x4kxv"]
+
+[node name="ScrollContainer" type="ScrollContainer"]
+clip_contents = false
+anchors_preset = -1
+anchor_right = 0.605
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("1_x4kxv")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

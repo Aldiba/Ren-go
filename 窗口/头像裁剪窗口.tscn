@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwyrkt3j5puuf"]
 
 [ext_resource type="Theme" uid="uid://b5lek4acx5lto" path="res://样式/白边框深蓝底窗口.tres" id="1_gwdxb"]
-[ext_resource type="Script" path="res://窗口/icon_maker_window.gd" id="1_oftn8"]
+[ext_resource type="Script" uid="uid://cmu54okcrfptr" path="res://窗口/icon_maker_window.gd" id="1_oftn8"]
 [ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="3_n1cey"]
 [ext_resource type="PackedScene" uid="uid://bcf4uujqjcru4" path="res://窗口/缩放框.tscn" id="4_47mil"]
 [ext_resource type="StyleBox" uid="uid://c4mes73j545gq" path="res://样式/凹槽蓝.tres" id="4_xdv40"]
-[ext_resource type="Texture2D" uid="uid://vk7rhjbwlidg" path="res://tex/图片/铃仙二号.png" id="5_34fdp"]
+[ext_resource type="Texture2D" uid="uid://vk7rhjbwlidg" path="res://节点/铃仙二号.png" id="5_34fdp"]
 [ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="5_d46ck"]
-[ext_resource type="Script" path="res://窗口/icon_maker_window_parent.gd" id="7_fbad1"]
+[ext_resource type="Script" uid="uid://cnjkmb3iirtbd" path="res://窗口/icon_maker_window_parent.gd" id="7_fbad1"]
 [ext_resource type="Theme" uid="uid://cx4sysmtsqffs" path="res://样式/白色平面化按钮.tres" id="7_sr5bn"]
 
 [node name="头像裁剪窗口" type="Window"]

@@ -25,6 +25,8 @@ extends Control
 @onready var scene_newone_window=$"左侧栏/节点选择器/场景/场景添加按钮/新建场景窗口"
 @onready var transform_newone_window=$"左侧栏/节点选择器/变换/变换添加按钮/新建变换输入窗口"
 ###################
+#章节显示
+#@onready var chapter_panel = $Chapter_Browse
 #对话显示
 @onready var script_browse = $Script_Browse/ScrollContainer/VBoxContainer
 
@@ -69,10 +71,17 @@ extends Control
 ##额外渲染界面
 @onready var canvaslayer = $CanvasLayer
 # 参数
-@export var current_file_path = ""
+var current_file_path = ""
 
 
 ##信息存储相关
+#脚本信息
+@export var script_save_dic:Dictionary
+var current_chapeter_save_array:Array
+var current_chapeter:String
+var current_menu:Panel
+var current_menu_option:String
+var current_node:Node
 #变换信息
 # 全局变量，用于存储所有 transform 定义
 var transform_dic_list :Dictionary:
@@ -96,10 +105,13 @@ var character_dic_list :Dictionary:
 var character_simp_list = []
 var character_num = 0
 var temp_path:String
-var label_all = []
+#章节信息
 
+@export var chapter_dic_list : Dictionary
+var current_chapter_id : int
 
 #信息修改相关
+var current_selected_label = ""
 var script_shown_entry_map = {}
 var script_word_entry_map = {}
 var script_scene_entry_map = {}
@@ -129,21 +141,33 @@ var drag_preview:Control
 
 
 #节点预加载
-@onready var character_button_tscn = preload("res://按钮/character_button.tscn")
+@onready var character_button_tscn = preload("res://按钮/character_button.tscn").instantiate()
 @onready var scene_button_tscn = preload("res://按钮/scene_button.tscn")
 @onready var transform_button_tscn = preload("res://按钮/transform_button.tscn")
 @onready var emo_button_tscn = preload("res://按钮/character_emo_button.tscn")
 @onready var transform_detail_ent_tscn = preload("res://节点/transform_detail_ent.tscn")
-@onready var show_ent_tscn = preload("res://节点/scipt_show.tscn")
-@onready var label_ent_tscn = preload("res://节点/scipt_label.tscn")
-@onready var chat_ent_tscn = preload("res://节点/scipt_word.tscn")
-@onready var scene_ent_tscn = preload("res://节点/scipt_scene_ent.tscn")
 
-var scene_ent_template = null
-var show_ent_template = null
+#@onready var label_node_ent_tscn = preload("res://节点/章节节点相关/label_node.tscn").instantiate()
+@onready var line_tscn = preload("res://节点/章节节点相关/label_connect_line.tscn").instantiate()
+@onready var label_node_tscn = preload("res://节点/章节节点相关/label_node.tscn").instantiate()
+
+@onready var show_ent_tscn = preload("res://节点/scipt_show.tscn").instantiate()
+@onready var label_ent_tscn = preload("res://节点/scipt_label.tscn").instantiate()
+@onready var chat_ent_tscn = preload("res://节点/scipt_word.tscn").instantiate()
+@onready var scene_ent_tscn = preload("res://节点/scipt_scene_ent.tscn").instantiate()
+@onready var jump_ent_tscn = preload("res://节点/scipt_jump.tscn").instantiate()
+@onready var menu_ent_tscn = preload("res://节点/scipt_menu.tscn").instantiate()
+
+
+#var label_node_template = null
+#var scene_ent_template = null
+#var show_ent_template = null
+#var jump_ent_template = null
+#var menu_ent_template = null
 
 #裁剪头像相关
 var current_rect:Rect2
+
 func _ready() -> void:
 	singal_init()
 	transform_init()
@@ -169,9 +193,14 @@ func _on_保存按钮_pressed() -> void:
 		TextFloating.display_text("未选择文件路径!",25,get_global_mouse_position())
 	
 func _on_另存为按钮_pressed() -> void:
-	file_dialog.popup()
+	$"左侧栏/文件选择面板/导出路径选择窗口".popup()
+	
+func _on_导出路径选择窗口_file_selected(path: String) -> void:
+	load_and_save_global(path)
+	%"开始编辑"._on_当前文件路径_text_changed(path)
 
 func _on_路径选择_file_selected(path: String) -> void:
+	%"当前文件路径".emit_signal("text_changed",path)
 	current_file_path = path
 	path_input.text = current_file_path
 	# TODO: Read the file content and parse it
@@ -200,7 +229,9 @@ func generate_file_content() -> String:
 		content += child.text + "\n"
 	return content
 
+################################################################################################################
 func _on_开始编辑_pressed() -> void:
+	%"当前文件路径".clear()
 	#节点清空
 	character_num = 0
 	character_dic_list = {}
@@ -213,8 +244,12 @@ func _on_开始编辑_pressed() -> void:
 	character_simp_list = []
 	character_num = 0
 	temp_path=""
-	label_all = []
-
+	chapter_dic_list = {}
+	script_save_dic=Dictionary()
+	current_chapeter_save_array=Array()
+	current_chapeter=String()
+	current_menu=null
+	current_menu_option=String()
 
 	#信息修改相关
 	script_shown_entry_map = {}
@@ -264,9 +299,14 @@ func transform_init():
 		transform_dic_list[init_transform_dic[key][1]]["type"] = "default"
 		add_transform_to_list(init_transform_dic[key][1],init_transform_dic[key][0])
 
-
-
-
+#根据预设的key获得name
+func get_name_of_transform_by_key(trans_key):
+	for key in transform_dic_list.keys():
+		if transform_dic_list[key]["key"] ==trans_key:
+			return transform_dic_list[key]["name"]
+			break
+		else:
+			TextFloating.display_text(trans_key,20,get_global_mouse_position())
 
 
 
@@ -277,7 +317,7 @@ func transform_init():
 ################################################################################
 #######TODO###########TODO###########TODO###########TODO#############TODO####
 ################################################################################
-#文本解析
+#文本解析 与 初始化
 ################################################################################
 #######TODO###########TODO###########TODO###########TODO#############TODO####
 ################################################################################
@@ -294,9 +334,10 @@ func parse_rpy_file(file_path: String):
 
 # 处理文件内容，解析角色和脚本
 func process_file_content(content: String):
-	var lines = Array(content.split("\n").duplicate())
-	#var in_character_define = false
-	#var scipt_lines = Array()
+	var lines = Array(content.split("\n",true).duplicate())
+	
+	prepare_label_node_template()
+	
 	for line in lines:	
 		# 简单解析角色定义
 		if line.begins_with("define"):
@@ -307,25 +348,41 @@ func process_file_content(content: String):
 			line = line.strip_edges()
 			parse_image_define(line)
 			lines.erase(line)
-		#elif line.begins_with("transform"):	
-			#parse_transform_define(line)
 		elif line.begins_with("transform"):
+			line = line.strip_edges()
 			set_transform_name(line)
-			#lines.erase(line)
+			lines.erase(line)
 		elif in_transform_block:
+			line = line.strip_edges()
 			parse_transform_define(line)
 			lines.erase(line)
+		elif line.begins_with("label"):
+			line = line.strip_edges()
+			label_add_to_chapter_dic_list(line)
+
 	init_character_list()
 	init_scene_list()
 	init_trans_list()
 	
+
+	#prepare_label_node_template()
+	prepare_jump_entry_template()
+	prepare_menu_entry_template()
 	prepare_shown_entry_template()
 	prepare_scene_entry_template()
+	
+	
+	#添加节点至面板
 	for line in lines:	
-		line = line.strip_edges()
 		add_script_item(line)
 	
 	
+
+	set_label_node_texture()
+	init_chapter_browse()
+	
+	
+
 func init_character_list():
 	for child in character_list.get_children():
 		character_list.remove_child(child)
@@ -357,17 +414,74 @@ func init_trans_list():
 		position_list.remove_child(child)
 		child.queue_free()
 	for transform_key in transform_dic_list.keys():
-		add_transform_to_list(transform_key,transform_key)
-		
+		add_transform_to_list(transform_key,transform_dic_list[transform_key]["name"])
+
+#制作章节字典与与之配套的章节节点
+func label_add_to_chapter_dic_list(line):
+	var line_part = line.split(" ",false)
+	var label = line_part[1].trim_suffix(":")
+	var label_dic = {}
+	label_dic["id"] = current_chapter_id
+	label_dic["key"] = label
+	label_dic["img"] = null
+	label_dic["global"] = "global"
+	label_dic["jumpto"]  = Array()
+	label_dic["content"] = Array()
+	label_dic["node"] = Node.new()
+	current_chapter_id+=1
+	##章节内容字典
+	label_node_make(label_dic)
+	chapter_dic_list[label] = label_dic
+	
+func label_node_make(label_dic):
+	var new_label_node = label_node_tscn.duplicate()
+	%Label_port.add_child(new_label_node)
+	new_label_node.label_key = label_dic["key"]
+	new_label_node.title = new_label_node.label_key
+	new_label_node.connect("pressed",Callable(self, "update_script_container").bind(new_label_node.label_key))
+	
+func set_label_node_texture():
+	#将第一个场景设置为预览图
+	for label_node in %Label_port.get_children():
+		#for label_node in label_container.get_children():
+		for node in chapter_dic_list[label_node.label_key]["content"]:
+			if node.script_node_type =="Scene":
+				print(1)
+				label_node.set_img(node.get_texture())
+				chapter_dic_list[label_node.label_key]["img"] = node.get_texture()
+				break
+	
+	
+	
+func prepare_label_node_template():
+	#label_node_template = label_node_tscn
+	#return label_node_template
+	pass
+
+	
+func prepare_menu_entry_template():
+	#menu_ent_template = menu_ent_tscn
+	#return menu_ent_tscn
+	pass
+
+func prepare_jump_entry_template():
+	prepare_chapter_selecter(jump_ent_tscn)
+	return jump_ent_tscn
+	
+func prepare_chapter_selecter(node:Script_Jump):
+	var chapter_selecter = node.get_node("Chapter_Selecter")
+	chapter_selecter.clear()
+	for chapter in chapter_dic_list.keys():
+		chapter_selecter.add_item(chapter)
 
 # 预设角色选项到 shown_entry 模板
 func prepare_shown_entry_template():
 	#if show_ent_template!= null:
 		#return show_ent_template
-	show_ent_template = preload("res://节点/scipt_show.tscn").instantiate()
-	prepare_position_selecter(show_ent_template)
-	prepare_show_entry_character_selecter(show_ent_template)
-	return show_ent_template
+	#show_ent_template = preload("res://节点/scipt_show.tscn").instantiate()
+	prepare_position_selecter(show_ent_tscn)
+	prepare_show_entry_character_selecter(show_ent_tscn)
+	return show_ent_tscn
 
 func prepare_position_selecter(node:Script_Shown):
 	var position_select = node.get_node("Position_Select")  # 提取节点
@@ -389,10 +503,10 @@ func prepare_show_entry_character_selecter(node:Script_Shown):
 func prepare_scene_entry_template():
 	#if scene_ent_template!= null:
 		#return scene_ent_template
-	scene_ent_template = preload("res://节点/scipt_scene_ent.tscn").instantiate() # 清空以防重复添加
-	prepare_scene_entry_scene_selecter(scene_ent_template)
+	#scene_ent_template = preload("res://节点/scipt_scene_ent.tscn").instantiate() # 清空以防重复添加
+	prepare_scene_entry_scene_selecter(scene_ent_tscn)
 	# 预设完成后销毁示例对象
-	return scene_ent_template
+	return scene_ent_tscn
 
 func prepare_scene_entry_scene_selecter(node:Script_Scene):
 	var scene_select = node.get_node("scene_select")
@@ -404,7 +518,9 @@ func prepare_scene_entry_scene_selecter(node:Script_Scene):
 		scene_select.set_item_icon(scene_id,scene_dic_list[scene_key]["small_tex"])
 
 
-
+func scan_label_jump():
+	
+	pass
 
 
 
@@ -484,6 +600,7 @@ func create_thumbnail(imgtex:ImageTexture) -> Texture2D:
 		thumbnail.set_image(img)
 		return thumbnail
 	return null
+	
 #等比缩小为固定高度
 func reduce_img(imgtex:ImageTexture,height) -> Texture2D:
 	var img = imgtex.get_image()
@@ -492,7 +609,8 @@ func reduce_img(imgtex:ImageTexture,height) -> Texture2D:
 	img.resize(img.get_size().x*height/img.get_size().y,height)
 	thumbnail.set_image(img)
 	return thumbnail
-	#纯色纹理生成
+	
+#纯色纹理生成
 func color_texture_make(color):
 	var image = Image.new()
 	image.load("res://tex/10040101.png")
@@ -501,6 +619,7 @@ func color_texture_make(color):
 	var color_texture = ImageTexture.new()
 	color_texture.set_image(image)
 	return color_texture
+	
 #解析立绘设置
 func parse_image_define(line):
 	var image = {}
@@ -544,8 +663,8 @@ func parse_image_define(line):
 			scene_image.key = scene_result.get_string("scene_key")
 			scene_image.name = scene_image.key
 			scene_image.path = "null"
-			var temp_color = Color(scene_result.get_string("scene_path"))
-			scene_image.tex = color_texture_make(temp_color)
+			var temp_color_in = Color(scene_result.get_string("scene_path"))
+			scene_image.tex = color_texture_make(temp_color_in)
 			scene_image.small_tex = reduce_img(scene_image.tex,64)
 			scene_image.id = scene_num
 			scene_num = scene_num+1
@@ -575,6 +694,7 @@ func set_transform_name(line:String):
 		transform_dic_list[current_transform_key]["name"] = current_transform_key
 		transform_dic_list[current_transform_key]["type"] = "general"
 		in_transform_block = true
+		
 #变换解析
 func parse_transform_define(line:String):
 	if line.begins_with(" ") or line.begins_with("\t"):  # 若有缩进，视为 transform 参数行
@@ -625,6 +745,336 @@ func parse_transform_define(line:String):
 	else:
 		# 非缩进行表示 transform 块结束，保存当前 transform 定义
 		in_transform_block = false
+
+
+
+
+
+
+
+
+
+
+
+################################################################################
+#######TODO###########TODO###########TODO###########TODO#############TODO#######
+################################################################################
+#脚本面板显示
+################################################################################
+#######TODO###########TODO###########TODO###########TODO#############TODO#######
+################################################################################
+
+ ##	处理并添加脚本条目
+func add_script_item(line: String):
+	var indent_level = get_indent_level(line)
+	if indent_level == 1 or indent_level ==0:
+		line = line.strip_edges()
+		var line_part = line.split(" ",false)
+		## 解析对话和指令
+		var new_node = line_part_ent_make_centre(line,line_part)
+		#new_node.up_label = current_chapeter
+		if new_node and !new_node is Script_Label:
+			chapter_dic_list[current_chapeter]["content"].append(new_node)
+			new_node.set_up_label(current_chapeter)
+		
+		
+	elif indent_level == 2 and current_menu:
+		menu_message_input(line)
+	elif indent_level == 3 and current_menu:
+		menu_ent_insidenode_make(line)
+
+#每行检测并生成节点
+func line_part_ent_make_centre(line,line_part):
+	var export_node:Node
+#################################################################################
+##标签
+	if line.begins_with("label"):
+		export_node = label_ent_make(line_part)
+#################################################################################
+##跳转
+	elif line.begins_with("jump"):
+		export_node = jump_ent_make(line_part)
+#################################################################################	
+##选项窗口
+	elif line.begins_with("menu"):
+		export_node = menu_ent_make(line_part)
+#################################################################################
+## 显示/隐藏节点
+	elif line.begins_with("show")||line.begins_with("hide"):
+		export_node = show_ent_make(line_part)
+#################################################################################		
+##场景节点
+	elif line.begins_with("scene"):
+		export_node = scene_ent_make(line_part)
+#################################################################################		
+## 发言节点
+	for key in character_dic_list:
+		#print(typeof(key))
+		if line.begins_with(key):
+			var speak_part = parse_dialogue(line)
+			export_node = chat_ent_make(key,speak_part)
+
+	return export_node
+
+#填入menu信息
+func menu_message_input(line:String):
+	line = line.strip_edges()
+	var line_part = line.split("\"",false)
+	match(line_part.size()):
+		1:
+			current_menu.text.set_text(line_part[0])
+			print("文本为",line_part)
+		2:
+			current_menu.option_select.add_item(line_part[0])
+			current_menu.option_text.set_text(line_part[0])
+			current_menu.menu_option_node_dic[line_part[0]] = Array()
+			current_menu_option = line_part[0]
+			
+			current_menu.select_option_by_text(line_part[0])
+			current_menu.init_node()
+			print("选项为",line_part)	
+#填入menu内部节点
+func menu_ent_insidenode_make(line:String):
+	line = line.strip_edges()
+	var line_part = line.split(" ",false)
+	var new_node = line_part_ent_make_centre(line,line_part)
+	if new_node:
+		script_browse.remove_child(new_node)
+		current_menu.vbox_container.add_child(new_node)
+		
+		new_node.disconnect("mouse_entered", Callable($Script_Browse/ScrollContainer, "on_mouse_enter_node").bind(new_node))
+		new_node.disconnect("mouse_exited", Callable($Script_Browse/ScrollContainer, "on_mouse_exited_node").bind(new_node))
+
+		new_node.connect("mouse_entered", Callable(current_menu.scroll_container, "on_mouse_enter_node").bind(new_node))
+		new_node.connect("mouse_exited", Callable(current_menu.scroll_container, "on_mouse_exited_node").bind(new_node))
+		
+		current_menu.menu_option_node_dic[current_menu_option].append(new_node)
+		#chapter_dic_list[current_chapeter]["content"].erase(new_node)
+
+#生成章节标签节点
+func label_ent_make(line_part):
+	var label_ent = label_ent_tscn.duplicate()
+	script_browse.add_child(label_ent)
+	label_ent.name_label.text = line_part[1].rstrip(":")
+	label_ent.label_key = label_ent.name_label.text 
+	current_chapeter = label_ent.name_label.text
+	
+	for label_node in %Label_port.get_children():
+		if label_node.is_class("Panel"):
+			if label_node.label_key == label_ent.label_key:
+				label_ent.label_node = label_node
+				chapter_dic_list[current_chapeter]["node"] = label_node
+				break
+	
+	return label_ent
+
+##跳转
+func jump_ent_make(line_part):
+	var jump_ent = jump_ent_tscn.duplicate()
+	script_browse.add_child(jump_ent)
+	jump_ent.connect("mouse_entered", Callable($Script_Browse/ScrollContainer, "on_mouse_enter_node").bind(jump_ent))
+	jump_ent.connect("mouse_exited", Callable($Script_Browse/ScrollContainer, "on_mouse_exited_node").bind(jump_ent))
+	jump_ent.select_option_by_text(line_part[1])
+	
+	chapter_dic_list[current_chapeter]["jumpto"].append(line_part[1])
+	#var jumpto_node:Node
+	return jump_ent
+
+##跳转
+func menu_ent_make(line_part):
+	var menu_ent = menu_ent_tscn.duplicate()
+	script_browse.add_child(menu_ent)
+	menu_ent.connect("mouse_entered", Callable($Script_Browse/ScrollContainer, "on_mouse_enter_node").bind(menu_ent))
+	menu_ent.connect("mouse_exited", Callable($Script_Browse/ScrollContainer, "on_mouse_exited_node").bind(menu_ent))
+	#chapter_dic_list[current_chapeter]["content"].append(menu_ent)
+	current_menu = menu_ent
+	return menu_ent
+	
+#缩进查找
+func get_indent_level(line: String) -> int:
+	var count = 0
+	var t_count = 0
+	for i in range(line.length()):
+		var ch = line[i]
+		if ch == " ":  # 空格或制表符（tab）
+			count += 1
+		elif ch == "\t":
+			t_count+= 1
+		else:
+			break  # 遇到非空白字符停止
+	count = count/4
+	return count+t_count
+
+#生成显示节点
+func show_ent_make(line_part):
+	var show_ent = show_ent_tscn.duplicate()
+	script_browse.add_child(show_ent)
+	show_ent.connect("mouse_entered", Callable($Script_Browse/ScrollContainer, "on_mouse_enter_node").bind(show_ent))
+	show_ent.connect("mouse_exited", Callable($Script_Browse/ScrollContainer, "on_mouse_exited_node").bind(show_ent))
+	show_ent.character_key = line_part[1]
+	#script_shown_entry_map[line_part[1]].append(show_ent)
+	#第一项
+	if line_part[0] =="show":
+		show_ent.show_select._select_int(0)
+	else:
+		show_ent.show_select._select_int(1)
+	#角色项
+	if line_part[2] !="at":
+		show_ent.tex.set_button_icon(character_dic_list[line_part[1]]["img"][line_part[2]]["icon"])
+	#for key in character_dic_list:
+		#show_ent.character_select.add_item(character_dic_list[key]["name"],int(character_dic_list[key]["id"]))
+	show_ent.character_select._select_int(character_dic_list[line_part[1]]["id"])
+	#show_ent.color_show.set_color(character_dic_list[line_part[1]]["color"])
+	
+	show_ent.position_select._select_int(-1)
+	if line_part.size()>=6:
+		show_ent.transform_select._select_int(transfrom_check(line_part[5],show_ent.transform_select))
+	#图标和差分项
+	for emo_key in character_dic_list[line_part[1]]["img"]:
+		show_ent.emo_select.add_item(emo_key,character_dic_list[line_part[1]]["img"][emo_key]["id"])
+	if line_part[2]!= "at":
+		show_ent.tex.set_button_icon(character_dic_list[line_part[1]]["img"][line_part[2]]["icon"])
+		show_ent.emo_select._select_int(int(character_dic_list[line_part[1]]["img"][line_part[3]]["id"]))
+	else:
+		for emo_key in character_dic_list[line_part[1]]["img"].keys():
+			show_ent.tex.set_button_icon(character_dic_list[line_part[1]]["img"][emo_key]["icon"])
+			break
+		show_ent.emo_select._select_int(0)
+	
+	##章节内容字典
+	script_shown_entry_map[line_part[1]].append(show_ent)
+	#chapter_dic_list[current_chapeter]["content"].append(show_ent)
+	return show_ent
+	
+#生成场景节点
+func scene_ent_make(line_part):
+	var scene_ent = scene_ent_tscn.duplicate()
+	script_browse.add_child(scene_ent)
+	scene_ent.connect("mouse_entered", Callable($Script_Browse/ScrollContainer, "on_mouse_enter_node").bind(scene_ent))
+	scene_ent.connect("mouse_exited", Callable($Script_Browse/ScrollContainer, "on_mouse_exited_node").bind(scene_ent))
+	
+	scene_ent.select_texture(scene_dic_list[line_part[1]]["tex"])
+	scene_ent.scene_select._select_int(scene_dic_list[line_part[1]]["id"])
+	#scene_ent.tex.position.y = 20
+	scene_ent.scene_key = line_part[1]
+	script_scene_entry_map[line_part[1]].append(scene_ent)
+	
+	scene_ent.resize_scene_ent()
+	##章节内容字典
+	#chapter_dic_list[current_chapeter]["content"].append(scene_ent)
+	#print(scene_ent.tex.position)
+	
+	##TODO 变换
+	return scene_ent
+
+#生成对话节点
+func chat_ent_make(key,speak_part):
+	var chat_ent = chat_ent_tscn.duplicate()
+	script_browse.add_child(chat_ent)
+	#script_word_entry_map[key].append(chat_ent)
+	chat_ent.character_key = key
+	chat_ent.connect("mouse_entered", Callable($Script_Browse/ScrollContainer, "on_mouse_enter_node").bind(chat_ent))
+	chat_ent.connect("mouse_exited", Callable($Script_Browse/ScrollContainer, "on_mouse_exited_node").bind(chat_ent))
+
+	##检测发言差分
+	#无emo差分提示则继承上一次
+	if speak_part["emo"]!=null:
+		chat_ent.tex.set_button_icon(character_dic_list[speak_part["speaker"]]["img"][speak_part["emo"]]["icon"])
+		#缩略图
+		for emo_key in character_dic_list[speak_part["speaker"]]["img"]:
+			chat_ent.emo_select.add_item(emo_key,character_dic_list[speak_part["speaker"]]["img"][emo_key]["id"])
+		chat_ent.emo_select._select_int(int(character_dic_list[speak_part["speaker"]]["img"][speak_part["emo"]]["id"]))
+	#有emo差分
+	else:
+		for emo_key in character_dic_list[key]["img"].keys():
+			chat_ent.tex.set_button_icon(character_dic_list[speak_part["speaker"]]["img"][emo_key]["icon"])
+			break
+		for emo_key in character_dic_list[speak_part["speaker"]]["img"]:
+			chat_ent.emo_select.add_item(emo_key,character_dic_list[speak_part["speaker"]]["img"][emo_key]["id"])
+		chat_ent.emo_select._select_int(0)
+
+	chat_ent.color_show.set_color(character_dic_list[key]["color"])
+	chat_ent.word.text = speak_part["content"]
+	chat_ent.name_label.text = character_dic_list[key]["name"]
+	
+	##章节内容字典
+	#chapter_dic_list[current_chapeter]["content"].append(chat_ent)
+	script_word_entry_map[speak_part["speaker"]].append(chat_ent)
+	
+	##TODO 变换
+	return chat_ent
+	
+	# 解析说话内容
+func parse_dialogue(line: String) -> Dictionary:
+	var dialogue = {}
+	if "\"" in line:
+		var array= line.split("\"",false)
+		var speaker = array[0].strip_edges()
+		var content = array[1].strip_edges()
+		var transform = null
+		if array.size()>2:
+			transform = array[2].strip_edges()
+		if " " in speaker:
+			var speaker_part = speaker.split(" ",false)
+			dialogue["speaker"] = speaker_part[0]
+			dialogue["emo"] = speaker_part[1]
+		else:
+			dialogue["speaker"] = speaker
+			dialogue["emo"] = null
+		dialogue["content"] = content
+		if transform:
+			var transform_part = transform.split(" ",false)
+			dialogue["transform"] = transform_part[1]
+		else:
+			dialogue["transform"] = ""
+	return dialogue
+
+func transfrom_check(search_text,button):
+	for i in range(button.get_item_count()):
+		if button.get_item_text(i) == search_text:
+			return i  # 如果找到了该文本，返回其 ID
+			
+	# 如果没有找到该文本，则添加新的选项
+	var new_id = button.get_item_count()  # 获取新选项的 ID
+	button.add_item(search_text, new_id)  # 添加新选项
+	return new_id  # 返回新添加的选项的 ID
+#
+
+
+
+
+
+
+
+
+
+
+################################################################################
+#######TODO###########TODO###########TODO###########TODO#############TODO#######
+################################################################################
+##章节相关
+################################################################################
+#######TODO###########TODO###########TODO###########TODO#############TODO#######
+################################################################################
+
+func init_chapter_browse():
+	%Label_Node_Port.init_label_nodes()
+	#pass
+		
+#func add_new_chapter(key):
+	#chapter_dic_list[key]
+
+func update_script_container(label_key):
+	current_chapeter = label_key
+	%Script_Browse.update_nodes_in_label()
+	for key in chapter_dic_list.keys():
+		if key ==label_key:
+			pass
+			for node in chapter_dic_list[key]["content"]:
+				%Script_Browse.vboxcontainer.add_child(node)
+
+
+
 
 
 
@@ -706,7 +1156,7 @@ func _on_emo_img_selected(emo_img):
 # 将解析的角色添加到角色列表
 func add_character_to_list(character: Dictionary):
 	#print(character)
-	var button = character_button_tscn.instantiate()
+	var button = character_button_tscn.duplicate()
 	button.text = character["name"]
 	#var first_icon = ImageTexture.new()
 	button.connect("pressed", Callable(self, "_on_character_selected").bind(character))
@@ -801,10 +1251,10 @@ func _on_场景名line_2d_text_submitted(new_text: String) -> void:
 #######TODO###########TODO###########TODO###########TODO#############TODO#######
 ################################################################################
 
-func add_transform_to_list(transform_key,name):
+func add_transform_to_list(transform_key,transform_name):
 	var button = transform_button_tscn.instantiate()
 	button.transform_key = transform_key
-	button.set_text(name)
+	button.set_text(transform_name)
 	if transform_dic_list[transform_key]["type"]=="position":
 		position_list.add_child(button)
 		button.connect("pressed", Callable(position_list, "_on_button_pressed").bind(button))
@@ -855,7 +1305,7 @@ func _on_transform_selected(transform_key):
 			detail_ent.transform_value.set_value(transform_dic_list[current_selected_transform_key]["trans"][parameter])
 		
 func _on_变换名line_2d_text_submitted(new_text: String) -> void:
-	transform_dic_list[current_selected_transform_key]["name"] = trans_name_edit.get_text()
+	transform_dic_list[current_selected_transform_key]["name"] = new_text
 	for button in transform_list.get_children()+position_list.get_children():
 		button.set_text(transform_dic_list[current_selected_transform_key]["name"])
 		
@@ -906,177 +1356,6 @@ func _on_添加变换参数按钮_pressed() -> void:
 
 
 
-################################################################################
-#######TODO###########TODO###########TODO###########TODO#############TODO#######
-################################################################################
-#脚本面板显示
-################################################################################
-#######TODO###########TODO###########TODO###########TODO#############TODO#######
-################################################################################
-
- ##	处理并添加脚本条目
-func add_script_item(line: String):
-	var line_part = line.split(" ",false)
-	
-	## 解析对话和指令
-#################################################################################
-##标签
-	if line.begins_with("label"):
-		label_ent_make(line_part)
-		#print("label",line_part)
-#################################################################################	
-## 显示/隐藏节点
-	elif line.begins_with("show")||line.begins_with("hide"):
-		show_ent_make(line_part)
-#################################################################################		
-##场景节点
-	elif line.begins_with("scene"):
-		scene_ent_make(line_part)
-#################################################################################		
-## 发言节点
-	for key in character_dic_list:
-		#print(typeof(key))
-		if line.begins_with(key):
-			var speak_part = parse_dialogue(line)
-			chat_ent_make(key,speak_part)
-
-#生成章节标签节点
-func label_ent_make(line_part):
-	var label_ent = label_ent_tscn.instantiate()
-	label_all.append(line_part[1])
-	script_browse.add_child(label_ent)
-	label_ent.name_label.text = line_part[1].rstrip(":")
-	return label_ent
-	
-#生成显示节点
-func show_ent_make(line_part):
-	var show_ent = show_ent_template.duplicate()
-	script_browse.add_child(show_ent)
-	show_ent.connect("mouse_entered", Callable($Script_Browse/ScrollContainer, "on_mouse_enter_node").bind(show_ent))
-	show_ent.connect("mouse_exited", Callable($Script_Browse/ScrollContainer, "on_mouse_exited_node").bind(show_ent))
-	show_ent.character_key = line_part[1]
-	script_shown_entry_map[line_part[1]].append(show_ent)
-	#第一项
-	if line_part[0] =="show":
-		show_ent.show_select._select_int(0)
-	else:
-		show_ent.show_select._select_int(1)
-	#角色项
-	if line_part[2] !="at":
-		show_ent.tex.set_button_icon(character_dic_list[line_part[1]]["img"][line_part[2]]["icon"])
-	#for key in character_dic_list:
-		#show_ent.character_select.add_item(character_dic_list[key]["name"],int(character_dic_list[key]["id"]))
-	show_ent.character_select._select_int(character_dic_list[line_part[1]]["id"])
-	#show_ent.color_show.set_color(character_dic_list[line_part[1]]["color"])
-	
-	show_ent.position_select._select_int(-1)
-	if line_part.size()>=6:
-		show_ent.transform_select._select_int(transfrom_check(line_part[5],show_ent.transform_select))
-	#图标和差分项
-	for emo_key in character_dic_list[line_part[1]]["img"]:
-		show_ent.emo_select.add_item(emo_key,character_dic_list[line_part[1]]["img"][emo_key]["id"])
-	if line_part[2]!= "at":
-		show_ent.tex.set_button_icon(character_dic_list[line_part[1]]["img"][line_part[2]]["icon"])
-		show_ent.emo_select._select_int(int(character_dic_list[line_part[1]]["img"][line_part[3]]["id"]))
-	else:
-		for emo_key in character_dic_list[line_part[1]]["img"].keys():
-			show_ent.tex.set_button_icon(character_dic_list[line_part[1]]["img"][emo_key]["icon"])
-			break
-		
-		show_ent.emo_select._select_int(0)
-	return show_ent
-	
-#生成场景节点
-func scene_ent_make(line_part):
-	var scene_ent = scene_ent_template.duplicate()
-	script_browse.add_child(scene_ent)
-	scene_ent.connect("mouse_entered", Callable($Script_Browse/ScrollContainer, "on_mouse_enter_node").bind(scene_ent))
-	scene_ent.connect("mouse_exited", Callable($Script_Browse/ScrollContainer, "on_mouse_exited_node").bind(scene_ent))
-	scene_ent.set_texture(scene_dic_list[line_part[1]]["tex"])
-	scene_ent.scene_select._select_int(scene_dic_list[line_part[1]]["id"])
-	scene_ent.scene_key = line_part[1]
-	script_scene_entry_map[line_part[1]].append(scene_ent)
-	
-	#print(scene_ent.tex.position)
-	##TODO 变换
-	return scene_ent
-
-#生成对话节点
-func chat_ent_make(key,speak_part):
-	var chat_ent = chat_ent_tscn.instantiate()
-	script_browse.add_child(chat_ent)
-	script_word_entry_map[key].append(chat_ent)
-	chat_ent.character_key = key
-	chat_ent.connect("mouse_entered", Callable($Script_Browse/ScrollContainer, "on_mouse_enter_node").bind(chat_ent))
-	chat_ent.connect("mouse_exited", Callable($Script_Browse/ScrollContainer, "on_mouse_exited_node").bind(chat_ent))
-
-	##检测发言差分
-	#无emo差分提示则继承上一次
-	if speak_part["emo"]!=null:
-		chat_ent.tex.set_button_icon(character_dic_list[speak_part["speaker"]]["img"][speak_part["emo"]]["icon"])
-		#缩略图
-		for emo_key in character_dic_list[speak_part["speaker"]]["img"]:
-			chat_ent.emo_select.add_item(emo_key,character_dic_list[speak_part["speaker"]]["img"][emo_key]["id"])
-		chat_ent.emo_select._select_int(int(character_dic_list[speak_part["speaker"]]["img"][speak_part["emo"]]["id"]))
-	#有emo差分
-	else:
-		for emo_key in character_dic_list[key]["img"].keys():
-			chat_ent.tex.set_button_icon(character_dic_list[speak_part["speaker"]]["img"][emo_key]["icon"])
-			break
-		for emo_key in character_dic_list[speak_part["speaker"]]["img"]:
-			chat_ent.emo_select.add_item(emo_key,character_dic_list[speak_part["speaker"]]["img"][emo_key]["id"])
-		chat_ent.emo_select._select_int(0)
-
-	chat_ent.color_show.set_color(character_dic_list[key]["color"])
-	chat_ent.word.text = speak_part["content"]
-	chat_ent.name_label.text = character_dic_list[key]["name"]
-	
-	##TODO 变换
-	return chat_ent
-	
-	# 解析说话内容
-func parse_dialogue(line: String) -> Dictionary:
-	var dialogue = {}
-	if "\"" in line:
-		var array= line.split("\"",false)
-		var speaker = array[0].strip_edges()
-		var content = array[1].strip_edges()
-		var transform = null
-		if array.size()>2:
-			transform = array[2].strip_edges()
-		if " " in speaker:
-			var speaker_part = speaker.split(" ",false)
-			dialogue["speaker"] = speaker_part[0]
-			dialogue["emo"] = speaker_part[1]
-		else:
-			dialogue["speaker"] = speaker
-			dialogue["emo"] = null
-		dialogue["content"] = content
-		if transform:
-			var transform_part = transform.split(" ",false)
-			dialogue["transform"] = transform_part[1]
-		else:
-			dialogue["transform"] = ""
-	return dialogue
-
-func transfrom_check(search_text,button):
-	for i in range(button.get_item_count()):
-		if button.get_item_text(i) == search_text:
-			return i  # 如果找到了该文本，返回其 ID
-			
-	# 如果没有找到该文本，则添加新的选项
-	var new_id = button.get_item_count()  # 获取新选项的 ID
-	button.add_item(search_text, new_id)  # 添加新选项
-	return new_id  # 返回新添加的选项的 ID
-#
-
-
-
-
-
-
-
-
 
 
 ################################################################################
@@ -1088,7 +1367,7 @@ func transfrom_check(search_text,button):
 ################################################################################
 
 func _on_拾色器_color_changed(color:Color) -> void:
-	temp_color = $"右侧栏/Character_Panel/Message_Panel/颜色/拾色器".get_pick_color()
+	temp_color = color
 	color_change_confim.popup()
 func _on_角色名line_2d_text_submitted(new_text: String) -> void:
 	temp_name = new_text
@@ -1153,11 +1432,8 @@ func update_character_button_name(character_data: Dictionary):
 	# 更新按钮颜色和名称
 	button.text = character_data["name"]
 	
-	var color = Color(character_data["color"])
-	var style = StyleBoxFlat.new
-	style = button.theme.get("Button/styles/normal")
-	style.set_bg_color(color)
-	button.theme.set("Button/styles/normal",style)
+	button.change_color(character_data["color"])
+
 	
 func update_character_button_img(character_data: Dictionary):
 	var button = character_button_map[character_data["key"]]
@@ -1250,7 +1526,6 @@ func _on_是否应用于该角色所有立绘_canceled() -> void:
 	icon_crop_window.hide()
 	var global_rect = Rect2(icon_crop_window.crop_position, icon_crop_window.crop_size)
 	character_dic_list[current_selected_character_key]["img"][current_selected_emo_key]["icon"] = get_cropped_texture(character_dic_list[current_selected_character_key]["img"][current_selected_emo_key]["tex"],global_rect)
-	#icon_crop_window.texture_rect.set_texture(ImageTexture.new())
 	update_icon_emo(current_selected_character_key,current_selected_emo_key)
 	
 ##更新单一差分的icon
@@ -1259,22 +1534,22 @@ func update_icon_emo(character_key,emo_key):
 	update_emotion_panel(character_dic_list[current_selected_character_key])
 	var temp_array = character_dic_list[current_selected_character_key]["img"].keys()
 	for emo in temp_array:
-			character_button_map[character_key].tex.set_texture(character_dic_list[current_selected_character_key]["img"][emo]["icon"])
-			break
+		character_button_map[character_key].tex.set_texture(character_dic_list[current_selected_character_key]["img"][emo]["icon"])
+		break
 	for button in script_shown_entry_map[character_key]:
-		if button.emo == "":
+		if button.selected_emo == "":
 			for emo in temp_array:
-				button.tex.set_button_icon(character_dic_list[current_selected_character_key]["img"][emo]["icon"])
+				button.update_img(emo)
 				break
-		if button.emo == emo_key:
-			button.tex.set_button_icon(icon_temp)
+		else:
+			button.update_img(button.selected_emo)
 	for button in script_word_entry_map[character_key]:
-		if button.emo == "":
+		if button.selected_emo == "":
 			for emo in temp_array:
-				button.tex.set_button_icon(character_dic_list[current_selected_character_key]["img"][emo]["icon"])
+				button.update_img(emo)
 				break
-		if button.emo == emo_key:
-			button.tex.set_button_icon(icon_temp)
+		else:
+			button.update_img(button.selected_emo)
 	
 	
 func _on_image_select_button_pressed() -> void:
@@ -1465,13 +1740,79 @@ func refresh_ent_scene_selecter():
 ################################################################################
 #######TODO###########TODO###########TODO###########TODO#############TODO#######
 ################################################################################
-#拖动功能相关
+#UI变化相关
+################################################################################
+#######TODO###########TODO###########TODO###########TODO#############TODO#######
+################################################################################
+func all_ui_close() ->void:
+	$"左侧栏/推拉栏按钮".set_pressed(true)
+	$"右侧栏/推拉栏按钮".set_pressed(true)
+	$"左侧栏/推拉栏按钮".emit_signal("pressed")
+	$"右侧栏/推拉栏按钮".emit_signal("pressed")
+	#$"左侧栏/推拉栏按钮".set_pressed(false)
+	#$"右侧栏/推拉栏按钮".set_pressed(false)
+
+func all_ui_open() ->void:
+	$"左侧栏/推拉栏按钮".set_pressed(false)
+	$"右侧栏/推拉栏按钮".set_pressed(false)
+	$"左侧栏/推拉栏按钮".emit_signal("pressed")
+	$"右侧栏/推拉栏按钮".emit_signal("pressed")
+	#$"左侧栏/推拉栏按钮".set_pressed(true)
+	#$"右侧栏/推拉栏按钮".set_pressed(true)
+	
+	
+	
+	
+################################################################################
+#######TODO###########TODO###########TODO###########TODO#############TODO#######
+################################################################################
+#读取内容
 ################################################################################
 #######TODO###########TODO###########TODO###########TODO#############TODO#######
 ################################################################################
 
+func load_and_save_global(path):
+	var final_script_text:String
+	for label in chapter_dic_list.keys():
+		var chapter_script_text = label +":\n" + load_and_save_content(chapter_dic_list[label]["content"])
+		final_script_text += chapter_script_text
+		print(final_script_text)
 
-
-
-#func _on_拾色器_button_up() -> void:
-	#pass # Replace with function body.
+func load_and_save_content(content, menu_level = 0):
+	var saved_text:String
+	
+	for node in content:
+		if node is Node:
+			print(node.name)
+			var script_temp :String
+			if node.script_node_type =="Label":
+				script_temp = "label" + node.label_key
+				
+			elif node.script_node_type=="Shown":
+				var show_temp:String
+				if node.show_select.selected==0:
+					show_temp = "show "
+				else:
+					show_temp = "hide "
+				script_temp ="\t" + show_temp + node.character_key +" "+node.selected_emo+" at "+node.selected_position+" with "+node.selected_transform
+			
+			elif node.script_node_type=="Word":
+				script_temp ="\t" + node.character_key + " " + node.selected_emo + " " + "\"" +node.word.text+ "\"" +" with "+node.selected_transform
+			
+			elif node.script_node_type=="Scene":
+				script_temp ="\t" + "sence " + node.scene_key +" with "+node.selected_transform
+			
+			elif node.script_node_type=="Jump":
+				script_temp ="\t" + "jump " + node.chapter_selecter.get_item_text(node.chapter_selecter.selected)
+			
+			elif node.script_node_type=="Menu":
+				script_temp ="\t" + "menu " +node.text.get_text()
+				for option_array in node.menu_option_node_dic:
+					load_and_save_content(option_array,menu_level+1)
+			
+			saved_text+=script_temp+"\n"
+			if menu_level !=0:
+				for i in range(menu_level):
+					saved_text = "\t"+saved_text
+	return saved_text
+	

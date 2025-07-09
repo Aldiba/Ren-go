@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://n5muth1ueimn"]
+
+[ext_resource type="StyleBox" uid="uid://b3k81lgevlpl6" path="res://样式/白色平面化按钮按下.tres" id="1_wrjvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3eg5n"]
+bg_color = Color(1, 1, 1, 0.882353)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.117647)
+
+[resource]
+OptionButton/colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+OptionButton/colors/font_focus_color = Color(0.0470588, 0.0392157, 0.0509804, 0.784314)
+OptionButton/colors/font_hover_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+OptionButton/colors/font_hover_pressed_color = Color(0.0483333, 0.04, 0.05, 0.901961)
+OptionButton/colors/font_outline_color = Color(0, 0, 0, 0.235294)
+OptionButton/colors/font_pressed_color = Color(0.0483333, 0.04, 0.05, 0.901961)
+OptionButton/constants/arrow_margin = 4
+OptionButton/constants/modulate_arrow = 5
+OptionButton/constants/outline_size = 0
+OptionButton/styles/focus = ExtResource("1_wrjvr")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_3eg5n")
+OptionButton/styles/normal = ExtResource("1_wrjvr")
+OptionButton/styles/pressed = ExtResource("1_wrjvr")

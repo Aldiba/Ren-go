@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1yofqigklqwo"]
+
+[ext_resource type="Script" uid="uid://b3vn3r4lowdmc" path="res://节点/章节节点相关/label连接贝塞尔曲线.gd" id="1_o4oc7"]
+
+[sub_resource type="Curve2D" id="Curve2D_smvvt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 200, 106, 106, 0, -200, 0, 0, 361, 623)
+}
+point_count = 2
+
+[node name="Connection_Line" type="Path2D"]
+curve = SubResource("Curve2D_smvvt")
+script = ExtResource("1_o4oc7")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://j5iogm6dljss"]
 
 [ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="1_stvf5"]
-[ext_resource type="Script" path="res://节点/transform_detail_ent.gd" id="2_h7jeh"]
+[ext_resource type="Script" uid="uid://carosr1m3kclb" path="res://节点/transform_detail_ent.gd" id="2_h7jeh"]
 [ext_resource type="LabelSettings" uid="uid://d1nl1jkvenf8j" path="res://样式/小黑色字体22.tres" id="3_b433x"]
 [ext_resource type="Theme" uid="uid://ya147i270jja" path="res://样式/尖锐输入框.tres" id="4_lgx32"]
 

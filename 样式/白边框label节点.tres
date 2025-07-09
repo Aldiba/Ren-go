@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bo3suu0d2joy0"]
+
+[ext_resource type="StyleBox" uid="uid://ds43f5a7m7lxi" path="res://样式/红底白框.tres" id="1_qm3dq"]
+
+[resource]
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = ExtResource("1_qm3dq")
+Button/styles/pressed = null

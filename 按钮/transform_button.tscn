@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ccm772yv34qyg" path="res://样式/白书签按钮.tres" id="1_1s4ai"]
 [ext_resource type="ButtonGroup" uid="uid://g0fyppm3o1bu" path="res://button_group/scene_button_group.tres" id="2_0vugg"]
-[ext_resource type="Script" path="res://按钮/transform_button.gd" id="3_gomuu"]
+[ext_resource type="Script" uid="uid://bm070wxx241k5" path="res://按钮/transform_button.gd" id="3_gomuu"]
 [ext_resource type="Theme" uid="uid://b15g4j5ggx7g6" path="res://样式/尖锐平面化_选择按钮.tres" id="4_n1b8r"]
 
 [node name="transform_button" type="Button"]
@@ -35,6 +35,7 @@ theme = ExtResource("4_n1b8r")
 theme_override_colors/font_hover_pressed_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+allow_reselect = true
 item_count = 4
 popup/item_0/text = "通用变换"
 popup/item_1/text = "场景变换"
@@ -43,6 +44,14 @@ popup/item_2/text = "角色变换"
 popup/item_2/id = 2
 popup/item_3/text = "角色位置"
 popup/item_3/id = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 110.0
+offset_top = 3.05176e-05
+offset_right = 150.0
+offset_bottom = 40.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,16 +1,71 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://drb2i6ns83dtj"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://drb2i6ns83dtj"]
 
-[ext_resource type="StyleBox" uid="uid://bt0o0cxfcnjbh" path="res://样式/灰色平面化按钮聚焦.tres" id="1_yq8bt"]
-[ext_resource type="StyleBox" uid="uid://crnlux3wunrow" path="res://样式/灰色平面化按钮悬空.tres" id="2_0okn2"]
-[ext_resource type="StyleBox" uid="uid://dhn2dmjffupu8" path="res://样式/灰色平面化按钮普通.tres" id="3_4qsy4"]
-[ext_resource type="StyleBox" uid="uid://bitjcytdvfmkh" path="res://样式/灰色平面化按钮按下.tres" id="4_sjijs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq477"]
+bg_color = Color(0.329158, 0.329158, 0.329158, 1)
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sj6fc"]
+bg_color = Color(1, 0.325, 0.25, 1)
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2e6cr"]
+bg_color = Color(1, 1, 1, 0.862745)
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mxpp"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxw07"]
+bg_color = Color(1, 1, 1, 0.780392)
+border_color = Color(0.8, 0.64, 0.32, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_size = 3
+shadow_offset = Vector2(0, 1)
 
 [resource]
-Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+Button/colors/font_focus_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+Button/colors/font_hover_color = Color(0.0483333, 0.04, 0.05, 0.862745)
+Button/colors/font_hover_pressed_color = Color(0.0483333, 0.04, 0.05, 0.784314)
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
-Button/constants/outline_size = 1
+Button/colors/font_pressed_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+Button/constants/outline_size = 0
 Button/font_sizes/font_size = 22
-Button/styles/focus = ExtResource("1_yq8bt")
-Button/styles/hover = ExtResource("2_0okn2")
-Button/styles/normal = ExtResource("3_4qsy4")
-Button/styles/pressed = ExtResource("4_sjijs")
+Button/styles/disabled = SubResource("StyleBoxFlat_kq477")
+Button/styles/focus = SubResource("StyleBoxFlat_sj6fc")
+Button/styles/hover = SubResource("StyleBoxFlat_2e6cr")
+Button/styles/normal = SubResource("StyleBoxFlat_3mxpp")
+Button/styles/pressed = SubResource("StyleBoxFlat_kxw07")

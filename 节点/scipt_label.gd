@@ -1,7 +1,8 @@
 extends Script_Root
 class_name Script_Label
 @onready var name_label = $name
-
+@export var label_key: String
+@export var label_node: Node
 # 定义Tween的目标值
 var target_scale = 1.05
 var normal_scale = 1.0

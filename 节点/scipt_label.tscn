@@ -1,8 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2jxbbgbitakc"]
 
-[ext_resource type="StyleBox" uid="uid://bg1uuqkgb1t58" path="res://样式/白色尖锐书签面板.tres" id="1_7ylau"]
-[ext_resource type="Script" path="res://节点/scipt_label.gd" id="2_11ajw"]
-[ext_resource type="LabelSettings" uid="uid://b5x1uyeyqq4ar" path="res://样式/装甲宋体白字26.tres" id="3_jdmvn"]
+[ext_resource type="Script" uid="uid://b1yvtbd5scb3q" path="res://节点/scipt_label.gd" id="2_11ajw"]
+[ext_resource type="LabelSettings" uid="uid://b8taxan0e7ll" path="res://样式/25黑色字体.tres" id="3_jrljc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6jaf"]
+bg_color = Color(0.9, 0.9, 0.9, 0.705882)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.901961)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
 
 [node name="label_ent" type="Panel"]
 custom_minimum_size = Vector2(500, 33)
@@ -18,9 +30,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = ExtResource("1_7ylau")
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6jaf")
 script = ExtResource("2_11ajw")
-script_node_type = "Lable"
+label_key = "Label"
+script_node_type = "Label"
 metadata/_edit_use_anchors_ = true
 
 [node name="name" type="Label" parent="."]
@@ -32,7 +45,7 @@ anchor_right = 0.554
 anchor_bottom = 1.0609
 offset_bottom = -0.0100021
 text = "章节名"
-label_settings = ExtResource("3_jdmvn")
+label_settings = ExtResource("3_jrljc")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

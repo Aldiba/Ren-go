@@ -98,7 +98,7 @@ func create_placeholder() -> Control:
 	#rect.color = Color(0.2, 0.6, 1.0, 0.1)  # 半透明蓝色
 	#rect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	#rect.custom_minimum_size = Vector2(0, 60)  # 占位符高度
-	rect.set_material(load("res://材质/动态边框.tres"))
+	rect.set_material(load("res://材质/细胞.tres"))
 	return rect
 
 # 更新占位符位置

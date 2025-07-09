@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2vybq2pdrqml"]
+
+[ext_resource type="Script" uid="uid://bc4kx81qqxxxu" path="res://data/label_browse.gd" id="1_ecal0"]
+[ext_resource type="PackedScene" uid="uid://b1yofqigklqwo" path="res://节点/章节节点相关/Connection_Line.tscn" id="3_ioesl"]
+[ext_resource type="Script" uid="uid://bslhphbmwyhur" path="res://节点/章节节点相关/line_manager.gd" id="3_y3bxq"]
+[ext_resource type="PackedScene" uid="uid://5g1pvm3q3bvm" path="res://节点/章节节点相关/label_node.tscn" id="4_vi3tw"]
+
+[sub_resource type="Curve2D" id="Curve2D_uyjwa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 200, 106, 106, 0, -200, 0, 0, 361, 623)
+}
+point_count = 2
+
+[node name="Label_Browse" type="GraphEdit"]
+custom_minimum_size = Vector2(1600, 900)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+snapping_enabled = false
+panning_scheme = 1
+zoom_min = 0.02
+zoom_max = 20.0
+minimap_size = Vector2(320, 180)
+show_zoom_label = true
+script = ExtResource("1_ecal0")
+
+[node name="Line_Manager" type="GraphElement" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3200.0
+offset_bottom = 1800.0
+grow_horizontal = 2
+grow_vertical = 2
+draggable = false
+selectable = false
+script = ExtResource("3_y3bxq")
+
+[node name="Connection_Line" parent="Line_Manager" node_paths=PackedStringArray("start_node", "end_node") instance=ExtResource("3_ioesl")]
+curve = SubResource("Curve2D_uyjwa")
+start_node = NodePath("../../Label_Node")
+end_node = NodePath("../../Label_Node2")
+
+[node name="Label_Node" parent="." instance=ExtResource("4_vi3tw")]
+layout_mode = 0
+offset_left = 667.808
+offset_top = 253.007
+offset_right = 1067.81
+offset_bottom = 333.007
+grow_horizontal = 1
+grow_vertical = 1
+position_offset = Vector2(667.808, 253.007)
+
+[node name="Label_Node2" parent="." instance=ExtResource("4_vi3tw")]
+layout_mode = 0
+offset_left = 704.319
+offset_top = 568.9
+offset_right = 1104.32
+offset_bottom = 648.9
+grow_horizontal = 1
+grow_vertical = 1
+position_offset = Vector2(704.319, 568.9)

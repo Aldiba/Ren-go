@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://o2pp7lj0tcyg"]
+
+[ext_resource type="Shader" uid="uid://qnttmkhrf25e" path="res://材质/细胞.gdshader" id="1_fp87e"]
+
+[resource]
+shader = ExtResource("1_fp87e")
+shader_parameter/color = Vector4(0.1, 0.05, 0.335, 1)
+shader_parameter/scale = 3.0
+shader_parameter/disp = Vector2(0, 0)
+shader_parameter/speed = 0.4
+shader_parameter/nucleus = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/line = 1.0
+shader_parameter/layer1 = 1.0
+shader_parameter/layer2 = 1.0

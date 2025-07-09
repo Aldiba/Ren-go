@@ -22,7 +22,7 @@ func _on_button_pressed(button: Button):
 	active_button.set_pressed(true)
 
 	# 自定义外观变化或高亮
-	update_button_styles()
+	#update_button_styles()
 	
 func update_button_styles():
 	for button in get_children():

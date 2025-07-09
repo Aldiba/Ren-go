@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bj2l3fb41cdc0"]
+
+[ext_resource type="Shader" path="res://材质/魔法阵旋转投影.gdshader" id="1_xjq7v"]
+[ext_resource type="Texture2D" uid="uid://cviwccvcubtfc" path="res://tex/Icon/资源 6.png" id="2_jss4s"]
+
+[resource]
+shader = ExtResource("1_xjq7v")
+shader_parameter/rotation_speed = 2.0
+shader_parameter/core_color = Vector3(0.8, 0.4, 1)
+shader_parameter/time_breath_x = 0.5
+shader_parameter/time_breath_basic = 0.5
+shader_parameter/magic_circle_texture = ExtResource("2_jss4s")

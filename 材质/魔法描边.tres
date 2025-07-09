@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://w3xylw5sjkp6"]
+
+[ext_resource type="Shader" uid="uid://cwotbwygpldpc" path="res://材质/魔法描边.gdshader" id="1_afp1v"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qt88o"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dqe4e"]
+noise = SubResource("FastNoiseLite_qt88o")
+
+[resource]
+shader = ExtResource("1_afp1v")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_dqe4e")
+shader_parameter/glow_color = Color(0.3, 0.6, 1, 1)
+shader_parameter/glow_intensity = 1.0
+shader_parameter/scroll_speed = 1.225

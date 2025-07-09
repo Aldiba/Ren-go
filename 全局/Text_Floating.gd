@@ -1,6 +1,5 @@
 extends Node
 
-
 func display_text(value:String,font_size:int,position:Vector2,color:Color=Color.WHITE):
 
 	var number = Label.new()
@@ -32,21 +31,3 @@ func display_text(value:String,font_size:int,position:Vector2,color:Color=Color.
 	
 	await tween.finished
 	number.queue_free()
-
-func adjust_color(color: Color):
-	## 获取颜色的 HSV 值
-	#var h = color.h
-	#var s = color.s
-	#var v = color.v
-#
-	## 自定义梯度调整参数，可以根据需求调整这些值
-	#var max_saturation = 0.65  # 最大允许的饱和度
-	#var max_value = 0.7     # 最大允许的亮度
-#
-	## 逐渐调整饱和度和亮度，确保不超过设定的最大值
-	#s = lerp(s, max_saturation, s / 1.0) if s > max_saturation else s
-	#v = lerp(v, max_value, v / 1.0) if v > max_value else v
-#
-	## 返回调整后的颜色
-	#return Color.from_hsv(h, s, v, color.a)
-	pass

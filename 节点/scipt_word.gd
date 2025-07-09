@@ -1,33 +1,31 @@
 extends Script_Root
 class_name Script_Word
-@onready var word = $word
-@onready var tex = $tex
-@onready var name_label = $name
-@onready var color_show = $ColorRect
-@onready var emo_select = $Emo_Select
-@onready var transform_select = $Transform_Select
+@onready var word = %word
+@onready var tex = %tex
+@onready var name_label = %name
+@onready var color_show = %ColorRect
+@onready var emo_select = %Emo_Select
+@onready var transform_select = %Transform_Select
 
 # 定义Tween的目标值
 var target_scale = 1.05
 var normal_scale = 1.0
 var normal_color = Color(0.9, 0.9, 0.9, 0.8)
 var highlight_color = Color(1, 1, 1, 0.9)
-var emo= ""
 
 @export var character_key : String
-#func _init() -> void:
-	#if get_parent():
-		#get_parent().queue_sort() 
+var selected_emo:String
+var selected_transform:String
 var stylebox = get_theme_stylebox("theme_override_styles/panel","panel")
+
 func _ready():
 	set_pivot_offset(Vector2(size.x / 2, size.y / 2))
 	#add_theme_stylebox_override("panel", stylebox)
 	#stylebox.set_local_to_scene(true)
 
-func _on_word_resized() -> void:
-	#size.y = word.size.y+38
-	custom_minimum_size.y = word.size.y+45
-	set_pivot_offset(Vector2(custom_minimum_size.x / 2, custom_minimum_size.y / 2))
+#func _on_word_resized() -> void:
+	#custom_minimum_size.y = word.size.y+60
+	#set_pivot_offset(Vector2(custom_minimum_size.x / 2, custom_minimum_size.y / 2))
 
 
 # 当鼠标进入时触发Tween动画
@@ -59,9 +57,13 @@ func _on_word_resized() -> void:
 #
 
 func _on_emo_select_item_selected(index: int) -> void:
-	emo = emo_select.get_item_text(index)
-	update_img(emo)
+	selected_emo = emo_select.get_item_text(index)
+	update_img(selected_emo)
 	
 func update_img(emo_temp):
 	tex.set_button_icon(GlobalDict.character_dic_list[character_key]["img"][emo_temp]["icon"])
 	
+
+
+func _on_transform_select_item_selected(index: int) -> void:
+	selected_transform = transform_select.get_item_text(index)

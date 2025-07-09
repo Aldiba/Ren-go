@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://utaq4jv0ljdo"]
+
+[ext_resource type="Shader" uid="uid://bb2pwpyyum6v6" path="res://节点/毛玻璃.gdshader" id="1_dd6dg"]
+
+[resource]
+shader = ExtResource("1_dd6dg")
+shader_parameter/lod = 4.0
+shader_parameter/alpha = 0.8
+shader_parameter/glass_color = Color(0.8, 0.8, 0.8, 1)

@@ -1,37 +1,47 @@
-[gd_scene load_steps=37 format=3 uid="uid://0gv2j3w1ku0v"]
+[gd_scene load_steps=54 format=3 uid="uid://0gv2j3w1ku0v"]
 
-[ext_resource type="Script" path="res://data/main.gd" id="1_up6yx"]
-[ext_resource type="Script" path="res://data/脚本节点面板.gd" id="2_he2ne"]
-[ext_resource type="Script" path="res://data/左侧栏.gd" id="3_ig4pi"]
+[ext_resource type="Script" uid="uid://b0tjb8nc7rts5" path="res://data/main.gd" id="1_up6yx"]
+[ext_resource type="Script" uid="uid://drdtdlm24rblw" path="res://data/脚本面板.gd" id="2_7fjdr"]
+[ext_resource type="Script" uid="uid://csfhqxgffim24" path="res://data/脚本节点面板.gd" id="2_he2ne"]
+[ext_resource type="Script" uid="uid://bc4kx81qqxxxu" path="res://data/label_browse.gd" id="3_gsw04"]
+[ext_resource type="Script" uid="uid://b0nxwpu4mfhhg" path="res://data/左侧栏.gd" id="3_ig4pi"]
 [ext_resource type="PackedScene" uid="uid://c2jxbbgbitakc" path="res://节点/scipt_label.tscn" id="4_7boho"]
 [ext_resource type="Theme" uid="uid://drb2i6ns83dtj" path="res://样式/灰色平面化按钮.tres" id="4_lhldk"]
 [ext_resource type="StyleBox" uid="uid://cbxywddhbmu3e" path="res://样式/白书签普通.tres" id="4_wo252"]
+[ext_resource type="Script" uid="uid://d2fn82mntbhev" path="res://data/摄像头.gd" id="4_xka76"]
 [ext_resource type="StyleBox" uid="uid://djdjh1dutph23" path="res://样式/白书签按下.tres" id="5_1l3bd"]
-[ext_resource type="Script" path="res://data/详情面板.gd" id="5_3vahx"]
+[ext_resource type="Script" uid="uid://dju6td1nk6jao" path="res://data/详情面板.gd" id="5_3vahx"]
+[ext_resource type="Material" uid="uid://biarfxqe02lho" path="res://材质/平面化多层彩块.tres" id="5_adt1o"]
+[ext_resource type="Script" uid="uid://dtl4oa5vatr5j" path="res://节点/章节节点相关/章节页面.gd" id="5_bef6j"]
 [ext_resource type="PackedScene" uid="uid://4w7teonni1wp" path="res://节点/scipt_scene_ent.tscn" id="5_ikx86"]
-[ext_resource type="Script" path="res://data/人物选择列表VBox.gd" id="6_67yvs"]
+[ext_resource type="Script" uid="uid://d0loxd87exfxm" path="res://data/人物选择列表VBox.gd" id="6_67yvs"]
 [ext_resource type="PackedScene" uid="uid://cecm51itc2gro" path="res://节点/scipt_show.tscn" id="6_o3w8w"]
 [ext_resource type="StyleBox" uid="uid://c1u2ut2uvdrnq" path="res://样式/凹槽左.tres" id="6_vw2lj"]
 [ext_resource type="PackedScene" uid="uid://d1jlc6x7d4fox" path="res://节点/scipt_word.tscn" id="7_d8f7i"]
 [ext_resource type="PackedScene" uid="uid://l1kff60j5myg" path="res://窗口/新建角色窗口.tscn" id="7_y7yfr"]
 [ext_resource type="PackedScene" uid="uid://dcsrowflcm5yv" path="res://窗口/新建场景窗口.tscn" id="8_hen11"]
-[ext_resource type="StyleBox" uid="uid://beg6dlkg1npc7" path="res://样式/勾线平面化左巧克力.tres" id="8_vlmly"]
+[ext_resource type="PackedScene" uid="uid://d2dme8e5kq7jp" path="res://节点/scipt_jump.tscn" id="10_qfpi4"]
+[ext_resource type="PackedScene" uid="uid://k1x4c88iouhw" path="res://节点/scipt_menu.tscn" id="11_1msxh"]
 [ext_resource type="StyleBox" uid="uid://l86ujr6v3bqj" path="res://样式/凹槽右.tres" id="11_xgc8f"]
 [ext_resource type="Theme" uid="uid://di0omqgxqbhew" path="res://样式/书签容器.tres" id="12_8xh5i"]
+[ext_resource type="Material" uid="uid://utaq4jv0ljdo" path="res://材质/毛玻璃2.tres" id="12_bef6j"]
 [ext_resource type="StyleBox" uid="uid://eftidsasuilp" path="res://样式/白色尖锐面板.tres" id="12_fgf1i"]
-[ext_resource type="LabelSettings" uid="uid://bi6lxau5sb0yt" path="res://样式/小白色字体.tres" id="12_fjegq"]
-[ext_resource type="Script" path="res://data/节点可拖动式容器.gd" id="12_kl0p3"]
-[ext_resource type="Script" path="res://data/左侧栏节点选择器.gd" id="13_ch67x"]
+[ext_resource type="Script" uid="uid://1u8sdn067bom" path="res://data/节点可拖动式容器.gd" id="12_kl0p3"]
+[ext_resource type="Script" uid="uid://b1pkt0ka0rjl7" path="res://data/左侧栏节点选择器.gd" id="13_ch67x"]
 [ext_resource type="Theme" uid="uid://b5lek4acx5lto" path="res://样式/白边框深蓝底窗口.tres" id="13_fp758"]
 [ext_resource type="PackedScene" uid="uid://dwyrkt3j5puuf" path="res://窗口/头像裁剪窗口.tscn" id="13_ogqes"]
 [ext_resource type="PackedScene" uid="uid://jnrd0n4kl7iy" path="res://窗口/新建差分窗口.tscn" id="14_g2y88"]
-[ext_resource type="Script" path="res://data/normal_trans_vbox.gd" id="16_00ddn"]
-[ext_resource type="Script" path="res://data/pos_trans_vbox.gd" id="17_c6i3m"]
+[ext_resource type="Script" uid="uid://chk4x6hvcwvo6" path="res://data/normal_trans_vbox.gd" id="16_00ddn"]
+[ext_resource type="Script" uid="uid://d2ensmpj4xu7e" path="res://data/pos_trans_vbox.gd" id="17_c6i3m"]
+[ext_resource type="PackedScene" uid="uid://cetof3y016min" path="res://按钮/character_button.tscn" id="18_ni427"]
 [ext_resource type="PackedScene" uid="uid://b5u2mqpt5usbl" path="res://窗口/新建变换窗口.tscn" id="18_qkkn5"]
-[ext_resource type="StyleBox" uid="uid://b2tjot7kgqf2t" path="res://样式/勾线平面化右巧克力.tres" id="25_ee1rq"]
+[ext_resource type="StyleBox" uid="uid://bo2vbspif2v1k" path="res://样式/白书签聚焦.tres" id="20_j3vgy"]
+[ext_resource type="Script" uid="uid://vm0wwio63q5e" path="res://data/开始编辑.gd" id="21_s7eoo"]
 [ext_resource type="Texture2D" uid="uid://cjen05illuhvp" path="res://tex/10040101.png" id="25_ithsp"]
-[ext_resource type="StyleBox" uid="uid://d4ky4pn8gy0ai" path="res://样式/勾线尖锐面板.tres" id="31_o63pd"]
+[ext_resource type="StyleBox" uid="uid://ciexqmymwtoaf" path="res://样式/白色勾线平面化右.tres" id="31_s7eoo"]
 [ext_resource type="LabelSettings" uid="uid://pm422iiy5605" path="res://样式/红字.tres" id="32_816ha"]
+[ext_resource type="LabelSettings" uid="uid://ss7xrl04au3m" path="res://样式/描边小白色字体.tres" id="33_s7eoo"]
+[ext_resource type="StyleBox" uid="uid://cwv3spoo3ofqw" path="res://样式/白勾线尖锐面板.tres" id="39_bef6j"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qds23"]
 resource_local_to_scene = true
@@ -41,7 +51,53 @@ load_path = "res://.godot/imported/icon.svg-15c3387d02c329c2b9f89babd76abd41.cte
 resource_local_to_scene = true
 load_path = "res://.godot/imported/神秘人占位符.png-31ec9fa55aa6e937e0bae5f3fc5262aa.ctex"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adt1o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkal1"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s7eoo"]
+font_size = 50
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rpmdy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bef6j"]
+resource_local_to_scene = true
+bg_color = Color(0.111, 0.15, 0.15, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.32, 0.376, 0.8, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di6jm"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 0.901961)
+corner_radius_top_left = 5
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 5
+corner_detail = 10
+shadow_color = Color(0, 0, 0, 0.0784314)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="Theme" id="Theme_s7eoo"]
+resource_local_to_scene = true
+Button/colors/font_color = Color(0.0483333, 0.04, 0.05, 0.901961)
+Button/font_sizes/font_size = 28
+Button/styles/focus = ExtResource("20_j3vgy")
+Button/styles/hover = SubResource("StyleBoxFlat_bef6j")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_bef6j")
+Button/styles/normal = SubResource("StyleBoxFlat_di6jm")
+Button/styles/pressed = ExtResource("20_j3vgy")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bef6j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7k1pt"]
 line_spacing = 0.0
@@ -109,38 +165,113 @@ init_transform_dic = {
 43: ["向右擦除", "wiperight"]
 }
 
-[node name="Control" type="Control" parent="."]
+[node name="Background" type="Panel" parent="."]
+material = ExtResource("5_adt1o")
+custom_minimum_size = Vector2(1600, 900)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Browse" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(1600, 900)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+stretch = true
+script = ExtResource("3_gsw04")
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.999556
+[node name="SubViewport" type="SubViewport" parent="Label_Browse"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="Label_Node_Port" type="Control" parent="Label_Browse/SubViewport"]
+unique_name_in_owner = true
+layout_mode = 3
+anchor_right = 0.025
+anchor_bottom = 0.044
 offset_bottom = 0.399998
-color = Color(0.2, 0.18, 0.181333, 1)
-metadata/_edit_use_anchors_ = true
+script = ExtResource("5_bef6j")
 
-[node name="Script_Browse" type="Control" parent="."]
-layout_mode = 1
-anchor_left = 0.16875
-anchor_right = 0.83125
-anchor_bottom = 0.999556
-offset_bottom = 0.399998
-metadata/_edit_use_anchors_ = true
+[node name="Line_port" type="Control" parent="Label_Browse/SubViewport/Label_Node_Port"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Script_Browse"]
-clip_contents = false
+[node name="Label_port" type="HBoxContainer" parent="Label_Browse/SubViewport/Label_Node_Port"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 100
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Label_Browse/SubViewport"]
+
+[node name="Camera2D" type="Camera2D" parent="Label_Browse/SubViewport/CanvasLayer"]
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("4_xka76")
+
+[node name="Script_Browse" type="Panel" parent="."]
+unique_name_in_owner = true
+material = ExtResource("12_bef6j")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_adt1o")
+script = ExtResource("2_7fjdr")
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Script_Browse"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Script_Browse/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1600, 900)
+size_2d_override_stretch = true
+render_target_update_mode = 0
+
+[node name="Script_Background" type="Panel" parent="Script_Browse/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+visible = false
+material = ExtResource("12_bef6j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jkal1")
+
+[node name="现在没有内容" type="Label" parent="Script_Browse"]
+visible = false
+layout_mode = 2
+offset_left = 514.0
+offset_top = 324.0
+offset_right = 1064.0
+offset_bottom = 375.0
+text = "点击章节节点来显示内容"
+label_settings = SubResource("LabelSettings_s7eoo")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Script_Browse"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 270.0
+offset_right = -270.0
 script = ExtResource("2_he2ne")
 metadata/_edit_use_anchors_ = true
 
@@ -148,12 +279,13 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="SciptLabel" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("4_7boho")]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("39_bef6j")
 
 [node name="scene_ent" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("5_ikx86")]
 layout_mode = 2
@@ -164,13 +296,96 @@ layout_mode = 2
 [node name="word_ent2" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("7_d8f7i")]
 layout_mode = 2
 
+[node name="jump_ent" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("10_qfpi4")]
+layout_mode = 2
+
+[node name="word_ent3" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("11_1msxh")]
+layout_mode = 2
+
+[node name="脚本推拉栏按钮上" type="Button" parent="Script_Browse"]
+visible = false
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_right = -55.0
+offset_bottom = 180.0
+rotation = -1.5708
+theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("4_wo252")
+theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
+theme_override_styles/hover = ExtResource("4_wo252")
+theme_override_styles/pressed = ExtResource("5_1l3bd")
+theme_override_styles/normal = ExtResource("4_wo252")
+toggle_mode = true
+text = "▶"
+metadata/_edit_use_anchors_ = true
+
+[node name="脚本推拉栏按钮下" type="Button" parent="Script_Browse"]
+visible = false
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_top = -0.000427246
+offset_right = 125.0
+offset_bottom = 180.0
+rotation = 1.5708
+theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("4_wo252")
+theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
+theme_override_styles/hover = ExtResource("4_wo252")
+theme_override_styles/pressed = ExtResource("5_1l3bd")
+theme_override_styles/normal = ExtResource("4_wo252")
+toggle_mode = true
+text = "▶"
+
+[node name="返回" type="Button" parent="Script_Browse"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.740125
+anchor_top = 0.945444
+anchor_right = 0.805029
+anchor_bottom = 0.986286
+offset_left = 0.799988
+offset_top = 0.0999756
+offset_right = -0.0466309
+offset_bottom = 0.342957
+theme = ExtResource("4_lhldk")
+text = "◁  返回
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="图片路径选择窗口" type="FileDialog" parent="Script_Browse/返回"]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 1
+size = Vector2i(235, 175)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
 [node name="左侧栏" type="Panel" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 1.009
 offset_right = 270.0
 offset_bottom = -8.10004
-theme_override_styles/panel = ExtResource("8_vlmly")
+theme_override_styles/panel = ExtResource("31_s7eoo")
 script = ExtResource("3_ig4pi")
 metadata/_edit_use_anchors_ = true
 
@@ -182,6 +397,7 @@ offset_bottom = 0.399994
 metadata/_edit_use_anchors_ = true
 
 [node name="当前文件路径" type="LineEdit" parent="左侧栏/文件选择面板"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.0526316
@@ -189,11 +405,14 @@ anchor_right = 0.971665
 anchor_bottom = 0.285962
 offset_right = -0.0379333
 offset_bottom = -0.0330009
+theme_override_colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = ExtResource("6_vw2lj")
 theme_override_styles/normal = ExtResource("6_vw2lj")
 metadata/_edit_use_anchors_ = true
 
 [node name="导入按钮" type="Button" parent="左侧栏/文件选择面板"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.345865
@@ -206,6 +425,7 @@ text = "导入"
 metadata/_edit_use_anchors_ = true
 
 [node name="保存按钮" type="Button" parent="左侧栏/文件选择面板"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.330961
@@ -232,6 +452,7 @@ text = "另存为"
 metadata/_edit_use_anchors_ = true
 
 [node name="开始编辑" type="Button" parent="左侧栏/文件选择面板"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.729323
@@ -240,7 +461,9 @@ anchor_bottom = 0.984692
 offset_right = -0.100006
 offset_bottom = 0.0359955
 theme = ExtResource("4_lhldk")
+disabled = true
 text = "开始编辑"
+script = ExtResource("21_s7eoo")
 metadata/_edit_use_anchors_ = true
 
 [node name="路径选择窗口" type="FileDialog" parent="左侧栏/文件选择面板"]
@@ -256,6 +479,16 @@ initial_position = 1
 
 [node name="保存确认窗口" type="ConfirmationDialog" parent="左侧栏/文件选择面板"]
 initial_position = 1
+
+[node name="导出路径选择窗口" type="FileDialog" parent="左侧栏/文件选择面板"]
+auto_translate_mode = 1
+initial_position = 1
+dialog_hide_on_ok = true
+dialog_autowrap = true
+cancel_button_text = "取消"
+access = 2
+show_hidden_files = true
+use_native_dialog = true
 
 [node name="节点选择器" type="TabContainer" parent="左侧栏"]
 layout_mode = 1
@@ -278,8 +511,8 @@ metadata/_tab_index = 0
 [node name="ScrollContainer" type="ScrollContainer" parent="左侧栏/节点选择器/角色"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.975028
-anchor_bottom = 0.88435
+anchor_right = 1.00362
+anchor_bottom = 0.883673
 offset_right = -0.983002
 offset_bottom = 0.151978
 theme_override_styles/panel = ExtResource("6_vw2lj")
@@ -291,18 +524,23 @@ layout_mode = 2
 theme_override_constants/separation = 5
 script = ExtResource("6_67yvs")
 
+[node name="character_button" parent="左侧栏/节点选择器/角色/ScrollContainer/VBoxContainer" instance=ExtResource("18_ni427")]
+layout_mode = 2
+theme = SubResource("Theme_s7eoo")
+button_group = SubResource("ButtonGroup_bef6j")
+
 [node name="角色添加按钮" type="Button" parent="左侧栏/节点选择器/角色"]
 layout_mode = 2
 anchor_left = 0.028
 anchor_top = 0.907
-anchor_right = 0.943
+anchor_right = 0.917
 anchor_bottom = 0.962
 offset_left = 0.131996
 offset_top = -0.295715
-offset_right = -6.92206
-offset_bottom = -0.335754
+offset_right = 0.098053
+offset_bottom = -0.335815
 theme = ExtResource("4_lhldk")
-text = "添加新角色"
+text = "+       添加新角色"
 metadata/_edit_use_anchors_ = true
 
 [node name="新建角色窗口" parent="左侧栏/节点选择器/角色/角色添加按钮" instance=ExtResource("7_y7yfr")]
@@ -318,8 +556,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.975028
 anchor_bottom = 0.88435
-offset_right = -0.983002
-offset_bottom = 0.151978
+offset_right = 8.0
+offset_bottom = 11.0
 theme_override_styles/panel = ExtResource("6_vw2lj")
 script = ExtResource("12_kl0p3")
 metadata/_edit_use_anchors_ = true
@@ -356,8 +594,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.97159
 anchor_bottom = 0.454319
-offset_right = -0.0169983
-offset_bottom = 0.255981
+offset_right = 8.0
+offset_bottom = 11.0
 theme_override_styles/panel = ExtResource("6_vw2lj")
 script = ExtResource("12_kl0p3")
 metadata/_edit_use_anchors_ = true
@@ -372,8 +610,8 @@ anchors_preset = -1
 anchor_top = 0.461538
 anchor_right = 0.97159
 anchor_bottom = 0.884264
-offset_right = -0.0169983
-offset_bottom = 0.255981
+offset_right = 8.0
+offset_bottom = 11.0
 theme_override_styles/panel = ExtResource("6_vw2lj")
 script = ExtResource("12_kl0p3")
 metadata/_edit_use_anchors_ = true
@@ -400,15 +638,17 @@ text = "添加新变换"
 visible = false
 
 [node name="推拉栏按钮" type="Button" parent="左侧栏"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.996296
 anchor_right = 1.0
 offset_right = 30.0
 offset_bottom = 92.0
-theme_override_colors/font_hover_color = Color(0.52549, 0.176471, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.564706, 0.2, 0.172549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_hover_color = Color(0.79, 0.484533, 0.3318, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = ExtResource("4_wo252")
 theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
@@ -420,6 +660,7 @@ text = "◀"
 metadata/_edit_use_anchors_ = true
 
 [node name="右侧栏" type="Panel" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.001
@@ -428,7 +669,7 @@ anchor_bottom = 1.0
 offset_left = -271.6
 offset_right = -1.59985
 offset_bottom = 0.000427246
-theme_override_styles/panel = ExtResource("25_ee1rq")
+theme_override_styles/panel = ExtResource("31_s7eoo")
 script = ExtResource("5_3vahx")
 metadata/_edit_use_anchors_ = true
 
@@ -457,7 +698,7 @@ offset_left = 11.0
 offset_right = 58.0
 offset_bottom = 24.0
 text = "键值:"
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 
 [node name="键值Line2D" type="Label" parent="右侧栏/Character_Panel/Message_Panel/键值"]
 layout_mode = 1
@@ -468,7 +709,7 @@ anchor_bottom = 0.958
 offset_left = 0.00999451
 offset_right = 0.0209961
 offset_bottom = 1.008
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 metadata/_edit_use_anchors_ = true
 
 [node name="角色名" type="Label" parent="右侧栏/Character_Panel/Message_Panel"]
@@ -478,20 +719,23 @@ offset_top = 46.0
 offset_right = 78.0
 offset_bottom = 70.0
 text = "角色名:"
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 
 [node name="角色名Line2D" type="LineEdit" parent="右侧栏/Character_Panel/Message_Panel/角色名"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.164
-anchor_top = -0.25
-anchor_right = 3.866
-anchor_bottom = 1.042
+anchor_left = 1.15839
+anchor_top = -0.230769
+anchor_right = 3.1588
+anchor_bottom = 1.07723
 offset_left = 0.012001
 offset_right = -0.0220032
 offset_bottom = -0.00800133
+theme_override_colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = ExtResource("11_xgc8f")
 theme_override_styles/normal = ExtResource("11_xgc8f")
+metadata/_edit_use_anchors_ = true
 
 [node name="角色名改变确认窗口" type="ConfirmationDialog" parent="右侧栏/Character_Panel/Message_Panel/角色名"]
 title = "是否改变角色名"
@@ -506,18 +750,21 @@ offset_top = 86.0
 offset_right = 78.0
 offset_bottom = 110.0
 text = "代表色:"
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 
 [node name="拾色器" type="ColorPickerButton" parent="右侧栏/Character_Panel/Message_Panel/颜色"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.16448
-anchor_top = -0.0413332
-anchor_right = 3.86564
-anchor_bottom = 1.20833
+anchor_left = 1.15878
+anchor_top = -0.0381537
+anchor_right = 3.20729
+anchor_bottom = 1.19231
 offset_left = -0.0200043
 offset_top = -0.00800323
 offset_right = 0.00198364
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="颜色改变确认窗口" type="ConfirmationDialog" parent="右侧栏/Character_Panel/Message_Panel/颜色"]
@@ -541,9 +788,9 @@ metadata/_edit_use_anchors_ = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.268965
+anchor_left = 0.259261
 anchor_top = -0.0247295
-anchor_right = 1.00007
+anchor_right = 1.00008
 anchor_bottom = 0.834797
 offset_right = -0.0200043
 offset_bottom = -0.114002
@@ -564,15 +811,16 @@ metadata/_edit_use_anchors_ = true
 [node name="头像裁剪按钮" type="Button" parent="右侧栏/Character_Panel/立绘展示面板"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0666665
+anchor_left = 0.111
 anchor_top = 0.847493
-anchor_right = 0.949197
-anchor_bottom = 0.902565
-offset_top = -0.328003
-offset_right = 1.71863
-offset_bottom = 0.0405273
+anchor_right = 0.63
+anchor_bottom = 0.906
+offset_left = 0.0302353
+offset_top = 1.67188
+offset_right = -0.0986176
+offset_bottom = -0.182068
 theme = ExtResource("4_lhldk")
-text = "裁剪头像"
+text = "✄  裁剪头像"
 metadata/_edit_use_anchors_ = true
 
 [node name="是否应用于该角色所有立绘" type="ConfirmationDialog" parent="右侧栏/Character_Panel/立绘展示面板/头像裁剪按钮"]
@@ -590,13 +838,14 @@ visible = false
 [node name="选择图片按钮" type="Button" parent="右侧栏/Character_Panel/立绘展示面板"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0666665
-anchor_top = 0.912408
-anchor_right = 0.949197
-anchor_bottom = 0.96748
-offset_top = -0.328003
-offset_right = 1.71863
-offset_bottom = 0.0405273
+anchor_left = 0.111
+anchor_top = 0.924
+anchor_right = 0.63
+anchor_bottom = 0.98
+offset_left = 0.0302353
+offset_top = 0.171814
+offset_right = -0.0986786
+offset_bottom = -0.0599976
 theme = ExtResource("4_lhldk")
 text = "更新该立绘"
 metadata/_edit_use_anchors_ = true
@@ -605,7 +854,7 @@ metadata/_edit_use_anchors_ = true
 auto_translate_mode = 1
 title = "Open a File"
 initial_position = 1
-size = Vector2i(220, 175)
+size = Vector2i(235, 175)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
@@ -614,9 +863,9 @@ use_native_dialog = true
 [node name="差分选择面板" type="Panel" parent="右侧栏/Character_Panel/立绘展示面板"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.028
-anchor_top = -0.025
-anchor_right = 0.262
+anchor_left = 0.000444448
+anchor_top = -0.0250001
+anchor_right = 0.262891
 anchor_bottom = 0.834924
 offset_left = -0.12
 offset_top = 0.175093
@@ -630,42 +879,43 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.029
-anchor_top = -0.11
-anchor_right = 1.403
-anchor_bottom = -0.065
-offset_left = 0.0280304
-offset_top = 1.16
-offset_right = -39.973
-offset_bottom = 0.140003
+anchor_top = -0.129583
+anchor_right = 1.719
+anchor_bottom = -0.083
+offset_left = 0.0280305
+offset_top = 0.0480003
+offset_right = 0.018074
+offset_bottom = 0.14777
 text = "差分键值:"
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
+metadata/_edit_use_anchors_ = true
 
 [node name="键值Line2D" type="Label" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/Emo_Label"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.06885
-anchor_top = -0.0416667
-anchor_right = 3.01125
-anchor_bottom = 0.999667
-offset_left = 0.00999451
-offset_right = 0.0209961
-offset_bottom = 1.008
-label_settings = ExtResource("12_fjegq")
+anchor_left = 1.06548
+anchor_top = -0.0384615
+anchor_right = 2.439
+anchor_bottom = 1.0
+offset_left = -0.00605774
+offset_right = 0.0274048
+offset_bottom = 1.00012
+label_settings = ExtResource("33_s7eoo")
 metadata/_edit_use_anchors_ = true
 
 [node name="差分添加按钮" type="Button" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.17328
-anchor_top = -0.0649928
-anchor_right = 3.96365
-anchor_bottom = -0.00859712
+anchor_left = -0.10215
+anchor_top = -0.0703889
+anchor_right = 1.79341
+anchor_bottom = -0.00860431
 offset_left = 0.0279999
 offset_top = 0.136002
-offset_right = 0.0239868
-offset_bottom = -0.22
+offset_right = 0.00184631
+offset_bottom = -0.216228
 theme = ExtResource("4_lhldk")
-text = "添加差分"
+text = "+  添加差分"
 metadata/_edit_use_anchors_ = true
 
 [node name="Error_emo_add_window" type="AcceptDialog" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/差分添加按钮"]
@@ -711,7 +961,7 @@ offset_left = 11.0
 offset_right = 58.0
 offset_bottom = 24.0
 text = "键值:"
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 
 [node name="键值Line2D" type="Label" parent="右侧栏/Scene_Panel/键值"]
 layout_mode = 1
@@ -722,7 +972,7 @@ anchor_bottom = 0.958
 offset_left = 0.00999451
 offset_right = 0.0209961
 offset_bottom = 1.008
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 
 [node name="场景名" type="Label" parent="右侧栏/Scene_Panel"]
 layout_mode = 0
@@ -731,7 +981,7 @@ offset_top = 46.0
 offset_right = 78.0
 offset_bottom = 70.0
 text = "场景名:"
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 
 [node name="场景名Line2D" type="LineEdit" parent="右侧栏/Scene_Panel/场景名"]
 layout_mode = 1
@@ -764,7 +1014,7 @@ metadata/_edit_use_anchors_ = true
 auto_translate_mode = 1
 title = "Open a File"
 initial_position = 1
-size = Vector2i(220, 175)
+size = Vector2i(235, 175)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
@@ -780,7 +1030,7 @@ anchor_bottom = 0.351238
 offset_left = -1.00001
 offset_right = -0.0200195
 offset_bottom = -0.114014
-theme_override_styles/panel = ExtResource("31_o63pd")
+theme_override_styles/panel = ExtResource("39_bef6j")
 metadata/_edit_use_anchors_ = true
 
 [node name="Tex" type="TextureRect" parent="右侧栏/Scene_Panel/Image_Panel"]
@@ -809,7 +1059,7 @@ offset_left = 11.0
 offset_right = 58.0
 offset_bottom = 24.0
 text = "键值:"
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 
 [node name="键值Line2D" type="Label" parent="右侧栏/Transform_Panel/键值"]
 layout_mode = 1
@@ -819,7 +1069,7 @@ anchor_right = 5.511
 anchor_bottom = 1.0
 offset_left = 0.00999451
 offset_right = -0.0170898
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 
 [node name="变换名" type="Label" parent="右侧栏/Transform_Panel"]
 layout_mode = 0
@@ -828,7 +1078,7 @@ offset_top = 46.0
 offset_right = 78.0
 offset_bottom = 70.0
 text = "变换名:"
-label_settings = ExtResource("12_fjegq")
+label_settings = ExtResource("33_s7eoo")
 
 [node name="变换名Line2D" type="LineEdit" parent="右侧栏/Transform_Panel/变换名"]
 custom_minimum_size = Vector2(182, 31)
@@ -886,6 +1136,7 @@ label_settings = SubResource("LabelSettings_7k1pt")
 vertical_alignment = 1
 
 [node name="推拉栏按钮" type="Button" parent="右侧栏"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00370325
@@ -895,11 +1146,10 @@ offset_right = 30.0
 offset_bottom = 184.0
 rotation = -3.14159
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.52549, 0.176471, 0, 1)
-theme_override_colors/font_hover_color = Color(0.64, 0.13824, 0.1024, 1)
-theme_override_colors/font_pressed_color = Color(0.52549, 0.176471, 0, 1)
-theme_override_colors/font_focus_color = Color(0.64, 0.13824, 0.1024, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = ExtResource("4_wo252")
 theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
@@ -930,7 +1180,14 @@ offset_right = 1279.0
 offset_bottom = 88.0
 label_settings = ExtResource("32_816ha")
 
+[connection signal="size_changed" from="Label_Browse/SubViewport" to="Label_Browse" method="_on_sub_viewport_size_changed"]
 [connection signal="mouse_entered" from="Script_Browse" to="Script_Browse/ScrollContainer" method="_on_script_browse_mouse_entered"]
+[connection signal="mouse_entered" from="Script_Browse/ScrollContainer" to="Script_Browse/ScrollContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Script_Browse/ScrollContainer" to="Script_Browse/ScrollContainer" method="_on_mouse_exited"]
+[connection signal="pressed" from="Script_Browse/脚本推拉栏按钮上" to="Script_Browse" method="_on_脚本推拉栏按钮上_pressed"]
+[connection signal="pressed" from="Script_Browse/脚本推拉栏按钮下" to="Script_Browse" method="_on_脚本推拉栏按钮下_pressed"]
+[connection signal="file_selected" from="Script_Browse/返回/图片路径选择窗口" to="." method="_on_图片路径选择窗口_file_selected"]
+[connection signal="text_changed" from="左侧栏/文件选择面板/当前文件路径" to="左侧栏/文件选择面板/开始编辑" method="_on_当前文件路径_text_changed"]
 [connection signal="text_submitted" from="左侧栏/文件选择面板/当前文件路径" to="." method="_on_当前文件路径_text_submitted"]
 [connection signal="pressed" from="左侧栏/文件选择面板/导入按钮" to="." method="_on_导入按钮_pressed"]
 [connection signal="pressed" from="左侧栏/文件选择面板/保存按钮" to="." method="_on_保存按钮_pressed"]
@@ -940,12 +1197,21 @@ label_settings = ExtResource("32_816ha")
 [connection signal="canceled" from="左侧栏/文件选择面板/路径修改确认窗口" to="." method="_on_路径修改确认窗口_canceled"]
 [connection signal="confirmed" from="左侧栏/文件选择面板/路径修改确认窗口" to="." method="_on_路径修改确认窗口_confirmed"]
 [connection signal="confirmed" from="左侧栏/文件选择面板/保存确认窗口" to="." method="_on_保存确认窗口_confirmed"]
+[connection signal="file_selected" from="左侧栏/文件选择面板/导出路径选择窗口" to="." method="_on_导出路径选择窗口_file_selected"]
 [connection signal="tab_selected" from="左侧栏/节点选择器" to="." method="_on_左侧栏标签选择_tab_selected"]
 [connection signal="tab_selected" from="左侧栏/节点选择器" to="左侧栏/节点选择器" method="_on_tab_selected"]
+[connection signal="mouse_entered" from="左侧栏/节点选择器/角色/ScrollContainer" to="左侧栏/节点选择器/角色/ScrollContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="左侧栏/节点选择器/角色/ScrollContainer" to="左侧栏/节点选择器/角色/ScrollContainer" method="_on_mouse_exited"]
 [connection signal="pressed" from="左侧栏/节点选择器/角色/角色添加按钮" to="." method="_on_角色添加按钮_pressed"]
 [connection signal="confirmed" from="左侧栏/节点选择器/角色/角色添加按钮/新建角色窗口" to="." method="_on_新建角色窗口_confirmed"]
+[connection signal="mouse_entered" from="左侧栏/节点选择器/场景/ScrollContainer" to="左侧栏/节点选择器/场景/ScrollContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="左侧栏/节点选择器/场景/ScrollContainer" to="左侧栏/节点选择器/场景/ScrollContainer" method="_on_mouse_exited"]
 [connection signal="pressed" from="左侧栏/节点选择器/场景/场景添加按钮" to="." method="_on_场景添加按钮_pressed"]
 [connection signal="confirmed" from="左侧栏/节点选择器/场景/场景添加按钮/新建场景窗口" to="." method="_on_新建场景窗口_confirmed"]
+[connection signal="mouse_entered" from="左侧栏/节点选择器/变换/Transform_Panel" to="左侧栏/节点选择器/变换/Transform_Panel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="左侧栏/节点选择器/变换/Transform_Panel" to="左侧栏/节点选择器/变换/Transform_Panel" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="左侧栏/节点选择器/变换/Position_Panel" to="左侧栏/节点选择器/变换/Position_Panel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="左侧栏/节点选择器/变换/Position_Panel" to="左侧栏/节点选择器/变换/Position_Panel" method="_on_mouse_exited"]
 [connection signal="pressed" from="左侧栏/节点选择器/变换/变换添加按钮" to="." method="_on_变换添加按钮_pressed"]
 [connection signal="confirmed" from="左侧栏/节点选择器/变换/变换添加按钮/新建变换输入窗口" to="." method="_on_新建变换输入窗口_confirmed"]
 [connection signal="pressed" from="左侧栏/推拉栏按钮" to="左侧栏" method="_on_推拉栏按钮_pressed"]

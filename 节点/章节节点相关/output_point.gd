@@ -1,0 +1,2 @@
+# OutputPoint.gd
+extends Control

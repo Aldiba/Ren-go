@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://byclawa5x2nsd"]
+
+[ext_resource type="Script" uid="uid://bluxhrbh0puiv" path="res://全局/global_dict.gd" id="1_ky8vd"]
+
+[node name="GlobalDict" type="Node"]
+script = ExtResource("1_ky8vd")
+global_label_info = {
+"name": "",
+"out_point": []
+}
+global_label_array = ["start", "quit", "after_load", "splashscreen", "before_main_menu", "main_menu", "after_warp", "hide_windows", "main_menu_screen", "load_screen", "save_screen", "preferences_screen", "joystick_preferences_screen"]
+label_scripts_dic = {
+"label": "",
+"label_script_array": []
+}
+single_script_dic = {
+"script": {},
+"type": ""
+}
+word_script = {
+"emo": "",
+"name": "",
+"trans": "",
+"word": ""
+}
+jump_script = {
+"goal_chapter": ""
+}
+show_script = {
+"emo": "",
+"name": "",
+"show": false,
+"trans": ""
+}
+scene_script = {
+"scene": "",
+"trans": ""
+}
+menu_script = {
+"menu_scripts_array": [],
+"options": [],
+"text": ""
+}
+menu_single_option = {
+"option_name": "",
+"option_text": ""
+}

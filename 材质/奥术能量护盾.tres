@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dufxe2c5h4tji"]
+
+[ext_resource type="Shader" path="res://材质/奥术能量护盾.gdshader" id="1_kie70"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w6ihi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4wrdn"]
+seamless = true
+noise = SubResource("FastNoiseLite_w6ihi")
+
+[resource]
+shader = ExtResource("1_kie70")
+shader_parameter/distortion_strength = 0.1
+shader_parameter/shield_color = Color(0.3, 0.498333, 1, 0.486275)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_4wrdn")

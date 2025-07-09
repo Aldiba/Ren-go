@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dcsrowflcm5yv"]
 
 [ext_resource type="Theme" uid="uid://b5lek4acx5lto" path="res://样式/白边框深蓝底窗口.tres" id="1_gd7g6"]
-[ext_resource type="Script" path="res://窗口/新建场景输入窗口.gd" id="2_vfdl5"]
+[ext_resource type="Script" uid="uid://e83b668rkoyk" path="res://窗口/新建场景输入窗口.gd" id="2_vfdl5"]
 [ext_resource type="LabelSettings" uid="uid://70v1thnq8dbt" path="res://样式/大白字.tres" id="3_uxhts"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p332m"]

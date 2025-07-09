@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bh5076qhx5hsc"]
 
 [ext_resource type="Theme" uid="uid://bhr4g01pl46sg" path="res://样式/白色圆角按钮.tres" id="1_j2u66"]
-[ext_resource type="Script" path="res://按钮/chara_emo_butt.gd" id="2_vy4sn"]
+[ext_resource type="Script" uid="uid://twnlmxw3ujh2" path="res://按钮/chara_emo_butt.gd" id="2_vy4sn"]
 
 [node name="character_emo_button" type="Button"]
 custom_minimum_size = Vector2(64, 64)
@@ -31,6 +31,7 @@ anchor_left = 0.03125
 anchor_top = 0.03125
 anchor_right = 0.96875
 anchor_bottom = 0.96875
+mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true

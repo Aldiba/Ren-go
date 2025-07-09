@@ -1,5 +1,6 @@
 extends RootLabelButton
 class_name TransformButton
+@onready var tex = $ColorRect
 @onready var transform_type = $OptionButton
 @onready var Root_node = $"../../../../../.."
 @export var transform_key : String

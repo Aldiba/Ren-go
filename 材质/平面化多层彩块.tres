@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://biarfxqe02lho"]
+
+[ext_resource type="Shader" uid="uid://cjb4bx1uqpbv3" path="res://材质/白色网格交替.gdshader" id="1_53ouw"]
+
+[resource]
+shader = ExtResource("1_53ouw")
+shader_parameter/time_speed = 0.25
+shader_parameter/uv_scale = 8.0
+shader_parameter/layers = 4
+shader_parameter/color_saturation = 1.0
+shader_parameter/pattern_detail = 1.0
+shader_parameter/contrast = 30.0
+shader_parameter/noise_intensity = 0.02
+shader_parameter/vignette = 0.2
+shader_parameter/base_color = Vector3(0.5, 0.8, 1)

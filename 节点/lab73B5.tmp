@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2vybq2pdrqml"]
+
+[ext_resource type="Script" path="res://data/label_browse.gd" id="1_ecal0"]
+[ext_resource type="PackedScene" uid="uid://d0m10t4mh26c0" path="res://节点/章节节点相关/label_graph_node.tscn" id="2_f2b4j"]
+[ext_resource type="PackedScene" uid="uid://b1yofqigklqwo" path="res://节点/章节节点相关/Connection_Line.tscn" id="3_ioesl"]
+[ext_resource type="Script" path="res://节点/章节节点相关/line_manager.gd" id="3_y3bxq"]
+
+[sub_resource type="Curve2D" id="Curve2D_uyjwa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 200, 106, 106, 0, -200, 0, 0, 361, 623)
+}
+point_count = 2
+
+[node name="Label_Browse" type="GraphEdit"]
+custom_minimum_size = Vector2(1600, 900)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -544.0
+offset_top = -194.0
+offset_right = 544.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+panning_scheme = 1
+zoom_min = 0.02
+zoom_max = 20.0
+minimap_size = Vector2(320, 180)
+show_zoom_label = true
+script = ExtResource("1_ecal0")
+
+[node name="Label_Node_Manager" type="GraphElement" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 80.0
+
+[node name="Label Graph Node" parent="Label_Node_Manager" instance=ExtResource("2_f2b4j")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 821.869
+offset_top = 208.587
+offset_right = 1221.87
+offset_bottom = 288.587
+grow_horizontal = 1
+grow_vertical = 1
+position_offset = Vector2(200, 300)
+
+[node name="Label Graph Node2" parent="Label_Node_Manager" instance=ExtResource("2_f2b4j")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 453.176
+offset_top = 412.004
+offset_right = 853.176
+offset_bottom = 492.004
+grow_horizontal = 1
+grow_vertical = 1
+position_offset = Vector2(773.414, 103.137)
+
+[node name="Line_Manager" type="GraphElement" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_y3bxq")
+
+[node name="Connection_Line" parent="Line_Manager" instance=ExtResource("3_ioesl")]
+curve = SubResource("Curve2D_uyjwa")
+
+[node name="GraphNode" type="GraphNode" parent="."]
+layout_mode = 0
+offset_left = 1818.24
+offset_top = 340.659
+offset_right = 1855.24
+offset_bottom = 406.659
+mouse_filter = 1
+position_offset = Vector2(1818.24, 340.659)
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+
+[node name="Label" type="Label" parent="GraphNode"]
+layout_mode = 2
+
+[node name="GraphNode2" type="GraphNode" parent="."]
+offset_left = 1988.54
+offset_top = 381.186
+offset_right = 2025.54
+offset_bottom = 447.186
+mouse_filter = 1
+position_offset = Vector2(1988.54, 381.186)
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+
+[node name="Label" type="Label" parent="GraphNode2"]
+layout_mode = 2

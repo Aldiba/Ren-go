@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ddewibdlh2gw5"]
+
+[ext_resource type="Shader" uid="uid://cy7pewuiriap1" path="res://材质/下方透过.gdshader" id="1_43e5r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b6yp7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1vdtg"]
+seamless = true
+noise = SubResource("FastNoiseLite_b6yp7")
+
+[resource]
+shader = ExtResource("1_43e5r")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_1vdtg")
+shader_parameter/blur_radius = 5.0
+shader_parameter/distortion = 0.1
+shader_parameter/edge_glow = 2.095
+shader_parameter/glass_tint = 0.75
+shader_parameter/tint_color = Color(1, 1, 1, 1)

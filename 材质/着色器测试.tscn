@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://xc8vmmcrsbeh"]
+
+[ext_resource type="Material" uid="uid://w3xylw5sjkp6" path="res://材质/魔法描边.tres" id="1_7r62c"]
+[ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="2_r8lky"]
+[ext_resource type="Script" uid="uid://b2gy5yw7l54ww" path="res://材质/测试脚本.gd" id="4_l1mee"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_20lt2"]
+
+[node name="Node2D" type="Node2D"]
+material = ExtResource("1_7r62c")
+position = Vector2(700, 432)
+scale = Vector2(3.375, 3.375)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_20lt2")
+offset_left = -148.0
+offset_top = -217.0
+offset_right = 2350.0
+offset_bottom = 1796.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(29.6296, 5.33331)
+scale = Vector2(3.7037, 2.08333)
+texture = ExtResource("2_r8lky")
+script = ExtResource("4_l1mee")
