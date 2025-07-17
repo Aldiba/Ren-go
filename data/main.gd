@@ -52,6 +52,7 @@ extends Control
 @onready var icon_crop_window = $"右侧栏/Character_Panel/立绘展示面板/头像裁剪按钮/icon_maker"
 @onready var image_select_window = $"右侧栏/Character_Panel/立绘展示面板/选择图片按钮/图片路径选择窗口"
 @onready var choose_apply_all_window = $"右侧栏/Character_Panel/立绘展示面板/头像裁剪按钮/是否应用于该角色所有立绘"
+
 #场景面板
 @onready var scene_key_label =$"右侧栏/Scene_Panel/键值/键值Line2D"
 @onready var scene_name_edit =$"右侧栏/Scene_Panel/场景名/场景名Line2D"

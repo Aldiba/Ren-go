@@ -27,8 +27,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 expand_margin_left = 9.0
 shadow_color = Color(0, 0, 0, 0.117647)
-shadow_size = 1
-shadow_offset = Vector2(0, 1)
+shadow_size = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxkma"]
 bg_color = Color(0.666568, 0.666569, 0.666569, 1)
@@ -82,10 +81,10 @@ offset_right = 855.0
 offset_bottom = 119.0
 mouse_filter = 1
 theme = ExtResource("3_7c38n")
-theme_override_colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
-theme_override_colors/selection_color = Color(0.0483333, 0.04, 0.05, 0.47451)
-theme_override_colors/font_selected_color = Color(1, 1, 1, 0.780392)
 theme_override_colors/caret_color = Color(0.0483333, 0.04, 0.05, 0.862745)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0.780392)
+theme_override_colors/selection_color = Color(0.0483333, 0.04, 0.05, 0.47451)
+theme_override_colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
 theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("4_nwaom")
 theme_override_font_sizes/font_size = 25
@@ -175,7 +174,7 @@ expand_icon = true
 [node name="name" type="Label" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 24)
-layout_mode = 2
+layout_mode = 0
 offset_left = 96.0
 offset_top = 17.0
 offset_right = 208.0
@@ -229,7 +228,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Emo_Select" type="OptionButton" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 32)
-layout_mode = 2
+layout_mode = 0
 offset_left = -3.17842e-05
 offset_top = 86.0
 offset_right = 80.1359

@@ -33,3 +33,12 @@ res://材质/黑白方块拥挤城市.gdshader
 res://data/毛玻璃UI.gdshader
 res://材质/下方透过.gdshader
 res://材质/毛玻璃2.gdshader
+res://节点/scipt_scene_ent.tscn
+res://样式/白色平面化按钮按下.tres
+res://样式/白圆角_场景平面.tres
+res://节点/scipt_word.tscn
+res://样式/对话框_normal.tres
+res://data/main.tscn
+res://data/main.gd
+res://节点/章节节点相关/label_sub_port.tscn
+res://节点/章节节点相关/label_node.tscn

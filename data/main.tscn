@@ -168,7 +168,7 @@ init_transform_dic = {
 [node name="Background" type="Panel" parent="."]
 material = ExtResource("5_adt1o")
 custom_minimum_size = Vector2(1600, 900)
-layout_mode = 2
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 metadata/_edit_use_anchors_ = true
@@ -200,7 +200,6 @@ script = ExtResource("5_bef6j")
 
 [node name="Line_port" type="Control" parent="Label_Browse/SubViewport/Label_Node_Port"]
 unique_name_in_owner = true
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -258,7 +257,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_jkal1")
 
 [node name="现在没有内容" type="Label" parent="Script_Browse"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 514.0
 offset_top = 324.0
 offset_right = 1064.0
@@ -267,7 +266,7 @@ text = "点击章节节点来显示内容"
 label_settings = SubResource("LabelSettings_s7eoo")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Script_Browse"]
-layout_mode = 2
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 270.0
@@ -304,7 +303,7 @@ layout_mode = 2
 
 [node name="脚本推拉栏按钮上" type="Button" parent="Script_Browse"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -313,23 +312,23 @@ offset_left = -90.0
 offset_right = -55.0
 offset_bottom = 180.0
 rotation = -1.5708
-theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
-theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("4_wo252")
-theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
-theme_override_styles/hover = ExtResource("4_wo252")
-theme_override_styles/pressed = ExtResource("5_1l3bd")
 theme_override_styles/normal = ExtResource("4_wo252")
+theme_override_styles/pressed = ExtResource("5_1l3bd")
+theme_override_styles/hover = ExtResource("4_wo252")
+theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
+theme_override_styles/focus = ExtResource("4_wo252")
 toggle_mode = true
 text = "▶"
 metadata/_edit_use_anchors_ = true
 
 [node name="脚本推拉栏按钮下" type="Button" parent="Script_Browse"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -339,16 +338,16 @@ offset_top = -0.000427246
 offset_right = 125.0
 offset_bottom = 180.0
 rotation = 1.5708
-theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
-theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("4_wo252")
-theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
-theme_override_styles/hover = ExtResource("4_wo252")
-theme_override_styles/pressed = ExtResource("5_1l3bd")
 theme_override_styles/normal = ExtResource("4_wo252")
+theme_override_styles/pressed = ExtResource("5_1l3bd")
+theme_override_styles/hover = ExtResource("4_wo252")
+theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
+theme_override_styles/focus = ExtResource("4_wo252")
 toggle_mode = true
 text = "▶"
 
@@ -397,8 +396,8 @@ offset_right = -0.0379333
 offset_bottom = -0.0330009
 theme_override_colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
 theme_override_font_sizes/font_size = 15
-theme_override_styles/focus = ExtResource("6_vw2lj")
 theme_override_styles/normal = ExtResource("6_vw2lj")
+theme_override_styles/focus = ExtResource("6_vw2lj")
 metadata/_edit_use_anchors_ = true
 
 [node name="导入按钮" type="Button" parent="左侧栏/文件选择面板"]
@@ -520,7 +519,7 @@ theme = SubResource("Theme_s7eoo")
 button_group = SubResource("ButtonGroup_bef6j")
 
 [node name="角色添加按钮" type="Button" parent="左侧栏/节点选择器/角色"]
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.028
 anchor_top = 0.907
 anchor_right = 0.917
@@ -635,16 +634,16 @@ anchor_left = 0.996296
 anchor_right = 1.0
 offset_right = 30.0
 offset_bottom = 92.0
-theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
-theme_override_colors/font_hover_color = Color(0.79, 0.484533, 0.3318, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.79, 0.484533, 0.3318, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("4_wo252")
-theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
-theme_override_styles/hover = ExtResource("4_wo252")
-theme_override_styles/pressed = ExtResource("5_1l3bd")
 theme_override_styles/normal = ExtResource("4_wo252")
+theme_override_styles/pressed = ExtResource("5_1l3bd")
+theme_override_styles/hover = ExtResource("4_wo252")
+theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
+theme_override_styles/focus = ExtResource("4_wo252")
 toggle_mode = true
 text = "◀"
 metadata/_edit_use_anchors_ = true
@@ -723,8 +722,8 @@ offset_right = -0.0220032
 offset_bottom = -0.00800133
 theme_override_colors/font_color = Color(0.0483333, 0.04, 0.05, 0.784314)
 theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = ExtResource("11_xgc8f")
 theme_override_styles/normal = ExtResource("11_xgc8f")
+theme_override_styles/focus = ExtResource("11_xgc8f")
 metadata/_edit_use_anchors_ = true
 
 [node name="角色名改变确认窗口" type="ConfirmationDialog" parent="右侧栏/Character_Panel/Message_Panel/角色名"]
@@ -844,7 +843,7 @@ metadata/_edit_use_anchors_ = true
 auto_translate_mode = 1
 title = "Open a File"
 initial_position = 1
-size = Vector2i(235, 175)
+size = Vector2i(339, 175)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
@@ -984,8 +983,8 @@ anchor_bottom = 1.042
 offset_left = 0.012001
 offset_right = -0.0220032
 offset_bottom = -0.00800133
-theme_override_styles/focus = ExtResource("11_xgc8f")
 theme_override_styles/normal = ExtResource("11_xgc8f")
+theme_override_styles/focus = ExtResource("11_xgc8f")
 
 [node name="选择场景图片按钮" type="Button" parent="右侧栏/Scene_Panel"]
 layout_mode = 1
@@ -1005,7 +1004,7 @@ metadata/_edit_use_anchors_ = true
 auto_translate_mode = 1
 title = "Open a File"
 initial_position = 1
-size = Vector2i(235, 175)
+size = Vector2i(339, 175)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
@@ -1082,8 +1081,8 @@ anchor_bottom = 1.12533
 offset_left = 0.012001
 offset_right = 0.003479
 offset_bottom = -0.00800133
-theme_override_styles/focus = ExtResource("11_xgc8f")
 theme_override_styles/normal = ExtResource("11_xgc8f")
+theme_override_styles/focus = ExtResource("11_xgc8f")
 metadata/_edit_use_anchors_ = true
 
 [node name="Transform_Detail_Panel" type="ScrollContainer" parent="右侧栏/Transform_Panel"]
@@ -1136,17 +1135,17 @@ offset_top = 92.0
 offset_right = 30.0
 offset_bottom = 184.0
 rotation = -3.14159
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
-theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = ExtResource("4_wo252")
-theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
-theme_override_styles/hover = ExtResource("4_wo252")
-theme_override_styles/pressed = ExtResource("5_1l3bd")
 theme_override_styles/normal = ExtResource("4_wo252")
+theme_override_styles/pressed = ExtResource("5_1l3bd")
+theme_override_styles/hover = ExtResource("4_wo252")
+theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
+theme_override_styles/focus = ExtResource("4_wo252")
 toggle_mode = true
 text = "◀"
 metadata/_edit_use_anchors_ = true

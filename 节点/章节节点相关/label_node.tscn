@@ -70,17 +70,17 @@ offset_bottom = 250.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 focus_mode = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ka6fl")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ka6fl")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ka6fl")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ka6fl")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ka6fl")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ka6fl")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ka6fl")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ka6fl")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ka6fl")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ka6fl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ka6fl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ka6fl")
 script = ExtResource("1_yu7jq")
 metadata/_edit_use_anchors_ = true
 
@@ -113,7 +113,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="好看" type="Control" parent="."]
 visible = false
-layout_mode = 2
 anchors_preset = 0
 offset_left = 16.0
 offset_top = 160.0
@@ -178,10 +177,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_0fn1g")
 metadata/_edit_use_anchors_ = true
 
 [node name="Main_Panel" type="Panel" parent="."]
-layout_mode = 2
-offset_top = 55.0
+layout_mode = 0
+offset_top = 175.0
 offset_right = 480.0
-offset_bottom = 195.0
+offset_bottom = 245.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_h1pbo")
 
@@ -223,7 +222,7 @@ metadata/_edit_use_anchors_ = true
 [node name="OutputPoint" parent="." instance=ExtResource("3_dahqs")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 479.0
 offset_top = 125.0
 offset_right = 495.0
