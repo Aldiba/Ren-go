@@ -12,7 +12,7 @@ var target_scale = 1.05
 var normal_scale = 1.0
 var normal_color = Color(0.9, 0.9, 0.9, 0.8)
 var highlight_color = Color(1, 1, 1, 0.9)
-
+@export var sound_path: String = "" 
 @export var character_key : String
 var selected_emo:String
 var selected_transform:String
@@ -23,9 +23,9 @@ func _ready():
 	#add_theme_stylebox_override("panel", stylebox)
 	#stylebox.set_local_to_scene(true)
 
-#func _on_word_resized() -> void:
-	#custom_minimum_size.y = word.size.y+60
-	#set_pivot_offset(Vector2(custom_minimum_size.x / 2, custom_minimum_size.y / 2))
+func _on_word_resized() -> void:
+	custom_minimum_size.y = word.size.y+60
+	set_pivot_offset(Vector2(custom_minimum_size.x / 2, custom_minimum_size.y / 2))
 
 
 # 当鼠标进入时触发Tween动画
@@ -67,3 +67,11 @@ func update_img(emo_temp):
 
 func _on_transform_select_item_selected(index: int) -> void:
 	selected_transform = transform_select.get_item_text(index)
+
+func _on_添加对应音_pressed() -> void:
+	%"Audio路径选择窗口".show()
+
+
+func _on_audio路径选择窗口_file_selected(path: String) -> void:
+	%"Audio路径选择窗口".hide()
+	sound_path = path

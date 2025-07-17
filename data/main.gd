@@ -992,8 +992,10 @@ func chat_ent_make(key,speak_part):
 		for emo_key in character_dic_list[speak_part["speaker"]]["img"]:
 			chat_ent.emo_select.add_item(emo_key,character_dic_list[speak_part["speaker"]]["img"][emo_key]["id"])
 		chat_ent.emo_select._select_int(0)
-
-	chat_ent.color_show.set_color(character_dic_list[key]["color"])
+	var temp_color = Color(character_dic_list[key]["color"])
+	temp_color.s *= 0.6
+	temp_color.v *= 1.6
+	chat_ent.color_show.set_color(temp_color)
 	chat_ent.word.text = speak_part["content"]
 	chat_ent.name_label.text = character_dic_list[key]["name"]
 	
@@ -1039,14 +1041,6 @@ func transfrom_check(search_text,button):
 	button.add_item(search_text, new_id)  # 添加新选项
 	return new_id  # 返回新添加的选项的 ID
 #
-
-
-
-
-
-
-
-
 
 
 ################################################################################

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cecm51itc2gro"]
+[gd_scene load_steps=10 format=3 uid="uid://cecm51itc2gro"]
 
 [ext_resource type="StyleBox" uid="uid://cwv3spoo3ofqw" path="res://样式/白勾线尖锐面板.tres" id="1_jibuy"]
 [ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="2_ljw1k"]
@@ -9,23 +9,33 @@
 [ext_resource type="LabelSettings" uid="uid://ss7xrl04au3m" path="res://样式/描边小白色字体.tres" id="6_jibuy"]
 [ext_resource type="PackedScene" uid="uid://8oey5xxpk7x2" path="res://按钮/transform_select.tscn" id="7_hwdhl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lovl1"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 0.9019608)
+corner_radius_top_left = 20
+corner_radius_bottom_right = 120
+corner_radius_bottom_left = 20
+corner_detail = 10
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_size = 1
+
 [node name="show_ent" type="Panel"]
-custom_minimum_size = Vector2(850, 140)
+custom_minimum_size = Vector2(920, 140)
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.459
 anchor_right = 0.5
 anchor_bottom = 0.459
 offset_left = -423.0
-offset_top = -2.10001
-offset_right = 427.0
+offset_top = -2.100006
+offset_right = 497.0
 offset_bottom = 137.9
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(425, 37.5)
-size_flags_horizontal = 6
+size_flags_horizontal = 3
 size_flags_vertical = 6
-theme_override_styles/panel = ExtResource("1_jibuy")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lovl1")
 script = ExtResource("2_w8mv2")
 script_node_type = "Shown"
 

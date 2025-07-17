@@ -12,8 +12,9 @@ func _process(delta: float) -> void:
 
 
 func _on_mouse_entered() -> void:
-	if main_node.dragging_node and main_node.dragging_node.is_class("Button"):
-		if main_node.dragging_node.button_type=="TransformButton":
-				var trans_name = main_node.get_name_of_transform_by_key(main_node.dragging_node.transform_key)
-				var index = GlobalDict.select_matching_option(self, trans_name)
-				emit_signal("item_selected")
+	if get_parent().is_class("ScrollContainer"):
+		if main_node.dragging_node and main_node.dragging_node.is_class("Button"):
+			if main_node.dragging_node.button_type=="TransformButton":
+					var trans_name = main_node.get_name_of_transform_by_key(main_node.dragging_node.transform_key)
+					var index = GlobalDict.select_matching_option(self, trans_name)
+					emit_signal("item_selected")

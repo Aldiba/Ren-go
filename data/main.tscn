@@ -368,16 +368,6 @@ text = "◁  返回
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="图片路径选择窗口" type="FileDialog" parent="Script_Browse/返回"]
-auto_translate_mode = 1
-title = "Open a File"
-initial_position = 1
-size = Vector2i(235, 175)
-ok_button_text = "Open"
-file_mode = 0
-access = 2
-use_native_dialog = true
-
 [node name="左侧栏" type="Panel" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -858,6 +848,7 @@ size = Vector2i(235, 175)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
+filters = PackedStringArray("*.jpg", "*.png", "*.webp", "*.jepg")
 use_native_dialog = true
 
 [node name="差分选择面板" type="Panel" parent="右侧栏/Character_Panel/立绘展示面板"]
@@ -1186,7 +1177,6 @@ label_settings = ExtResource("32_816ha")
 [connection signal="mouse_exited" from="Script_Browse/ScrollContainer" to="Script_Browse/ScrollContainer" method="_on_mouse_exited"]
 [connection signal="pressed" from="Script_Browse/脚本推拉栏按钮上" to="Script_Browse" method="_on_脚本推拉栏按钮上_pressed"]
 [connection signal="pressed" from="Script_Browse/脚本推拉栏按钮下" to="Script_Browse" method="_on_脚本推拉栏按钮下_pressed"]
-[connection signal="file_selected" from="Script_Browse/返回/图片路径选择窗口" to="." method="_on_图片路径选择窗口_file_selected"]
 [connection signal="text_changed" from="左侧栏/文件选择面板/当前文件路径" to="左侧栏/文件选择面板/开始编辑" method="_on_当前文件路径_text_changed"]
 [connection signal="text_submitted" from="左侧栏/文件选择面板/当前文件路径" to="." method="_on_当前文件路径_text_submitted"]
 [connection signal="pressed" from="左侧栏/文件选择面板/导入按钮" to="." method="_on_导入按钮_pressed"]
