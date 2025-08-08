@@ -2,7 +2,7 @@ extends Script_Root
 class_name Script_Shown
 @onready var show_select = $Show_Select
 @onready var emo_select = $Emo_Select
-@onready var tex = $tex
+@onready var tex = %tex
 @onready var character_select = $Character_Select
 @onready var position_select = $Position_Select
 @onready var transform_select = $Transform_Select

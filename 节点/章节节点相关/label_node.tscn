@@ -1,17 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://5g1pvm3q3bvm"]
+[gd_scene load_steps=13 format=3 uid="uid://5g1pvm3q3bvm"]
 
+[ext_resource type="ButtonGroup" uid="uid://nhe56g2xr0jm" path="res://按钮/章节节点按钮组.tres" id="1_h1pbo"]
 [ext_resource type="Script" uid="uid://bsas2joba43mv" path="res://节点/章节节点相关/label_node.gd" id="1_yu7jq"]
-[ext_resource type="Texture2D" uid="uid://7qqqcoi6np8f" path="res://tex/神秘平面占位符.png" id="2_3t7wt"]
+[ext_resource type="Texture2D" uid="uid://cjen05illuhvp" path="res://tex/10040101.png" id="2_3t7wt"]
 [ext_resource type="PackedScene" uid="uid://0f0qm372ko35" path="res://节点/章节节点相关/OutputPoint.tscn" id="3_dahqs"]
-[ext_resource type="StyleBox" uid="uid://cwv3spoo3ofqw" path="res://样式/白勾线尖锐面板.tres" id="3_h1pbo"]
+[ext_resource type="StyleBox" uid="uid://csqntex0q3p5g" path="res://样式/特殊临时用/黑色阴影.tres" id="3_ka6fl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ka6fl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5ny6"]
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_right = 40
+corner_radius_bottom_left = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xysbu"]
 bg_color = Color(0.134996, 0.179445, 0.179444, 1)
@@ -63,6 +62,8 @@ corner_detail = 1
 shadow_size = 1
 shadow_offset = Vector2(0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t7wt"]
+
 [node name="Label_Node" type="Button"]
 custom_minimum_size = Vector2(480, 250)
 offset_right = 480.0
@@ -81,8 +82,21 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ka6fl"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ka6fl")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ka6fl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ka6fl")
+toggle_mode = true
+button_group = ExtResource("1_h1pbo")
 script = ExtResource("1_yu7jq")
 metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 0.999
+offset_right = 0.959991
+offset_bottom = 0.249985
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_ka6fl")
 
 [node name="Panel" type="Panel" parent="."]
 clip_children = 1
@@ -92,6 +106,7 @@ anchor_right = 0.998
 anchor_bottom = 0.999
 offset_right = 0.959991
 offset_bottom = 0.249985
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a5ny6")
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
@@ -182,20 +197,22 @@ offset_top = 175.0
 offset_right = 480.0
 offset_bottom = 245.0
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("3_h1pbo")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3t7wt")
 
 [node name="Key_Label" type="Label" parent="Main_Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.06458333
 anchor_top = 0.587
-anchor_right = 1.0
+anchor_right = 0.99791664
 anchor_bottom = 0.937
 offset_top = 0.0400009
 offset_bottom = 0.0399933
 mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 text = "键值区域"
-horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 metadata/_edit_use_anchors_ = true
@@ -204,16 +221,16 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.00208768
-anchor_top = 0.0625
-anchor_right = 0.999709
-anchor_bottom = 0.6754
+anchor_left = 0.033333335
+anchor_right = 0.9976262
+anchor_bottom = 0.6290286
 offset_right = 0.139435
 offset_bottom = -0.0320053
 mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 35
 text = "未命名章节"
-alignment = 1
 context_menu_enabled = false
 emoji_menu_enabled = false
 flat = true
@@ -227,6 +244,8 @@ offset_left = 479.0
 offset_top = 125.0
 offset_right = 495.0
 offset_bottom = 141.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="InputPoint" parent="." instance=ExtResource("3_dahqs")]
 unique_name_in_owner = true
@@ -242,5 +261,6 @@ grow_vertical = 1
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]
 [connection signal="mouse_entered" from="Main_Panel/Name_Label" to="." method="_on_name_label_mouse_entered"]
 [connection signal="mouse_exited" from="Main_Panel/Name_Label" to="." method="_on_name_label_mouse_exited"]

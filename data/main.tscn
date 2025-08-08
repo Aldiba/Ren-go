@@ -204,7 +204,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label_port" type="HBoxContainer" parent="Label_Browse/SubViewport/Label_Node_Port"]
+[node name="Label_port" type="VBoxContainer" parent="Label_Browse/SubViewport/Label_Node_Port"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
@@ -302,7 +302,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="脚本推拉栏按钮上" type="Button" parent="Script_Browse"]
-visible = false
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -312,7 +311,7 @@ offset_left = -90.0
 offset_right = -55.0
 offset_bottom = 180.0
 rotation = -1.5708
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.2627451, 0.25882354, 0.26666668, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
@@ -323,11 +322,10 @@ theme_override_styles/hover = ExtResource("4_wo252")
 theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
 theme_override_styles/focus = ExtResource("4_wo252")
 toggle_mode = true
-text = "▶"
+text = "▷"
 metadata/_edit_use_anchors_ = true
 
 [node name="脚本推拉栏按钮下" type="Button" parent="Script_Browse"]
-visible = false
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -338,7 +336,7 @@ offset_top = -0.000427246
 offset_right = 125.0
 offset_bottom = 180.0
 rotation = 1.5708
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.2627451, 0.25882354, 0.26666668, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
@@ -349,7 +347,7 @@ theme_override_styles/hover = ExtResource("4_wo252")
 theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
 theme_override_styles/focus = ExtResource("4_wo252")
 toggle_mode = true
-text = "▶"
+text = "▷"
 
 [node name="返回" type="Button" parent="Script_Browse"]
 layout_mode = 1
@@ -627,14 +625,13 @@ text = "添加新变换"
 visible = false
 
 [node name="推拉栏按钮" type="Button" parent="左侧栏"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.996296
 anchor_right = 1.0
 offset_right = 30.0
 offset_bottom = 92.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.2627451, 0.25882354, 0.26666668, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.79, 0.484533, 0.3318, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
@@ -645,7 +642,7 @@ theme_override_styles/hover = ExtResource("4_wo252")
 theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
 theme_override_styles/focus = ExtResource("4_wo252")
 toggle_mode = true
-text = "◀"
+text = "◁"
 metadata/_edit_use_anchors_ = true
 
 [node name="右侧栏" type="Panel" parent="."]
@@ -1126,7 +1123,6 @@ label_settings = SubResource("LabelSettings_7k1pt")
 vertical_alignment = 1
 
 [node name="推拉栏按钮" type="Button" parent="右侧栏"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00370325
@@ -1135,7 +1131,7 @@ offset_top = 92.0
 offset_right = 30.0
 offset_bottom = 184.0
 rotation = -3.14159
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.2627451, 0.25882354, 0.26666668, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.788235, 0.486275, 0.333333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.788235, 0.486275, 0.333333, 1)
@@ -1147,7 +1143,7 @@ theme_override_styles/hover = ExtResource("4_wo252")
 theme_override_styles/hover_pressed = ExtResource("5_1l3bd")
 theme_override_styles/focus = ExtResource("4_wo252")
 toggle_mode = true
-text = "◀"
+text = "◁"
 metadata/_edit_use_anchors_ = true
 
 [node name="警告出错弹窗" type="AcceptDialog" parent="."]
@@ -1176,6 +1172,7 @@ label_settings = ExtResource("32_816ha")
 [connection signal="mouse_exited" from="Script_Browse/ScrollContainer" to="Script_Browse/ScrollContainer" method="_on_mouse_exited"]
 [connection signal="pressed" from="Script_Browse/脚本推拉栏按钮上" to="Script_Browse" method="_on_脚本推拉栏按钮上_pressed"]
 [connection signal="pressed" from="Script_Browse/脚本推拉栏按钮下" to="Script_Browse" method="_on_脚本推拉栏按钮下_pressed"]
+[connection signal="pressed" from="Script_Browse/返回" to="." method="_on_返回_pressed"]
 [connection signal="text_changed" from="左侧栏/文件选择面板/当前文件路径" to="左侧栏/文件选择面板/开始编辑" method="_on_当前文件路径_text_changed"]
 [connection signal="text_submitted" from="左侧栏/文件选择面板/当前文件路径" to="." method="_on_当前文件路径_text_submitted"]
 [connection signal="pressed" from="左侧栏/文件选择面板/导入按钮" to="." method="_on_导入按钮_pressed"]

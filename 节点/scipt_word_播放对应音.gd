@@ -8,18 +8,7 @@ var current_char_index: int = 0
 
 func _ready() -> void:
 	# Connect the button's pressed signal
-	pressed.connect(_on_MusicButton_pressed)
-
-	# Setup the animation timer
-	#animation_timer = Timer.new()
-	#add_child(animation_timer)
-	#animation_timer.wait_time = 0.2 # Adjust this for animation speed
-	#animation_timer.timeout.connect(_on_animation_timer_timeout)
-	#animation_timer.one_shot = false
-
-	# Load the audio stream if sound_path is set
-	if not $"../..".sound_path.is_empty():
-		load_audio_stream($"../..".sound_path)
+	pass
 
 func load_audio_stream(path) -> void:
 	if not path.is_empty():

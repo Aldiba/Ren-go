@@ -1,5 +1,6 @@
 extends Camera2D
 
+
 @export var zoomSpeed : float = 10;
 #@export var boundary : float = 0.04;
 @export var PanSpeed : float = 8;
@@ -11,7 +12,7 @@ var dragStartCameraPos = Vector2.ZERO
 var isDragging : bool = false
 
 var is_active:bool = false
-
+var move_enabled :bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
@@ -21,7 +22,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if enabled:
+	if move_enabled:
 		Zoom(delta)
 		SimplePan(delta)
 		ClickAndDrag()
@@ -66,7 +67,7 @@ func SimplePan(delta):
 	position += moveAmount * delta * 1000 * (1/zoom.x)
 	
 func ClickAndDrag():
-	if !isDragging and Input.is_action_just_pressed("mouse_scroll_press"):
+	if !isDragging and (Input.is_action_just_pressed("mouse_scroll_press") or  Input.is_action_just_pressed("mouse_right_press")):
 		dragStartMousePos = get_viewport().get_mouse_position()
 		dragStartCameraPos = position
 		isDragging = true

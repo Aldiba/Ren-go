@@ -20,10 +20,11 @@ func _on_脚本推拉栏按钮上_pressed() -> void:
 
 
 func _on_脚本推拉栏按钮下_pressed() -> void:
+	camera_off()
 	var tween_pull_in = create_tween()
 	# 使用Tween渐进恢复scale_factor和highlight_color
 	tween_pull_in.tween_property(self, "position", Vector2(position.x,0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
-	tween_pull_in.tween_callback(camera_off) 
+	#tween_pull_in.tween_callback(camera_off) 
 	$"..".all_ui_open()
 	
 func camera_on():

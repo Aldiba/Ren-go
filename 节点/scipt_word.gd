@@ -12,7 +12,7 @@ var target_scale = 1.05
 var normal_scale = 1.0
 var normal_color = Color(0.9, 0.9, 0.9, 0.8)
 var highlight_color = Color(1, 1, 1, 0.9)
-@export var sound_path: String = "" 
+@onready var sound_path: String = "" 
 @export var character_key : String
 var selected_emo:String
 var selected_transform:String
@@ -22,6 +22,22 @@ func _ready():
 	set_pivot_offset(Vector2(size.x / 2, size.y / 2))
 	#add_theme_stylebox_override("panel", stylebox)
 	#stylebox.set_local_to_scene(true)
+	sound_init()
+
+func sound_init():
+	%"播放对应音".pressed.connect(%"播放对应音"._on_MusicButton_pressed)
+
+	# Setup the animation timer
+	#animation_timer = Timer.new()
+	#add_child(animation_timer)
+	#animation_timer.wait_time = 0.2 # Adjust this for animation speed
+	#animation_timer.timeout.connect(_on_animation_timer_timeout)
+	#animation_timer.one_shot = false
+
+	# Load the audio stream if sound_path is set
+	
+	if not sound_path.is_empty():
+		%"播放对应音".load_audio_stream(sound_path)
 
 func _on_word_resized() -> void:
 	custom_minimum_size.y = word.size.y+60

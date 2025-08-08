@@ -90,4 +90,13 @@ func _on_name_label_mouse_exited() -> void:
 
 
 func _on_pressed() -> void:
-	pass # Replace with function body.
+	#var new_theme = $Panel2.get_theme_stylebox()
+	#new_theme.shadow_color = Color.hex(0xff5340a4)
+	pass
+
+
+func _on_toggled(toggled_on: bool) -> void:
+	if button_pressed:
+		$Panel2.add_theme_stylebox_override("panel",load("res://样式/特殊临时用/橙色阴影.tres"))
+	else:
+		$Panel2.add_theme_stylebox_override("panel",load("res://样式/特殊临时用/黑色阴影.tres"))

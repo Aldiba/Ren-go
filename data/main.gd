@@ -520,7 +520,6 @@ func prepare_scene_entry_scene_selecter(node:Script_Scene):
 
 
 func scan_label_jump():
-	
 	pass
 
 
@@ -1810,4 +1809,11 @@ func load_and_save_content(content, menu_level = 0):
 				for i in range(menu_level):
 					saved_text = "\t"+saved_text
 	return saved_text
+	
+
+
+func _on_返回_pressed() -> void:
+	$"Script_Browse/脚本推拉栏按钮上".set_pressed(true)
+	$"右侧栏/推拉栏按钮".set_pressed(true)
+	$"左侧栏/推拉栏按钮".set_pressed(true)
 	

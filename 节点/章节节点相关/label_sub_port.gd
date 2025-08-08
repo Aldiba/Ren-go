@@ -1,2 +1,2 @@
-extends VBoxContainer
+extends HBoxContainer
 @export var layer :int

@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cecm51itc2gro"]
+[gd_scene load_steps=12 format=3 uid="uid://cecm51itc2gro"]
 
+[ext_resource type="Material" uid="uid://utaq4jv0ljdo" path="res://材质/毛玻璃2.tres" id="1_ihre3"]
 [ext_resource type="StyleBox" uid="uid://cwv3spoo3ofqw" path="res://样式/白勾线尖锐面板.tres" id="1_jibuy"]
 [ext_resource type="Texture2D" uid="uid://b7pu5wbilmncp" path="res://tex/Icon/icon.svg" id="2_ljw1k"]
 [ext_resource type="Script" uid="uid://b2rpgg5kv1aku" path="res://节点/scipt_show.gd" id="2_w8mv2"]
@@ -10,24 +11,32 @@
 [ext_resource type="PackedScene" uid="uid://8oey5xxpk7x2" path="res://按钮/transform_select.tscn" id="7_hwdhl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lovl1"]
-bg_color = Color(1, 1, 1, 1)
-border_color = Color(0, 0, 0, 0.9019608)
-corner_radius_top_right = 100
-corner_radius_bottom_left = 100
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 150
+border_color = Color(0, 0, 0, 0.8627451)
+corner_radius_top_right = 50
+corner_radius_bottom_left = 50
 corner_detail = 10
 shadow_color = Color(0, 0, 0, 0.117647)
 shadow_size = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihre3"]
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
 [node name="show_ent" type="Panel"]
-custom_minimum_size = Vector2(920, 140)
+material = ExtResource("1_ihre3")
+custom_minimum_size = Vector2(800, 140)
 anchors_preset = -1
-anchor_left = 0.523
+anchor_left = 0.48600003
 anchor_top = 0.459
-anchor_right = 0.523
+anchor_right = 0.48600003
 anchor_bottom = 0.459
-offset_left = -459.8
+offset_left = -400.60004
 offset_top = -2.100006
-offset_right = 460.2
+offset_right = 399.39996
 offset_bottom = 137.9
 grow_horizontal = 2
 grow_vertical = 2
@@ -56,10 +65,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Show_Select" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 51.0
-offset_right = 150.0
-offset_bottom = 96.0
+offset_left = 25.0
+offset_top = 93.0
+offset_right = 125.0
+offset_bottom = 128.0
 theme = ExtResource("3_lovl1")
 theme_override_colors/font_color = Color(0.0470588, 0.0392157, 0.0509804, 0.784314)
 theme_override_constants/outline_size = 0
@@ -77,9 +86,9 @@ popup/item_1/id = 1
 [node name="Character_Select" type="OptionButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 341.0
+offset_left = 271.0
 offset_top = 19.0
-offset_right = 542.0
+offset_right = 471.0
 offset_bottom = 54.0
 theme = ExtResource("3_lovl1")
 alignment = 1
@@ -99,9 +108,9 @@ label_settings = ExtResource("4_lovl1")
 
 [node name="Emo_Select" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 341.0
+offset_left = 271.0
 offset_top = 82.5
-offset_right = 542.0
+offset_right = 471.0
 offset_bottom = 117.5
 theme = ExtResource("3_lovl1")
 alignment = 1
@@ -118,17 +127,30 @@ mouse_filter = 1
 text = "差分"
 label_settings = ExtResource("4_lovl1")
 
-[node name="tex" type="Button" parent="."]
+[node name="tex_panel" type="Panel" parent="."]
+clip_children = 2
+clip_contents = true
+custom_minimum_size = Vector2(0.31, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.144
-anchor_top = 0.017
-anchor_right = 0.144
-anchor_bottom = 0.017
-offset_left = 40.6
-offset_top = 25.62
-offset_right = 200.6
-offset_bottom = 185.62
+offset_left = 33.072998
+offset_top = 6.0
+offset_right = 113.0
+offset_bottom = 86.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihre3")
+
+[node name="tex" type="Button" parent="tex_panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041
+anchor_top = 0.043
+anchor_right = 0.041
+anchor_bottom = 0.043
+offset_left = -3.2800002
+offset_top = -3.44
+offset_right = 156.72003
+offset_bottom = 156.56
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -141,9 +163,9 @@ expand_icon = true
 [node name="Position_Select" type="OptionButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 663.0
+offset_left = 593.0
 offset_top = 19.0
-offset_right = 815.0
+offset_right = 745.0
 offset_bottom = 54.0
 theme = ExtResource("3_lovl1")
 allow_reselect = true
@@ -172,9 +194,9 @@ label_settings = ExtResource("4_lovl1")
 [node name="Transform_Select" parent="." instance=ExtResource("7_hwdhl")]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 662.5
+offset_left = 592.5
 offset_top = 83.0
-offset_right = 815.5
+offset_right = 745.5
 offset_bottom = 118.0
 theme = ExtResource("3_lovl1")
 

@@ -16,7 +16,7 @@ void fragment() {
 	if (lod>0.0){
 		vec4 _glass_color = glass_color;
 		_glass_color.a =lod;
-		COLOR = mix(_glass_color, color, 0.5);
+		COLOR = mix(_glass_color, color, 0.5)+0.5*COLOR;
 		
 	}
 	else{
