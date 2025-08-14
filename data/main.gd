@@ -439,7 +439,7 @@ func label_node_make(label_dic):
 	%Label_port.add_child(new_label_node)
 	new_label_node.label_key = label_dic["key"]
 	new_label_node.title = new_label_node.label_key
-	new_label_node.connect("pressed",Callable(self, "update_script_container").bind(new_label_node.label_key))
+	new_label_node.connect("button_down",Callable(self, "update_script_container").bind(new_label_node.label_key))
 	
 func set_label_node_texture():
 	#将第一个场景设置为预览图
