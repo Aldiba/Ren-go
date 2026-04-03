@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://o6uty0krg20r"]
+[gd_resource type="Theme" format=3 uid="uid://o6uty0krg20r"]
 
 [ext_resource type="StyleBox" uid="uid://b3k81lgevlpl6" path="res://样式/白色平面化按钮按下.tres" id="1_4n4dq"]
 
