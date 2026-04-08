@@ -1,13 +1,13 @@
 shader_type canvas_item;
 
-uniform float time_speed : hint_range(0.1, 3.0) = 0.6;
+uniform float time_speed : hint_range(0.1, 3.0) = 0.25;
 uniform float uv_scale : hint_range(1.0, 20.0) = 8.0;
 uniform int layers : hint_range(1, 4) = 4;
 uniform float color_saturation : hint_range(0.0, 2.0) = 1.0;
-uniform float pattern_detail : hint_range(0.5, 5.0) = 2.0;
+uniform float pattern_detail : hint_range(0.5, 5.0) = 1.0;
 uniform float contrast : hint_range(1.0, 50.0) = 30.0;
-uniform float noise_intensity : hint_range(0.0, 0.2) = 0.07;
-uniform float vignette : hint_range(0.0, 1.0) = 0.5;
+uniform float noise_intensity : hint_range(0.0, 0.2) = 0.02;
+uniform float vignette : hint_range(0.0, 1.0) = 0.2;
 uniform vec3 base_color = vec3(0.5, 0.8, 1.0);
 
 vec3 hash32(vec2 p) {

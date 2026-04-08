@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://0gv2j3w1ku0v"]
+[gd_scene format=3 uid="uid://0gv2j3w1ku0v"]
 
 [ext_resource type="Script" uid="uid://b0tjb8nc7rts5" path="res://data/main.gd" id="1_up6yx"]
 [ext_resource type="Script" uid="uid://drdtdlm24rblw" path="res://data/脚本面板.gd" id="2_7fjdr"]
@@ -87,7 +87,7 @@ shadow_color = Color(0, 0, 0, 0.0784314)
 shadow_size = 5
 shadow_offset = Vector2(0, 3)
 
-[sub_resource type="Theme" id="Theme_s7eoo"]
+[sub_resource type="Theme" id="Theme_adt1o"]
 resource_local_to_scene = true
 Button/colors/font_color = Color(0.0483333, 0.04, 0.05, 0.901961)
 Button/font_sizes/font_size = 28
@@ -97,13 +97,13 @@ Button/styles/hover_pressed = SubResource("StyleBoxFlat_bef6j")
 Button/styles/normal = SubResource("StyleBoxFlat_di6jm")
 Button/styles/pressed = ExtResource("20_j3vgy")
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_bef6j"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_jkal1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7k1pt"]
 line_spacing = 0.0
 font_size = 25
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=1914626207]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,7 +165,7 @@ init_transform_dic = {
 43: ["向右擦除", "wiperight"]
 }
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="." unique_id=883713611]
 material = ExtResource("5_adt1o")
 custom_minimum_size = Vector2(1600, 900)
 layout_mode = 0
@@ -173,7 +173,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label_Browse" type="SubViewportContainer" parent="."]
+[node name="Label_Browse" type="SubViewportContainer" parent="." unique_id=963055494]
 custom_minimum_size = Vector2(1600, 900)
 layout_mode = 1
 anchors_preset = 15
@@ -184,13 +184,13 @@ grow_vertical = 2
 stretch = true
 script = ExtResource("3_gsw04")
 
-[node name="SubViewport" type="SubViewport" parent="Label_Browse"]
+[node name="SubViewport" type="SubViewport" parent="Label_Browse" unique_id=587847565]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1600, 900)
 render_target_update_mode = 4
 
-[node name="Label_Node_Port" type="Control" parent="Label_Browse/SubViewport"]
+[node name="Label_Node_Port" type="Control" parent="Label_Browse/SubViewport" unique_id=1564686076]
 unique_name_in_owner = true
 layout_mode = 3
 anchor_right = 0.025
@@ -198,27 +198,27 @@ anchor_bottom = 0.044
 offset_bottom = 0.399998
 script = ExtResource("5_bef6j")
 
-[node name="Line_port" type="Control" parent="Label_Browse/SubViewport/Label_Node_Port"]
+[node name="Line_port" type="Control" parent="Label_Browse/SubViewport/Label_Node_Port" unique_id=2019661518]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label_port" type="VBoxContainer" parent="Label_Browse/SubViewport/Label_Node_Port"]
+[node name="Label_port" type="VBoxContainer" parent="Label_Browse/SubViewport/Label_Node_Port" unique_id=1038997233]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 100
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Label_Browse/SubViewport"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Label_Browse/SubViewport" unique_id=373138471]
 
-[node name="Camera2D" type="Camera2D" parent="Label_Browse/SubViewport/CanvasLayer"]
+[node name="Camera2D" type="Camera2D" parent="Label_Browse/SubViewport/CanvasLayer" unique_id=1972952636]
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("4_xka76")
 
-[node name="Script_Browse" type="Panel" parent="."]
+[node name="Script_Browse" type="Panel" parent="." unique_id=184872897]
 unique_name_in_owner = true
 material = ExtResource("12_bef6j")
 layout_mode = 1
@@ -229,7 +229,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_adt1o")
 script = ExtResource("2_7fjdr")
 metadata/_edit_use_anchors_ = true
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Script_Browse"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Script_Browse" unique_id=1590476912]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -237,14 +237,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="Script_Browse/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Script_Browse/SubViewportContainer" unique_id=1678445226]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1600, 900)
 size_2d_override_stretch = true
 render_target_update_mode = 0
 
-[node name="Script_Background" type="Panel" parent="Script_Browse/SubViewportContainer/SubViewport"]
+[node name="Script_Background" type="Panel" parent="Script_Browse/SubViewportContainer/SubViewport" unique_id=2067695970]
 unique_name_in_owner = true
 visible = false
 material = ExtResource("12_bef6j")
@@ -255,7 +255,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jkal1")
 
-[node name="现在没有内容" type="Label" parent="Script_Browse"]
+[node name="现在没有内容" type="Label" parent="Script_Browse" unique_id=253120408]
 visible = false
 layout_mode = 0
 offset_left = 514.0
@@ -265,7 +265,7 @@ offset_bottom = 375.0
 text = "点击章节节点来显示内容"
 label_settings = SubResource("LabelSettings_s7eoo")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Script_Browse"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Script_Browse" unique_id=249136590]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -274,34 +274,34 @@ offset_right = -270.0
 script = ExtResource("2_he2ne")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Script_Browse/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Script_Browse/ScrollContainer" unique_id=1746548099]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="SciptLabel" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("4_7boho")]
+[node name="SciptLabel" parent="Script_Browse/ScrollContainer/VBoxContainer" unique_id=1215077672 instance=ExtResource("4_7boho")]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("39_bef6j")
 
-[node name="scene_ent" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("5_ikx86")]
+[node name="scene_ent" parent="Script_Browse/ScrollContainer/VBoxContainer" unique_id=360447892 instance=ExtResource("5_ikx86")]
 layout_mode = 2
 
-[node name="word_ent" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("6_o3w8w")]
+[node name="word_ent" parent="Script_Browse/ScrollContainer/VBoxContainer" unique_id=1437497548 instance=ExtResource("6_o3w8w")]
 layout_mode = 2
 
-[node name="word_ent2" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("7_d8f7i")]
+[node name="word_ent2" parent="Script_Browse/ScrollContainer/VBoxContainer" unique_id=138883289 instance=ExtResource("7_d8f7i")]
 layout_mode = 2
 
-[node name="jump_ent" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("10_qfpi4")]
+[node name="jump_ent" parent="Script_Browse/ScrollContainer/VBoxContainer" unique_id=1176053081 instance=ExtResource("10_qfpi4")]
 layout_mode = 2
 
-[node name="word_ent3" parent="Script_Browse/ScrollContainer/VBoxContainer" instance=ExtResource("11_1msxh")]
+[node name="word_ent3" parent="Script_Browse/ScrollContainer/VBoxContainer" unique_id=132900436 instance=ExtResource("11_1msxh")]
 layout_mode = 2
 
-[node name="脚本推拉栏按钮上" type="Button" parent="Script_Browse"]
+[node name="脚本推拉栏按钮上" type="Button" parent="Script_Browse" unique_id=1535915089]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -325,7 +325,7 @@ toggle_mode = true
 text = "▷"
 metadata/_edit_use_anchors_ = true
 
-[node name="脚本推拉栏按钮下" type="Button" parent="Script_Browse"]
+[node name="脚本推拉栏按钮下" type="Button" parent="Script_Browse" unique_id=374653606]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -349,7 +349,7 @@ theme_override_styles/focus = ExtResource("4_wo252")
 toggle_mode = true
 text = "▷"
 
-[node name="返回" type="Button" parent="Script_Browse"]
+[node name="返回" type="Button" parent="Script_Browse" unique_id=1757534762]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.740125
@@ -365,7 +365,7 @@ text = "◁  返回
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="左侧栏" type="Panel" parent="."]
+[node name="左侧栏" type="Panel" parent="." unique_id=644329733]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -376,14 +376,14 @@ theme_override_styles/panel = ExtResource("31_s7eoo")
 script = ExtResource("3_ig4pi")
 metadata/_edit_use_anchors_ = true
 
-[node name="文件选择面板" type="Control" parent="左侧栏"]
+[node name="文件选择面板" type="Control" parent="左侧栏" unique_id=1954173695]
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.147333
 offset_bottom = 0.399994
 metadata/_edit_use_anchors_ = true
 
-[node name="当前文件路径" type="LineEdit" parent="左侧栏/文件选择面板"]
+[node name="当前文件路径" type="LineEdit" parent="左侧栏/文件选择面板" unique_id=1968448859]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -398,7 +398,7 @@ theme_override_styles/normal = ExtResource("6_vw2lj")
 theme_override_styles/focus = ExtResource("6_vw2lj")
 metadata/_edit_use_anchors_ = true
 
-[node name="导入按钮" type="Button" parent="左侧栏/文件选择面板"]
+[node name="导入按钮" type="Button" parent="左侧栏/文件选择面板" unique_id=81477653]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -411,7 +411,7 @@ theme = ExtResource("4_lhldk")
 text = "导入"
 metadata/_edit_use_anchors_ = true
 
-[node name="保存按钮" type="Button" parent="左侧栏/文件选择面板"]
+[node name="保存按钮" type="Button" parent="左侧栏/文件选择面板" unique_id=1085780888]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -425,7 +425,7 @@ theme = ExtResource("4_lhldk")
 text = "保存"
 metadata/_edit_use_anchors_ = true
 
-[node name="另存为按钮" type="Button" parent="左侧栏/文件选择面板"]
+[node name="另存为按钮" type="Button" parent="左侧栏/文件选择面板" unique_id=944049932]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.66548
@@ -438,7 +438,7 @@ theme = ExtResource("4_lhldk")
 text = "另存为"
 metadata/_edit_use_anchors_ = true
 
-[node name="开始编辑" type="Button" parent="左侧栏/文件选择面板"]
+[node name="开始编辑" type="Button" parent="左侧栏/文件选择面板" unique_id=1318581894]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -453,7 +453,7 @@ text = "开始编辑"
 script = ExtResource("21_s7eoo")
 metadata/_edit_use_anchors_ = true
 
-[node name="路径选择窗口" type="FileDialog" parent="左侧栏/文件选择面板"]
+[node name="路径选择窗口" type="FileDialog" parent="左侧栏/文件选择面板" unique_id=1040156245]
 title = "Open a File"
 initial_position = 1
 ok_button_text = "Open"
@@ -461,13 +461,13 @@ file_mode = 0
 access = 2
 use_native_dialog = true
 
-[node name="路径修改确认窗口" type="ConfirmationDialog" parent="左侧栏/文件选择面板"]
+[node name="路径修改确认窗口" type="ConfirmationDialog" parent="左侧栏/文件选择面板" unique_id=1684885500]
 initial_position = 1
 
-[node name="保存确认窗口" type="ConfirmationDialog" parent="左侧栏/文件选择面板"]
+[node name="保存确认窗口" type="ConfirmationDialog" parent="左侧栏/文件选择面板" unique_id=1922447426]
 initial_position = 1
 
-[node name="导出路径选择窗口" type="FileDialog" parent="左侧栏/文件选择面板"]
+[node name="导出路径选择窗口" type="FileDialog" parent="左侧栏/文件选择面板" unique_id=1452644084]
 auto_translate_mode = 1
 initial_position = 1
 dialog_hide_on_ok = true
@@ -477,7 +477,7 @@ access = 2
 show_hidden_files = true
 use_native_dialog = true
 
-[node name="节点选择器" type="TabContainer" parent="左侧栏"]
+[node name="节点选择器" type="TabContainer" parent="左侧栏" unique_id=2069566539]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.155556
@@ -491,11 +491,11 @@ current_tab = 0
 script = ExtResource("13_ch67x")
 metadata/_edit_use_anchors_ = true
 
-[node name="角色" type="Control" parent="左侧栏/节点选择器"]
+[node name="角色" type="Control" parent="左侧栏/节点选择器" unique_id=1022899873]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="左侧栏/节点选择器/角色"]
+[node name="ScrollContainer" type="ScrollContainer" parent="左侧栏/节点选择器/角色" unique_id=948553234]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.00362
@@ -506,17 +506,17 @@ theme_override_styles/panel = ExtResource("6_vw2lj")
 script = ExtResource("12_kl0p3")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/角色/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/角色/ScrollContainer" unique_id=1668963832]
 layout_mode = 2
 theme_override_constants/separation = 5
 script = ExtResource("6_67yvs")
 
-[node name="character_button" parent="左侧栏/节点选择器/角色/ScrollContainer/VBoxContainer" instance=ExtResource("18_ni427")]
+[node name="character_button" parent="左侧栏/节点选择器/角色/ScrollContainer/VBoxContainer" unique_id=702783457 instance=ExtResource("18_ni427")]
 layout_mode = 2
-theme = SubResource("Theme_s7eoo")
-button_group = SubResource("ButtonGroup_bef6j")
+theme = SubResource("Theme_adt1o")
+button_group = SubResource("ButtonGroup_jkal1")
 
-[node name="角色添加按钮" type="Button" parent="左侧栏/节点选择器/角色"]
+[node name="角色添加按钮" type="Button" parent="左侧栏/节点选择器/角色" unique_id=669774258]
 layout_mode = 0
 anchor_left = 0.028
 anchor_top = 0.907
@@ -530,15 +530,15 @@ theme = ExtResource("4_lhldk")
 text = "+       添加新角色"
 metadata/_edit_use_anchors_ = true
 
-[node name="新建角色窗口" parent="左侧栏/节点选择器/角色/角色添加按钮" instance=ExtResource("7_y7yfr")]
+[node name="新建角色窗口" parent="左侧栏/节点选择器/角色/角色添加按钮" unique_id=435158457 instance=ExtResource("7_y7yfr")]
 visible = false
 
-[node name="场景" type="Control" parent="左侧栏/节点选择器"]
+[node name="场景" type="Control" parent="左侧栏/节点选择器" unique_id=2036505478]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="左侧栏/节点选择器/场景"]
+[node name="ScrollContainer" type="ScrollContainer" parent="左侧栏/节点选择器/场景" unique_id=1845941452]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.975028
@@ -549,12 +549,12 @@ theme_override_styles/panel = ExtResource("6_vw2lj")
 script = ExtResource("12_kl0p3")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/场景/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/场景/ScrollContainer" unique_id=829793000]
 layout_mode = 2
 theme_override_constants/separation = 5
 script = ExtResource("6_67yvs")
 
-[node name="场景添加按钮" type="Button" parent="左侧栏/节点选择器/场景"]
+[node name="场景添加按钮" type="Button" parent="左侧栏/节点选择器/场景" unique_id=233118569]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0284697
@@ -568,15 +568,15 @@ offset_bottom = -0.335693
 theme = ExtResource("4_lhldk")
 text = "添加新场景"
 
-[node name="新建场景窗口" parent="左侧栏/节点选择器/场景/场景添加按钮" instance=ExtResource("8_hen11")]
+[node name="新建场景窗口" parent="左侧栏/节点选择器/场景/场景添加按钮" unique_id=2013027901 instance=ExtResource("8_hen11")]
 visible = false
 
-[node name="变换" type="Control" parent="左侧栏/节点选择器"]
+[node name="变换" type="Control" parent="左侧栏/节点选择器" unique_id=952884159]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Transform_Panel" type="ScrollContainer" parent="左侧栏/节点选择器/变换"]
+[node name="Transform_Panel" type="ScrollContainer" parent="左侧栏/节点选择器/变换" unique_id=170660177]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.97159
@@ -587,11 +587,11 @@ theme_override_styles/panel = ExtResource("6_vw2lj")
 script = ExtResource("12_kl0p3")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/变换/Transform_Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/变换/Transform_Panel" unique_id=29931454]
 layout_mode = 2
 script = ExtResource("16_00ddn")
 
-[node name="Position_Panel" type="ScrollContainer" parent="左侧栏/节点选择器/变换"]
+[node name="Position_Panel" type="ScrollContainer" parent="左侧栏/节点选择器/变换" unique_id=776215836]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.461538
@@ -603,11 +603,11 @@ theme_override_styles/panel = ExtResource("6_vw2lj")
 script = ExtResource("12_kl0p3")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/变换/Position_Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="左侧栏/节点选择器/变换/Position_Panel" unique_id=1007589224]
 layout_mode = 2
 script = ExtResource("17_c6i3m")
 
-[node name="变换添加按钮" type="Button" parent="左侧栏/节点选择器/变换"]
+[node name="变换添加按钮" type="Button" parent="左侧栏/节点选择器/变换" unique_id=821022954]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0284697
@@ -621,10 +621,10 @@ offset_bottom = -0.335693
 theme = ExtResource("4_lhldk")
 text = "添加新变换"
 
-[node name="新建变换输入窗口" parent="左侧栏/节点选择器/变换/变换添加按钮" instance=ExtResource("18_qkkn5")]
+[node name="新建变换输入窗口" parent="左侧栏/节点选择器/变换/变换添加按钮" unique_id=1712010301 instance=ExtResource("18_qkkn5")]
 visible = false
 
-[node name="推拉栏按钮" type="Button" parent="左侧栏"]
+[node name="推拉栏按钮" type="Button" parent="左侧栏" unique_id=2021205905]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.996296
@@ -645,7 +645,7 @@ toggle_mode = true
 text = "◁"
 metadata/_edit_use_anchors_ = true
 
-[node name="右侧栏" type="Panel" parent="."]
+[node name="右侧栏" type="Panel" parent="." unique_id=2026912031]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -659,7 +659,7 @@ theme_override_styles/panel = ExtResource("31_s7eoo")
 script = ExtResource("5_3vahx")
 metadata/_edit_use_anchors_ = true
 
-[node name="Character_Panel" type="Control" parent="右侧栏"]
+[node name="Character_Panel" type="Control" parent="右侧栏" unique_id=1848812155]
 layout_mode = 1
 anchor_right = 1.00007
 anchor_bottom = 0.999556
@@ -667,7 +667,7 @@ offset_right = -0.0199852
 offset_bottom = 0.399998
 metadata/_edit_use_anchors_ = true
 
-[node name="Message_Panel" type="Control" parent="右侧栏/Character_Panel"]
+[node name="Message_Panel" type="Control" parent="右侧栏/Character_Panel" unique_id=2092964372]
 layout_mode = 1
 anchor_right = 1.00007
 anchor_bottom = 0.140667
@@ -675,7 +675,7 @@ offset_right = -0.0199852
 offset_bottom = 0.399998
 metadata/_edit_use_anchors_ = true
 
-[node name="键值" type="Label" parent="右侧栏/Character_Panel/Message_Panel"]
+[node name="键值" type="Label" parent="右侧栏/Character_Panel/Message_Panel" unique_id=257663552]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.0629919
@@ -686,7 +686,7 @@ offset_bottom = 24.0
 text = "键值:"
 label_settings = ExtResource("33_s7eoo")
 
-[node name="键值Line2D" type="Label" parent="右侧栏/Character_Panel/Message_Panel/键值"]
+[node name="键值Line2D" type="Label" parent="右侧栏/Character_Panel/Message_Panel/键值" unique_id=1980396953]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.65936
@@ -698,7 +698,7 @@ offset_bottom = 1.008
 label_settings = ExtResource("33_s7eoo")
 metadata/_edit_use_anchors_ = true
 
-[node name="角色名" type="Label" parent="右侧栏/Character_Panel/Message_Panel"]
+[node name="角色名" type="Label" parent="右侧栏/Character_Panel/Message_Panel" unique_id=742598503]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 46.0
@@ -707,7 +707,7 @@ offset_bottom = 70.0
 text = "角色名:"
 label_settings = ExtResource("33_s7eoo")
 
-[node name="角色名Line2D" type="LineEdit" parent="右侧栏/Character_Panel/Message_Panel/角色名"]
+[node name="角色名Line2D" type="LineEdit" parent="右侧栏/Character_Panel/Message_Panel/角色名" unique_id=781525811]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.15839
@@ -723,13 +723,13 @@ theme_override_styles/normal = ExtResource("11_xgc8f")
 theme_override_styles/focus = ExtResource("11_xgc8f")
 metadata/_edit_use_anchors_ = true
 
-[node name="角色名改变确认窗口" type="ConfirmationDialog" parent="右侧栏/Character_Panel/Message_Panel/角色名"]
+[node name="角色名改变确认窗口" type="ConfirmationDialog" parent="右侧栏/Character_Panel/Message_Panel/角色名" unique_id=224918213]
 title = "是否改变角色名"
 initial_position = 1
 size = Vector2i(400, 100)
 theme = ExtResource("13_fp758")
 
-[node name="颜色" type="Label" parent="右侧栏/Character_Panel/Message_Panel"]
+[node name="颜色" type="Label" parent="右侧栏/Character_Panel/Message_Panel" unique_id=753033337]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 86.0
@@ -738,7 +738,7 @@ offset_bottom = 110.0
 text = "代表色:"
 label_settings = ExtResource("33_s7eoo")
 
-[node name="拾色器" type="ColorPickerButton" parent="右侧栏/Character_Panel/Message_Panel/颜色"]
+[node name="拾色器" type="ColorPickerButton" parent="右侧栏/Character_Panel/Message_Panel/颜色" unique_id=1277446639]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.15878
@@ -753,14 +753,14 @@ theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="颜色改变确认窗口" type="ConfirmationDialog" parent="右侧栏/Character_Panel/Message_Panel/颜色"]
+[node name="颜色改变确认窗口" type="ConfirmationDialog" parent="右侧栏/Character_Panel/Message_Panel/颜色" unique_id=1377284632]
 auto_translate_mode = 1
 title = "是否改变代表色"
 initial_position = 1
 size = Vector2i(400, 100)
 theme = ExtResource("13_fp758")
 
-[node name="立绘展示面板" type="Control" parent="右侧栏/Character_Panel"]
+[node name="立绘展示面板" type="Control" parent="右侧栏/Character_Panel" unique_id=2091483955]
 layout_mode = 1
 anchor_top = 0.281111
 anchor_right = 1.00007
@@ -770,7 +770,7 @@ offset_bottom = 0.399979
 mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Image_Panel" type="Panel" parent="右侧栏/Character_Panel/立绘展示面板"]
+[node name="Image_Panel" type="Panel" parent="右侧栏/Character_Panel/立绘展示面板" unique_id=1966085747]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -783,7 +783,7 @@ offset_bottom = -0.114002
 theme_override_styles/panel = ExtResource("12_fgf1i")
 metadata/_edit_use_anchors_ = true
 
-[node name="Tex" type="TextureRect" parent="右侧栏/Character_Panel/立绘展示面板/Image_Panel"]
+[node name="Tex" type="TextureRect" parent="右侧栏/Character_Panel/立绘展示面板/Image_Panel" unique_id=149194669]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -794,7 +794,7 @@ expand_mode = 3
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="头像裁剪按钮" type="Button" parent="右侧栏/Character_Panel/立绘展示面板"]
+[node name="头像裁剪按钮" type="Button" parent="右侧栏/Character_Panel/立绘展示面板" unique_id=848699604]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.111
@@ -809,7 +809,7 @@ theme = ExtResource("4_lhldk")
 text = "✄  裁剪头像"
 metadata/_edit_use_anchors_ = true
 
-[node name="是否应用于该角色所有立绘" type="ConfirmationDialog" parent="右侧栏/Character_Panel/立绘展示面板/头像裁剪按钮"]
+[node name="是否应用于该角色所有立绘" type="ConfirmationDialog" parent="右侧栏/Character_Panel/立绘展示面板/头像裁剪按钮" unique_id=2136480607]
 title = "是否应用于该角色所有立绘"
 initial_position = 1
 size = Vector2i(600, 120)
@@ -818,10 +818,10 @@ ok_button_text = "应用于全部差分"
 dialog_text = "当前裁剪位置是否应用于该角色所有立绘？"
 cancel_button_text = "只应用于当前差分"
 
-[node name="icon_maker" parent="右侧栏/Character_Panel/立绘展示面板/头像裁剪按钮" instance=ExtResource("13_ogqes")]
+[node name="icon_maker" parent="右侧栏/Character_Panel/立绘展示面板/头像裁剪按钮" unique_id=969764205 instance=ExtResource("13_ogqes")]
 visible = false
 
-[node name="选择图片按钮" type="Button" parent="右侧栏/Character_Panel/立绘展示面板"]
+[node name="选择图片按钮" type="Button" parent="右侧栏/Character_Panel/立绘展示面板" unique_id=114858806]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.111
@@ -836,7 +836,7 @@ theme = ExtResource("4_lhldk")
 text = "更新该立绘"
 metadata/_edit_use_anchors_ = true
 
-[node name="图片路径选择窗口" type="FileDialog" parent="右侧栏/Character_Panel/立绘展示面板/选择图片按钮"]
+[node name="图片路径选择窗口" type="FileDialog" parent="右侧栏/Character_Panel/立绘展示面板/选择图片按钮" unique_id=112090881]
 auto_translate_mode = 1
 title = "Open a File"
 initial_position = 1
@@ -847,7 +847,7 @@ access = 2
 filters = PackedStringArray("*.jpg", "*.png", "*.webp", "*.jepg")
 use_native_dialog = true
 
-[node name="差分选择面板" type="Panel" parent="右侧栏/Character_Panel/立绘展示面板"]
+[node name="差分选择面板" type="Panel" parent="右侧栏/Character_Panel/立绘展示面板" unique_id=921244530]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000444448
@@ -862,7 +862,7 @@ mouse_filter = 1
 theme_override_styles/panel = ExtResource("11_xgc8f")
 metadata/_edit_use_anchors_ = true
 
-[node name="Emo_Label" type="Label" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板"]
+[node name="Emo_Label" type="Label" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板" unique_id=4314013]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.029
@@ -877,7 +877,7 @@ text = "差分键值:"
 label_settings = ExtResource("33_s7eoo")
 metadata/_edit_use_anchors_ = true
 
-[node name="键值Line2D" type="Label" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/Emo_Label"]
+[node name="键值Line2D" type="Label" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/Emo_Label" unique_id=414984821]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.06548
@@ -890,7 +890,7 @@ offset_bottom = 1.00012
 label_settings = ExtResource("33_s7eoo")
 metadata/_edit_use_anchors_ = true
 
-[node name="差分添加按钮" type="Button" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板"]
+[node name="差分添加按钮" type="Button" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板" unique_id=1832733894]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.10215
@@ -905,15 +905,15 @@ theme = ExtResource("4_lhldk")
 text = "+  添加差分"
 metadata/_edit_use_anchors_ = true
 
-[node name="Error_emo_add_window" type="AcceptDialog" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/差分添加按钮"]
+[node name="Error_emo_add_window" type="AcceptDialog" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/差分添加按钮" unique_id=555282689]
 auto_translate_mode = 1
 title = "警告!"
 initial_position = 2
 
-[node name="差分名称输入窗口" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/差分添加按钮" instance=ExtResource("14_g2y88")]
+[node name="差分名称输入窗口" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/差分添加按钮" unique_id=772017807 instance=ExtResource("14_g2y88")]
 visible = false
 
-[node name="ScrollContainer" type="ScrollContainer" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板"]
+[node name="ScrollContainer" type="ScrollContainer" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板" unique_id=1955730394]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0294118
@@ -927,10 +927,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_kl0p3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="右侧栏/Character_Panel/立绘展示面板/差分选择面板/ScrollContainer" unique_id=552736624]
 layout_mode = 2
 
-[node name="Scene_Panel" type="Control" parent="右侧栏"]
+[node name="Scene_Panel" type="Control" parent="右侧栏" unique_id=417368862]
 visible = false
 layout_mode = 1
 anchor_right = 1.00007
@@ -939,7 +939,7 @@ offset_right = -0.0199852
 offset_bottom = 0.399998
 metadata/_edit_use_anchors_ = true
 
-[node name="键值" type="Label" parent="右侧栏/Scene_Panel"]
+[node name="键值" type="Label" parent="右侧栏/Scene_Panel" unique_id=1181017523]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.00444444
@@ -950,7 +950,7 @@ offset_bottom = 24.0
 text = "键值:"
 label_settings = ExtResource("33_s7eoo")
 
-[node name="键值Line2D" type="Label" parent="右侧栏/Scene_Panel/键值"]
+[node name="键值Line2D" type="Label" parent="右侧栏/Scene_Panel/键值" unique_id=1370002087]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.65936
@@ -961,7 +961,7 @@ offset_right = 0.0209961
 offset_bottom = 1.008
 label_settings = ExtResource("33_s7eoo")
 
-[node name="场景名" type="Label" parent="右侧栏/Scene_Panel"]
+[node name="场景名" type="Label" parent="右侧栏/Scene_Panel" unique_id=902456045]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 46.0
@@ -970,7 +970,7 @@ offset_bottom = 70.0
 text = "场景名:"
 label_settings = ExtResource("33_s7eoo")
 
-[node name="场景名Line2D" type="LineEdit" parent="右侧栏/Scene_Panel/场景名"]
+[node name="场景名Line2D" type="LineEdit" parent="右侧栏/Scene_Panel/场景名" unique_id=110227732]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.164
@@ -983,7 +983,7 @@ offset_bottom = -0.00800133
 theme_override_styles/normal = ExtResource("11_xgc8f")
 theme_override_styles/focus = ExtResource("11_xgc8f")
 
-[node name="选择场景图片按钮" type="Button" parent="右侧栏/Scene_Panel"]
+[node name="选择场景图片按钮" type="Button" parent="右侧栏/Scene_Panel" unique_id=718694893]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0793104
@@ -997,7 +997,7 @@ theme = ExtResource("4_lhldk")
 text = "更新该场景图片"
 metadata/_edit_use_anchors_ = true
 
-[node name="场景图片路径选择窗口" type="FileDialog" parent="右侧栏/Scene_Panel/选择场景图片按钮"]
+[node name="场景图片路径选择窗口" type="FileDialog" parent="右侧栏/Scene_Panel/选择场景图片按钮" unique_id=917218578]
 auto_translate_mode = 1
 title = "Open a File"
 initial_position = 1
@@ -1007,7 +1007,7 @@ file_mode = 0
 access = 2
 use_native_dialog = true
 
-[node name="Image_Panel" type="ScrollContainer" parent="右侧栏/Scene_Panel"]
+[node name="Image_Panel" type="ScrollContainer" parent="右侧栏/Scene_Panel" unique_id=137184981]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.037931
@@ -1020,7 +1020,7 @@ offset_bottom = -0.114014
 theme_override_styles/panel = ExtResource("39_bef6j")
 metadata/_edit_use_anchors_ = true
 
-[node name="Tex" type="TextureRect" parent="右侧栏/Scene_Panel/Image_Panel"]
+[node name="Tex" type="TextureRect" parent="右侧栏/Scene_Panel/Image_Panel" unique_id=564689336]
 custom_minimum_size = Vector2(280, 220)
 layout_mode = 2
 texture = ExtResource("25_ithsp")
@@ -1028,7 +1028,7 @@ expand_mode = 3
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Transform_Panel" type="Control" parent="右侧栏"]
+[node name="Transform_Panel" type="Control" parent="右侧栏" unique_id=165101807]
 visible = false
 layout_mode = 1
 anchor_right = 1.00007
@@ -1037,7 +1037,7 @@ offset_right = -0.0200386
 offset_bottom = 0.399979
 metadata/_edit_use_anchors_ = true
 
-[node name="键值" type="Label" parent="右侧栏/Transform_Panel"]
+[node name="键值" type="Label" parent="右侧栏/Transform_Panel" unique_id=673491247]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.00444444
@@ -1048,7 +1048,7 @@ offset_bottom = 24.0
 text = "键值:"
 label_settings = ExtResource("33_s7eoo")
 
-[node name="键值Line2D" type="Label" parent="右侧栏/Transform_Panel/键值"]
+[node name="键值Line2D" type="Label" parent="右侧栏/Transform_Panel/键值" unique_id=1899156478]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.65936
@@ -1058,7 +1058,7 @@ offset_left = 0.00999451
 offset_right = -0.0170898
 label_settings = ExtResource("33_s7eoo")
 
-[node name="变换名" type="Label" parent="右侧栏/Transform_Panel"]
+[node name="变换名" type="Label" parent="右侧栏/Transform_Panel" unique_id=1503146942]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 46.0
@@ -1067,7 +1067,7 @@ offset_bottom = 70.0
 text = "变换名:"
 label_settings = ExtResource("33_s7eoo")
 
-[node name="变换名Line2D" type="LineEdit" parent="右侧栏/Transform_Panel/变换名"]
+[node name="变换名Line2D" type="LineEdit" parent="右侧栏/Transform_Panel/变换名" unique_id=445828393]
 custom_minimum_size = Vector2(182, 31)
 layout_mode = 1
 anchors_preset = -1
@@ -1082,7 +1082,7 @@ theme_override_styles/normal = ExtResource("11_xgc8f")
 theme_override_styles/focus = ExtResource("11_xgc8f")
 metadata/_edit_use_anchors_ = true
 
-[node name="Transform_Detail_Panel" type="ScrollContainer" parent="右侧栏/Transform_Panel"]
+[node name="Transform_Detail_Panel" type="ScrollContainer" parent="右侧栏/Transform_Panel" unique_id=257440316]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.037931
@@ -1094,10 +1094,10 @@ offset_bottom = 0.255981
 theme_override_styles/panel = ExtResource("11_xgc8f")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="右侧栏/Transform_Panel/Transform_Detail_Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="右侧栏/Transform_Panel/Transform_Detail_Panel" unique_id=860894504]
 layout_mode = 2
 
-[node name="添加变换参数按钮" type="Button" parent="右侧栏/Transform_Panel"]
+[node name="添加变换参数按钮" type="Button" parent="右侧栏/Transform_Panel" unique_id=369856867]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0793104
@@ -1111,7 +1111,7 @@ theme = ExtResource("4_lhldk")
 text = "添加变换参数"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="右侧栏/Transform_Panel"]
+[node name="Label" type="Label" parent="右侧栏/Transform_Panel" unique_id=2070015669]
 visible = false
 layout_mode = 0
 offset_left = 11.0
@@ -1122,7 +1122,7 @@ text = "   默认转场，不可编辑"
 label_settings = SubResource("LabelSettings_7k1pt")
 vertical_alignment = 1
 
-[node name="推拉栏按钮" type="Button" parent="右侧栏"]
+[node name="推拉栏按钮" type="Button" parent="右侧栏" unique_id=887227602]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00370325
@@ -1146,20 +1146,20 @@ toggle_mode = true
 text = "◁"
 metadata/_edit_use_anchors_ = true
 
-[node name="警告出错弹窗" type="AcceptDialog" parent="."]
+[node name="警告出错弹窗" type="AcceptDialog" parent="." unique_id=630624551]
 title = "警告!"
 initial_position = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1301850382]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=656129040]
 offset_left = 1114.0
 offset_top = 7.0
 offset_right = 1279.0
 offset_bottom = 45.0
 label_settings = ExtResource("32_816ha")
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=2015553650]
 offset_left = 1114.0
 offset_top = 50.0
 offset_right = 1279.0

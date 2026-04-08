@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://biarfxqe02lho"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://biarfxqe02lho"]
 
 [ext_resource type="Shader" uid="uid://cjb4bx1uqpbv3" path="res://材质/白色网格交替.gdshader" id="1_53ouw"]
 
